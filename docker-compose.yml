@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    volumes:
+      - sqlite_data:/app/db_data
+
+  apache:
+    image: httpd:2.4
+    ports:
+      - "8080:80"
+    volumes:
+      - ./apache-django.conf:/usr/local/apache2/conf/extra/httpd-vhosts.conf:ro
+      - ./staticfiles:/app/staticfiles:ro
+    depends_on:
+      - web
+
+volumes:
+  sqlite_data:

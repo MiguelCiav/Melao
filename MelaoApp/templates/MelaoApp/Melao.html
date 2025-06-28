@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ titulo }} - Mi Tienda</title> {# Usamos la variable 'titulo' pasada desde la vista #}
+    <style>
+        /* Estilos básicos para que se vea un poco mejor */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        h1 {
+            color: #0056b3;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            background-color: #fff;
+            margin-bottom: 10px;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        li strong {
+            color: #333;
+        }
+        li span.price {
+            float: right;
+            color: #28a745;
+            font-weight: bold;
+        }
+        .footer {
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #777;
+            border-top: 1px solid #eee;
+            padding-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>{{ titulo }}</h1> {# Muestra el título pasado desde el contexto de la vista #}
+
+    {% if productos %} {# Condicional: solo muestra la lista si hay productos #}
+        <ul>
+            {# Itera sobre la lista de 'productos' pasada desde la vista #}
+            {% for producto in productos %}
+                <li>
+                    <strong>{{ producto.nombre }}</strong>
+                    <span class="price">${{ producto.precio }}</span>
+                    <p>{{ producto.descripcion }}</p> {# Accede a la descripción también #}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No hay productos disponibles en este momento.</p>
+    {% endif %}
+
+    <div class="footer">
+        <p>Última actualización: {{ fecha_actual }}</p> {# Muestra otra variable del contexto #}
+        <p>&copy; 2025 Mi Proyecto Melao. Todos los derechos reservados.</p>
+    </div>
+</body>
+</html>
