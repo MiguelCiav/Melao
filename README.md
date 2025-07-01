@@ -7,5 +7,4 @@ Este proyecto usa [SemVer](https://semver.org/). Para ver los cambios, consulta 
 ## Ramas  
 - main → Producción.  
 - develop → Desarrollo.
-- release → Versiones estables.
 - feature/* → Nuevas funcionalidades.
