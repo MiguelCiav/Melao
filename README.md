@@ -96,3 +96,30 @@ Asegúrate de tener Docker instalado en tu sistema. Si no lo tienes, puedes desc
     ```
     http://localhost:8000
     ```
+## 📐 Descripción de la arquitectura
+
+* **Aplicación Web:**
+    * Arquitectura cliente-servidor, donde el navegador web del usuario interactúa con un servidor web utilizando el protocolo HTTP/HTTPS para la comunicación.
+    * La interfaz de usuario (frontend) será desarrollada utilizando lenguajes estándar de la web: HTML para la estructura, CSS para el estilo y JavaScript para la interactividad.
+    * La aplicación debe estar diseñada para alta disponibilidad, permitiendo el acceso 24 horas al día, 7 días a la semana, desde cualquier ubicación geográfica.
+    * El diseño general buscará ofrecer una experiencia de usuario intuitiva y un rendimiento adecuado para una aplicación de red social.
+
+* **Aplicación MPA (Multi-Page Application):**
+    * El front-end en el lado del cliente se considera ligero o mediano, ya que gran parte del contenido HTML es generado y renderizado en el servidor para cada solicitud.
+    * El back-end es "pesado" en el sentido de que es el encargado de procesar la lógica de negocio, interactuar con la base de datos y generar las páginas HTML dinámicamente que son enviadas al navegador.
+
+* **Uso de lenguaje Python y framework Django para el backend:**
+    * La lógica de negocio y la gestión de datos del lado del servidor se desarrollan en Python, aprovechando la robustez y las características del framework Django 5.0.6.
+    * El código está organizado siguiendo el patrón arquitectónico Modelo-Vista-Template (MVT), que es una variante del patrón Modelo-Vista-Controlador (MVC) adaptada por Django.
+        * **Modelos:** Definen la estructura de los datos y la interacción con la base de datos (por ejemplo, para Usuarios, Publicaciones, Mensajes, entre otros).
+        * **Vistas:** Contienen la lógica de negocio, procesan las solicitudes HTTP, interactúan con los modelos y seleccionan la plantilla adecuada para renderizar la respuesta.
+        * **Templates:** Son archivos HTML que contienen marcadores especiales (lenguaje de plantillas de Django) que permiten inyectar datos dinámicamente generados por las vistas.
+
+* **Base de datos: SQLite:**
+    * Se utilizará SQLite como sistema de gestión de bases de datos relacionales. Esto facilita la portabilidad y la configuración inicial al no requerir un servidor de base de datos separado.
+
+* **Servidor web:**
+    * Para el entorno de desarrollo, Django incluye un servidor de desarrollo integrado.
+    * En un entorno de producción, la aplicación Django será desplegada típicamente en Apache, que actuará como un proxy inverso para servir archivos estáticos directamente y reenviar las solicitudes dinámicas al servidor de aplicaciones que ejecuta Django.
+
+![Arquitectura utilizada](https://i.imgur.com/1TLc7cv.png)
