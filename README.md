@@ -1,4 +1,4 @@
-![Melao Banner](https://i.imgur.com/5rlf5qT.png)
+<img src="https://i.imgur.com/n4Shznw.png" width="830">
 
 # 📌 Melao
 Melao es una plataforma social exclusiva para estudiantes de Aplicaciones con la Tecnología Internet (ATI) de la Universidad Central de Venezuela, Facultad de Ciencias, Escuela de Computación. 
@@ -41,14 +41,7 @@ El desarrollo de Melao se realizará siguiendo una adaptación de la metodologí
 | Construction | 07 agosto 2025   |
 
 ## 📋Modelo de Casos de Uso
-![Casos de Uso Melao](https://i.imgur.com/Pr51vVd.png)
-
-## 🛠️ Tecnologías Utilizadas
-
-* **Lenguaje**: Python
-* **Framework Web**: Django 5.0.6
-* **Base de Datos**: SQLite
-* **Control de Versiones**: Git y GitHub
+<img src="https://i.imgur.com/Pr51vVd.png" width="500">
 
 ## 📂Versionado  
 Este proyecto usa [SemVer](https://semver.org/). Para ver los cambios, consulta el [CHANGELOG.md](CHANGELOG.md).  
@@ -57,46 +50,7 @@ Este proyecto usa [SemVer](https://semver.org/). Para ver los cambios, consulta 
 - main → Producción.  
 - feature/* → Nuevas funcionalidades.
 
-## 🐳 Cómo Usar Melao
-
-Este proyecto incluye un Dockerfile para facilitar el despliegue y la ejecución de la aplicación en un entorno contenedorizado. Sigue estos pasos para construir la imagen y ejecutar el contenedor:
-
-### Prerequisitos
-
-Asegúrate de tener Docker instalado en tu sistema. Si no lo tienes, puedes descargarlo desde el [sitio oficial de Docker](https://www.docker.com/get-started).
-
-### Pasos para Usar Docker
-
-1.  **Clonar el Repositorio:**
-    Si aún no lo has hecho, clona el repositorio del proyecto en tu máquina local:
-
-    ```bash
-    git clone https://github.com/MiguelCiav/Melao.git
-    cd Melao
-    ```
-
-2.  **Construir la Imagen Docker:**
-    Navega al directorio raíz del proyecto donde se encuentra el `Dockerfile` y ejecuta el siguiente comando para construir la imagen. Asignaremos un nombre a la imagen (por ejemplo, `melao-app`):
-
-    ```bash
-    docker build -t melao-app .
-    ```
-    
-
-3.  **Ejecutar el Contenedor Docker:**
-    Una vez que la imagen ha sido construida exitosamente, puedes ejecutar un contenedor a partir de ella.
-
-    ```bash
-    docker run -p 8000:8000 --name melao-container melao-app
-    ```
-
-4.  **Acceder a la Aplicación:**
-    Una vez que el contenedor esté en ejecución, la aplicación estará accesible en tu navegador web en:
-
-    ```
-    http://localhost:8000
-    ```
-## 📐 Descripción de la arquitectura
+## 📐 Descripción de la Arquitectura
 
 * **Aplicación Web:**
     * Arquitectura cliente-servidor, donde el navegador web del usuario interactúa con un servidor web utilizando el protocolo HTTP/HTTPS para la comunicación.
@@ -122,4 +76,29 @@ Asegúrate de tener Docker instalado en tu sistema. Si no lo tienes, puedes desc
     * Para el entorno de desarrollo, Django incluye un servidor de desarrollo integrado.
     * En un entorno de producción, la aplicación Django será desplegada típicamente en Apache, que actuará como un proxy inverso para servir archivos estáticos directamente y reenviar las solicitudes dinámicas al servidor de aplicaciones que ejecuta Django.
 
-![Arquitectura utilizada](https://i.imgur.com/1TLc7cv.png)
+![Arquitectura utilizada](https://i.imgur.com/IXofE8q.png)
+
+## 📋Diagramas del Sistema
+### Diagrama de Arquitectura
+<img src="https://i.imgur.com/yo3gpRL.png" width="830">
+
+### Diagrama de Despliegue
+<img src="https://i.imgur.com/8JuJmH9.png" width="500">
+
+### Diagrama de Paquetes
+<img src="https://i.imgur.com/n8UUy8Q.png" width="830">
+
+## 📂Diagramas de Clases de Análisis
+### UC Chatear: Fallos en el envío de mensajes
+<img src="https://i.imgur.com/4WtCsJy.jpeg" width="500">
+
+### UC Chatear: Problemas con la disponibilidad
+<img src="https://i.imgur.com/IuHQIi4.jpeg" width="830">
+
+### UC Publicar en Muro: Validaciones de contenido
+<img src="https://i.imgur.com/EV9IdTo.jpeg" width="830">
+
+### UC Comentar: Validaciones de comentarios
+<img src="https://i.imgur.com/aoD1Jvi.jpeg" width="500">
+
+
