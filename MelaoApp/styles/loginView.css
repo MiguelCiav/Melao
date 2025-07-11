@@ -1,0 +1,158 @@
+html{
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.3vw;
+}
+
+h1{
+    height: 4%;
+    font-size: 1.3em;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    background-color: #E4AC73;
+    margin: 0px;
+}
+
+p{
+    font-size: 0.7em;
+}
+
+.Logo{
+    width: 20%;
+    height: 30%;
+    max-width: 80px;
+    max-height: 80px;
+}
+
+.NavBar{
+    width: 100vw;
+    height: 10vh;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.3em;
+}
+
+.NavBar img{
+    margin-left: 2%;
+}
+
+.LoginPannel{
+    width: 28vw;
+    height: 78vh;
+    display: flex;
+    flex-direction: column;
+    text-align: justify;
+    justify-self: center;
+    background-color: white;
+    margin-top: 2%;
+    align-items: center;
+    border-radius: 5%;
+    padding: 1% 2% 0% 2%;
+}
+
+.UserDataInput{
+    background-color: #F2F0E8;
+    color: black;
+    border-radius: 10px;
+    width: 98%;
+    min-height: 9%;
+    border-style: none;
+    padding-left: 2%;
+}
+
+.UserDataInput::placeholder{
+    width: 100%;
+    margin-left: 10%;
+    color: #8C8059;
+    font-size: 1em;
+}
+
+#PasswordField{
+    margin-top: 2%;
+}
+
+.RememberMe{
+    width: 100%;
+    height: 5%;
+    display: flex;
+    justify-content: space-between;
+    color: #1A170F;
+}
+
+.ForgotPassword{
+    width: 100%;
+    color: #8C8059;
+}
+
+.LoginButton{
+    width: 100%;
+    height: 8%;
+    background-color: #E4AC73;
+    color: black;
+    font-weight: bold;
+    font-size: 0.6em;
+    border-radius: 10px;
+    border-style: none;
+}
+
+#SignUpButton{
+    background-color: #E8E0CF;
+    margin-top: 2%;
+}
+
+#RegistrarseTexto{
+    display: none;
+    color: #8C8059;
+    font-size: 0.7em;
+}
+
+@media (orientation: portrait){
+
+    html{
+        font-size: 3vh;
+    }
+    body{
+        background-color: white;
+    }
+
+    .NavBar{
+        height: 5vh;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .NavBar img{
+        display: none;
+    }
+
+    .LoginPannel{
+        width: 90vw;
+        height: 100vh;;
+    }
+
+    #description{
+        display: none;
+    }
+
+    .UserDataInput::placeholder{
+        font-size: 1.2em;
+    }
+
+    .UserDataInput{
+        margin-top: 5%;
+        min-height: 8%;
+    }
+    
+    #SignUpButton{
+        display:none;
+    }
+
+    #RegistrarseTexto{
+        display: block;
+        margin: auto;
+    }
+}
