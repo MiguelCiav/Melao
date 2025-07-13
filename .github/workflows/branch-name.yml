@@ -3,7 +3,6 @@ on:
   pull_request:
     types: [opened]
   create:
-  push: 
 jobs:
   branch_name:
     runs-on: ubuntu-latest
