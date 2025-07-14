@@ -2,7 +2,7 @@ name: Enforce Branch Naming
 on:
   pull_request:
     types: [opened]
-    create:
+  create:
 jobs:
   branch_name:
     runs-on: ubuntu-latest
