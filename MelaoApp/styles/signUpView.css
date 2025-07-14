@@ -93,9 +93,14 @@ p{
     color: #8C8059;
 }
 
-.LoginButton{
+a{
     width: 100%;
     height: 8%;
+}
+
+.LoginButton{
+    width: 100%;
+    height: 100%;
     background-color: #E4AC73;
     color: black;
     font-weight: bold;
@@ -107,6 +112,7 @@ p{
 #SignUpButton{
     background-color: #E4AC73;
     margin-top: 2%;
+    height: 100%;
 }
 
 #RegistrarseTexto{
@@ -116,7 +122,14 @@ p{
 }
 
 #X-button{
+    width: 10%;
     display: none;
+}
+
+#Terminos{
+    color: #8C8059;
+    font-size: 0.7em;
+    margin-top: auto;
 }
 
 @media (orientation: portrait){
@@ -155,18 +168,12 @@ p{
     }
 
     .UserDataInput{
-        margin-top: 5%;
+        margin-top: 2%;
         min-height: 8%;
     }
 
     #RegistrarseTexto{
         display: block;
-    }
-
-    #Terminos{
-        color: #8C8059;
-        font-size: 0.7em;
-        margin-top: auto;
     }
 
     .Logo{

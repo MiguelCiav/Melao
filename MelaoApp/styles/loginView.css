@@ -19,13 +19,6 @@ p{
     font-size: 0.7em;
 }
 
-.Logo{
-    width: 20%;
-    height: 30%;
-    max-width: 80px;
-    max-height: 80px;
-}
-
 .NavBar{
     width: 100vw;
     height: 10vh;
@@ -59,7 +52,7 @@ p{
     color: black;
     border-radius: 10px;
     width: 98%;
-    min-height: 9%;
+    min-height: 7%;
     border-style: none;
     padding-left: 2%;
 }
@@ -88,9 +81,14 @@ p{
     color: #8C8059;
 }
 
+a{
+    width: 100%;
+    height: 7%;
+}
+
 .LoginButton{
     width: 100%;
-    height: 8%;
+    height: 100%;
     background-color: #E4AC73;
     color: black;
     font-weight: bold;
@@ -108,6 +106,7 @@ p{
     display: none;
     color: #8C8059;
     font-size: 0.7em;
+    text-align: center;
 }
 
 @media (orientation: portrait){
@@ -120,7 +119,7 @@ p{
     }
 
     .NavBar{
-        height: 5vh;
+        height: 8vh;
         justify-content: center;
         align-items: center;
     }
@@ -144,7 +143,7 @@ p{
 
     .UserDataInput{
         margin-top: 5%;
-        min-height: 8%;
+        min-height: 7%;
     }
     
     #SignUpButton{

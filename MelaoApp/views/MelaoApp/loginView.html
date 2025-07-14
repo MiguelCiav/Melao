@@ -16,7 +16,7 @@
 <body>
 
     <div class="LoginPannel">
-        <img src="/MelaoApp/resources/logo.png" alt="Logo" class="Logo">
+        <img src="/MelaoApp/resources/logo.png" alt="Logo" class="Logo" width="70" height="70">
         <h1>Bienvenido a Melao</h1>
         <p id="description">Conéctate con tus compañeros, comparte experiencias y mantente al día con lo que sucede en la comunidad ATI.</p>
         <input type="text" placeholder="Usuario o Correo Electrónico" class="UserDataInput"/>
@@ -26,8 +26,12 @@
             <input type="checkbox" class="LoginCheckbox"/>
         </div>
         <p class="ForgotPassword">¿Has olvidado tu contraseña?</p>
-        <input type="button" value="Iniciar Sesión" class="LoginButton"/>
-        <input type="button" value="Registrate" class="LoginButton" id="SignUpButton"/>
+        <a href="./home.html">
+            <input type="button" value="Iniciar Sesión" class="LoginButton"/>
+        </a>
+        <a href="./signUpView.html">
+            <input type="button" value="Registrate" class="LoginButton" id="SignUpButton"/>
+        </a>
         <a href="./signUpView.html" id="RegistrarseTexto">¿No tiene una cuenta? Regístrese</a>
     </div>
 </body>
