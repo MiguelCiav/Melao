@@ -1,0 +1,47 @@
+html{
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.3vw;
+}
+
+body{    
+    margin: 0;
+    width: 100vw;
+    height: 95vh;
+    font-size: 2.5rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.NavBar{
+    width: 100vw;
+    height: 10vh;
+    align-items: center;
+    justify-items: center;
+    font-size: 3.5rem;
+    font-weight: bold;
+}
+
+.LoginButton{
+    width: 90vw;
+    height: 5vh;
+    background-color: #E4AC73;
+    color: black;
+    font-weight: bold;
+    font-size: 2.5rem;
+    border-radius: 10px;
+    border-style: none;
+}
+
+#SignUpButton{
+    background-color: #E8E0CF;
+    margin-top: 2%;
+}
+
+#MelaoProject{
+    color: #8C8059;
+    font-size: 2rem;
+    margin-top: auto;
+}
