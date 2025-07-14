@@ -4,27 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Melao</title>
-    <link rel="stylesheet" href="/MelaoApp/styles/home.css">
+    <link rel="stylesheet" href="/MelaoApp/styles/profile.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
-    <script src="/MelaoApp//templates/home.js"></script>
+    <script src="/MelaoApp/templates/profile.js"></script>
 </head>
+<header class="NavBar">
+    <a id="Arrow-button" href="./home.html">
+        <img src="/MelaoApp/resources/BackArrow.png" width="30" height="30" alt="X">
+    </a>
+    <p id="PerfilText">Perfil</p>
+</header>
 <body>
-    <header class="NavBar">
-        <div class="NavBarLogo">
-            <img id="LogoImg" src="/MelaoApp/resources/logo.png" alt="Logo" width="40" height="40" >
-            <p id="LogoText">Melao</p>
+    <div class="ProfilePannel">
+        <img id="ProfileImage" alt ="Perfil">
+        <p id="ProfileName"></p>
+        <div class="ProfileButtonsDiv">
+            <input type="button" value="Editar Perfil" class="ProfileButton" id="EditProfileButton"/>
+            <input type="button" value="Compartir Perfil" class="ProfileButton" id="ShareProfileButton"/>
         </div>
-        <a id="Lupa-button" href="./searchPersonView.html">
-            <img src="/MelaoApp/resources/Lupa.png" width="30" height="30" alt="X">
-        </a>
-    </header>
-    <div class="HomePannel"></div>
+
+        <div class="Posts">
+            <h1 class="PostsText">Muro</h1>
+        </div>
+    </div>
     <footer>
         <nav class="Menu">
             <ul>
-                <li><a href="./home.html"><img src="/MelaoApp/resources/HomeIconSelected.png" alt="Home"></a></li>
+                <li><a href="./home.html"><img src="/MelaoApp/resources/HomeIcon.png" alt="Home"></a></li>
                 <li><a href="./friendsList.html"><img src="/MelaoApp/resources/FriendsIcon.png" alt="Friends"></a></li>
                 <li><a href="./chats.html"><img src="/MelaoApp/resources/ChatIcon.png" alt="Chat"></a></li>
                 <li><a href="./newPost.html"><img src="/MelaoApp/resources/PostIcon.png" alt="Post"></a></li>

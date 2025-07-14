@@ -6,15 +6,15 @@ body{
     padding: 0;
     margin: 0;
     height: 100vh;
+    width: 100vw;
     display: flex;
     flex-direction: column;
     justify-items: center;
-    justify-content: center;
 }
 
 .NavBar{
     margin: 0;
-    width: 100%;
+    width: 90vw;
     height: 10vh;
     background-color: white;
     display: grid;
@@ -22,25 +22,74 @@ body{
     align-items: center;
     font-weight: bold;
     font-size: 1.3em;
+    margin-left: 5%;
 }
 
-.NavBarLogo{
+#PerfilText{
     grid-column: 2;
-    align-self: center;
+    align-self: flex-end;
     justify-self: center;
 }
 
-.HomePannel{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
+#ProfileImage{
+    width: 90px;
+    height: 90px;
 }
 
-.HomePost{
+#ProfileName{
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.ProfilePannel{
+    width: 100%;
+    height: 80%;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Posts{
+    width: 100vw;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.PostsText{
+    margin-left: 5%;
+}
+
+.ProfileButtonsDiv{
+    width: 80%;
+    height: 10%;
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    column-gap: 2%;
+    justify-content: center;
+}
+
+.ProfileButton{
+    width: 100%;
+    height: 100%;
+    background-color: #E4AC73;
+    color: black;
+    font-weight: bold;
+    font-size: 0.8em;
+    border-radius: 10px;
+    border-style: none;
+}
+
+#EditProfileButton{
+    background-color: #E8E0CF;
+}
+
+.ProfilePost{
     width: 90%;
     margin-left: 5%;
-    height: 25%;
+    margin-top: 5%;
+    height: 40%;
     display: grid;
     color: #9C854A;
     grid-template-columns: 20% 70%;
@@ -50,16 +99,16 @@ body{
     justify-content: center;
 }
 
-.HomePost img{
+.ProfilePost img{
     grid-row: 1/4;
     grid-column: 1;
 }
 
 .PersonName{
-    grid-row: 1;
-    grid-column: 2;
     color:black;
     font-weight: bold;
+    grid-row: 1;
+    grid-column: 2;
 }
 
 .PostDescription{
@@ -91,12 +140,6 @@ body{
     justify-content: space-around;
 }
 
-#Lupa-button{
-    justify-items: flex-end;
-    justify-self: flex-end;
-    margin-right: 10%;
-}
-
 footer{
     margin-top: auto;
 }
@@ -117,14 +160,4 @@ ul{
 ul img{
     width: 30;
     height: 35;
-}
-@media(orientation: portrait){
-    #LogoImg{
-        display:none;
-    }
-    .NavBar{
-        height: 8vh;
-        justify-content: center;
-        align-items: center;
-    }
 }
