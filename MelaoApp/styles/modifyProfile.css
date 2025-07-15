@@ -8,21 +8,80 @@ body{
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-items: center;
-    justify-content: center;
 }
 
 .NavBar{
-    display: flex;
+    margin: 0;
+    background-color: white;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     align-items: center;
+    font-weight: bold;
+    font-size: 1.3em;
     padding: 16px;
 }
 
-.navbar-arrow {
-    flex: 0 0 auto;
+#PerfilText{
+    grid-column: 2;
+    align-self: flex-end;
+    justify-self: center;
+    margin: 0px;
 }
 
-.navbar-text {
-    flex: 1;
-    text-align: center;
+#Arrow-button{
+    width: 24px;
+    height: 24px;
+}
+
+.pfp-button {
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+}
+
+.option-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 16px;
+}
+
+.title {
+    margin-bottom: 4px;
+}
+
+.subtitle{
+    font-size: 0.9em;
+    color: #9E8747;
+    margin: 0;
+}
+
+#profile-image {
+    margin-right: 16px;
+}
+
+.black-link {
+    text-decoration: none;
+}
+
+footer{
+    margin-top: auto;
+}
+
+ul{
+    margin: 0;
+    margin-top: auto;
+    padding: 0;
+    width: 100vw;
+    height: 8vh;
+    display: inline-flex;
+    list-style: none;
+    align-items: center;
+    justify-items: space-evenly;
+    justify-content: space-evenly;
+}
+
+ul img{
+    width: 30;
+    height: 35;
 }

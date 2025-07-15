@@ -14,21 +14,25 @@ body{
 
 .NavBar{
     margin: 0;
-    width: 90vw;
-    height: 10vh;
     background-color: white;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     align-items: center;
     font-weight: bold;
     font-size: 1.3em;
-    margin-left: 5%;
+    padding: 16px;
 }
 
 #PerfilText{
     grid-column: 2;
     align-self: flex-end;
     justify-self: center;
+    margin: 0px;
+}
+
+#Arrow-button{
+    width: 24px;
+    height: 24px;
 }
 
 #ProfileImage{
