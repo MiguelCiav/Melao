@@ -1,0 +1,107 @@
+html{
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+body{
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+}
+
+.NavBar{
+    margin: 0;
+    width: 90vw;
+    height: 10vh;
+    background-color: white;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.3em;
+    margin-left: 5%;
+}
+
+#NavBarText{
+    grid-column: 2;
+    align-self: flex-end;
+}
+
+.SearchTabDiv{
+    width: 90%;
+    height: 10%;
+    background-color: #F2F0E8;
+    border-radius: 15px;
+    display: inline-flex;
+    align-items: center;
+    justify-self: center;
+}
+
+.SearchTabDiv *{
+    margin-left: 2%;
+}
+
+.SearchTabDiv input{
+    width: 70%;
+    font-size: 1em;
+    border-style: none;
+    background-color: #F2F0E8;
+}
+
+.FriendsPannel{
+    width: 100vw;
+    height: 90vh;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: scroll;
+}
+
+.PersonDiv{
+    margin-top: 4%;
+    width: 90%;
+    height: 15%;
+    display: grid;
+    grid-template-columns: 25% 55% 20%;
+    align-items: center;
+}
+
+.DeleteFriendIcon{
+    grid-column: 3;
+    justify-self: flex-end;
+}
+
+.PersonName{
+    grid-column: 2;
+    font-size: 1.2em;
+}
+
+footer{
+    margin-top: auto;
+    border-width: 0;
+    border-top: 1px;
+    border-color: black;
+    border-style: solid;
+}
+
+ul{
+    margin: 0;
+    margin-top: auto;
+    padding: 0;
+    width: 100vw;
+    height: 8vh;
+    display: inline-flex;
+    list-style: none;
+    align-items: center;
+    justify-items: space-evenly;
+    justify-content: space-evenly;
+}
+
+ul img{
+    width: 30;
+    height: 35;
+}
