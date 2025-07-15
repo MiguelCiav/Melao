@@ -31,15 +31,6 @@ body{
     align-self: flex-end;
 }
 
-.SearchPannel{
-    width: 100vw;
-    height: 90vh;
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    overflow-y: scroll;
-}
-
 .SearchTabDiv{
     width: 90%;
     height: 10%;
@@ -61,18 +52,32 @@ body{
     background-color: #F2F0E8;
 }
 
+.FriendsPannel{
+    width: 100vw;
+    height: 90vh;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: scroll;
+}
+
 .PersonDiv{
     margin-top: 4%;
     width: 90%;
-    height: 50%;
+    height: 15%;
     display: grid;
-    grid-template-columns: 25% 45% 15% 15%;
+    grid-template-columns: 25% 55% 20%;
     align-items: center;
 }
 
-.Icon{
-    width: 40px;
-    height: 40px;
+.DeleteFriendIcon{
+    grid-column: 3;
+    justify-self: flex-end;
+}
+
+.PersonName{
+    grid-column: 2;
+    font-size: 1.2em;
 }
 
 footer{
