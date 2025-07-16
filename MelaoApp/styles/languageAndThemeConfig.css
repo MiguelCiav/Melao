@@ -1,0 +1,117 @@
+html{
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 16px;
+}
+
+body{
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+}
+
+.NavBar{
+    margin: 0;
+    width: 90vw;
+    height: 10vh;
+    background-color: white;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.3em;
+    margin-left: 5%;
+}
+
+#NavBarText{
+    grid-column: 2;
+    align-self: flex-end;
+}
+
+.ConfigPannel{
+    width: 100vw;
+    height: 90vh;
+    display: inline-flex;
+    flex-direction: column;
+    overflow-y: scroll;
+}
+
+#Language{
+    margin-left: 5%;
+    width: 90%;
+    height: 20%;
+    display: inline;
+}
+
+#Language select{
+    width: 100%;
+    align-self: flex-end;
+    border-style: none;
+    outline: none;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.2em;
+    color:#9C854A;
+}
+
+#Theme{
+    margin-left: 5%;
+    width: 70%;
+    height: 25%;
+    display: grid;
+    grid-template-rows: 50% 50%;
+    grid-column: 30% 70%;
+}
+
+.ThemeButton{
+    grid-row: 2;
+    width: 80%;
+    height: 70%;
+    display: flex;
+    font-size: 10rem;
+    justify-self: flex-start;
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+    justify-content: center;
+    font-size: 1.2em;
+    border-radius: 15px;
+    cursor: pointer;
+    border-width: 2px;
+    border-style: solid;
+}
+
+#LightMode{
+    background-color: white;
+    border-color: #9C854A;
+    color: #9C854A;
+}
+
+footer{
+    margin-top: auto;
+    border-width: 0;
+    border-top: 1px;
+    border-color: black;
+    border-style: solid;
+}
+
+ul{
+    margin: 0;
+    margin-top: auto;
+    padding: 0;
+    width: 100vw;
+    height: 8vh;
+    display: inline-flex;
+    list-style: none;
+    align-items: center;
+    justify-items: space-evenly;
+    justify-content: space-evenly;
+}
+
+ul img{
+    width: 30;
+    height: 35;
+}
