@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+    <title>{% block title %}Titulo{% endblock %}</title>
+</head>
+<body>
+    <header class="mobile-navbar">
+        <a id="arrow-button" href="./home.html">
+            <img src="/MelaoApp/resources/left_arrow.svg" width="24" height="24" alt="X">
+        </a>
+    <p id="PerfilText">Ethan Harper</p>
+</body>
+</html>
