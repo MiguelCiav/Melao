@@ -71,6 +71,50 @@ function renderPeople(people) {
     });
 }
 
+function setTheme(){
+    const body = document.body;
+    const BackArrow = document.getElementById('Arrow-button');
+    const Person = document.getElementsByClassName('PersonDiv');
+
+    const applyTheme = (theme) => {
+        if (theme === 'dark') {
+            body.classList.add('dark-mode');
+            localStorage.setItem('theme', 'dark');
+            BackArrow.querySelector('img').src = '/MelaoApp/resources/DarkMode/BackArrow.png';
+            Array.from(Person).forEach(el => {
+                const addFriend = el.querySelector('img[alt="AddFriend"]');
+                const chat = el.querySelector('img[alt="Chat"]');
+
+                if (addFriend) addFriend.src = '/MelaoApp/resources/DarkMode/AddFriend.png';
+                
+                if (chat) chat.src = '/MelaoApp/resources/DarkMode/Chat.png';
+            
+            });    
+        } else {
+            body.classList.remove('dark-mode');
+            localStorage.setItem('theme', 'light');
+            BackArrow.querySelector('img').src = '/MelaoApp/resources/BackArrow.png';
+            Array.from(Person).forEach(el => {
+                const addFriend = el.querySelector('img[alt="AddFriend"]');
+                const chat = el.querySelector('img[alt="Chat"]');
+
+                if (addFriend) addFriend.src = '/MelaoApp/resources/AddFriend.png';
+                
+                if (chat) addFriend.src = '/MelaoApp/resources/Chat.png';
+            
+            });
+        }
+    };
+    
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        applyTheme(savedTheme);
+    } else {
+        applyTheme('light');
+    }
+}
+
 document.addEventListener("DOMContentLoaded", function() {
     renderPeople(dataDummy);
+    setTheme();
 });
