@@ -107,16 +107,16 @@ ul img{
 }
 
 body.dark-mode {
-    background-color: #211C12; /* Color de fondo oscuro */
-    color: #f0f0f0; /* Color de texto claro */
+    background-color: #211C12; 
+    color: #f0f0f0;
 }
 body.dark-mode .NavBar {
-    background-color: #211C12; /* Navbar oscuro */
+    background-color: #211C12; 
 }
 body.dark-mode .Menu {
-    background-color: #473D24; /* Navbar oscuro */
+    background-color: #473D24;
 }
-/* Agrega reglas similares para otros elementos como h2, p, etc. */
+
 body.dark-mode h2 {
     color: #f0f0f0;
 }
