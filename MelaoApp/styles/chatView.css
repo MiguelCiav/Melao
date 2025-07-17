@@ -63,6 +63,7 @@ body{
 .message-content {
     flex: 1;
     margin-right: 8px;
+    color: black;
 }
 
 .text {
@@ -151,4 +152,30 @@ ul{
 ul img{
     width: 30;
     height: 35;
+}
+
+body.dark-mode {
+    background-color: #211C12; 
+    color: #f0f0f0;
+}
+body.dark-mode .NavBar {
+    background-color: #211C12; 
+}
+body.dark-mode .Menu {
+    background-color: #473D24;
+}
+
+body.dark-mode h2 {
+    color: #f0f0f0;
+}
+
+body.dark-mode .text-received {
+    background-color: #473D24;
+}
+
+body.dark-mode .input-container {
+    background-color: #473D24;
+}
+body.dark-mode .input-container input{
+    color: #f0f0f0;
 }
