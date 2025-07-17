@@ -105,3 +105,28 @@ ul img{
     width: 30;
     height: 35;
 }
+
+body.dark-mode {
+    background-color: #211C12; /* Color de fondo oscuro */
+    color: #f0f0f0; /* Color de texto claro */
+}
+body.dark-mode .NavBar {
+    background-color: #211C12; /* Navbar oscuro */
+}
+body.dark-mode .Menu {
+    background-color: #473D24; /* Navbar oscuro */
+}
+/* Agrega reglas similares para otros elementos como h2, p, etc. */
+body.dark-mode h2 {
+    color: #f0f0f0;
+}
+body.dark-mode .PersonName{
+    color:#f0f0f0;
+}
+body.dark-mode .SearchTabDiv{
+    background-color: #473D24;
+}
+body.dark-mode .SearchTabDiv input{
+    background-color: #473D24;
+    color: #f0f0f0;
+}
