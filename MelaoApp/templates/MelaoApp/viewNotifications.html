@@ -1,0 +1,17 @@
+{% extends 'MelaoApp/base.html' %}
+{% load static %}
+
+{% block title %}Notificaciones{% endblock %}
+
+{% block static_js %}
+    <script src="{% static 'MelaoApp/js/viewNotifications.js' %}"></script>
+{% endblock %}
+
+{% block static_css %}
+    <link rel="stylesheet" href="{% static 'MelaoApp/css/viewNotifications.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="NotificationsPannel">
+    </div>
+{% endblock %}

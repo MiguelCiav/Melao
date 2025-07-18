@@ -1,0 +1,28 @@
+{% extends 'MelaoApp/base.html' %}
+{% load static %}
+
+{% block title %}Melao - Perfil{% endblock %}
+
+{% block static_js %}
+    <script src="{% static 'MelaoApp/js/profile.js' %}"></script>
+{% endblock %}
+
+{% block static_css %}
+    <link rel="stylesheet" href="{% static 'MelaoApp/css/profile.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="ProfilePannel">
+        <img id="ProfileImage" alt ="Imagen de perfil">
+        <p id="ProfileName"></p>
+        <div class="ProfileButtonsDiv">
+            <a href="{% url 'MelaoApp:modify_profile' %}">
+                <input type="button" value="Editar Perfil" class="ProfileButton" id="EditProfileButton"/>
+            </a>
+            <input type="button" value="Compartir Perfil" class="ProfileButton" id="ShareProfileButton"/>
+        </div>
+        <div class="Posts">
+            <h1 class="PostsText">Muro</h1>
+        </div> 
+    </div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'MelaoApp/base.html' %}
+{% load static %}
+
+{% block title %}Melao - Buscar{% endblock %}
+
+{% block static_js %}
+    <script src="{% static 'MelaoApp/js/searchPeople.js' %}"></script>
+{% endblock %}
+
+{% block static_css %}
+    <link rel="stylesheet" href="{% static 'MelaoApp/css/searchPeople.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="SearchTabDiv">
+        <img src="{% static 'MelaoApp/img/Lupa.png' %}" alt="Icono de lupa">
+        <input type="text" placeholder="Buscar...">
+        <img src="{% static 'MelaoApp/img/X-Search-Icon.png' %}" alt="Icono de borrar búsqueda">
+    </div>
+    
+    <div class="SearchPannel">
+    </div>
+{% endblock %}

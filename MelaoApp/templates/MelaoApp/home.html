@@ -1,0 +1,16 @@
+{% extends 'MelaoApp/base.html' %}
+{% load static %}
+
+{% block title %}Melao - Home{% endblock %}
+
+{% block static_css %}
+    <link rel="stylesheet" href="{% static 'MelaoApp/css/home.css' %}">
+{% endblock %}
+
+{% block static_js %}
+    <script src="{% static 'MelaoApp/js/home.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="HomePannel"></div>
+{% endblock %}

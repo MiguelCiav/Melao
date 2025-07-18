@@ -1,0 +1,56 @@
+{% extends 'MelaoApp/base.html' %}
+{% load static %}
+
+{% block title %}Bienvenido{% endblock %}
+
+{% block static_css %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'MelaoApp/css/welcome.css' %}">
+{% endblock %}
+
+{% block custom_header %}
+<header class="mobile-navbar">
+        <p>Melao</p>
+</header>
+<div class="desktop-navbar">
+    <ul class="nav-list">
+        <li>
+            <a class="logo-container" href="{% url 'MelaoApp:welcome' %}">
+                <img src="{% static 'MelaoApp/img/logoIcono.png' %}" alt="Home">
+                <p class="logo-text">Melao</p>
+            </a>
+        </li>
+    </ul>
+</div>
+{% endblock %}
+
+{% block content %}
+    <div class="welcome-container">
+        <div class="welcome-logo">
+            <img src="{% static 'MelaoApp/img/logo.png' %}" alt="Logo de Melao" class="Logo" width="80" height="80">
+            <h1>Bienvenido a Melao</h1>
+        </div>
+        <p class="description">Conéctate con tus compañeros, comparte experiencias y mantente al día con lo que sucede en la comunidad ATI.</p>
+
+        <input type="text" placeholder="Ingresa tu correo electronico" class="input-field desktop-content" id="name">
+        <input type="email" placeholder="Ingresa tu contraseña" class="input-field desktop-content">
+        <div class="remember-me desktop-content">
+            <label for="remember-me">Recuerdame</label>
+            <input type="checkbox" id="remember-me">
+        </div>
+        <a href="" class="desktop-content">¿Has olvidado tu contraseña?</a>
+
+        <button onclick="document.location.href='{% url 'MelaoApp:home' %}'" class="button">
+            Iniciar Sesion
+        </button>
+        <button onclick="document.location.href='{% url 'MelaoApp:sign_up_view' %}'" class="button sign-up">
+            Registrarse
+        </button>
+    </div>
+{% endblock %}
+
+{% block custom_footer %}
+<footer>
+    <p>Proyecto Melao - 2025</p>
+</footer>
+{% endblock %}

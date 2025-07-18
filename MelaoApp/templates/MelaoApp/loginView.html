@@ -1,0 +1,30 @@
+{% extends 'MelaoApp/base.html' %}
+{% load static %}
+
+{% block title %}Melao - Login{% endblock %}
+
+{% block static_css %}
+    <link rel="stylesheet" href="{% static 'MelaoApp/css/loginView.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="LoginPannel">
+        <img src="{% static 'MelaoApp/img/logo.png' %}" alt="Logo" class="Logo" width="70" height="70">
+        <h1>Bienvenido a Melao</h1>
+        <p id="description">Conéctate con tus compañeros, comparte experiencias y mantente al día con lo que sucede en la comunidad ATI.</p>
+        <input type="text" placeholder="Usuario o Correo Electrónico" class="UserDataInput"/>
+        <input type="password" placeholder="Contraseña" class="UserDataInput" id="PasswordField"/>
+        <div class="RememberMe">
+            <p>Recuérdame</p>
+            <input type="checkbox" class="LoginCheckbox"/>
+        </div>
+        <p class="ForgotPassword">¿Has olvidado tu contraseña?</p>
+        <a href="{% url 'MelaoApp:home' %}"> {# Corregido a {% url %} #}
+            <input type="button" value="Iniciar Sesión" class="LoginButton"/>
+        </a>
+        <a href="{% url 'MelaoApp:sign_up_view' %}"> {# Corregido a {% url %} #}
+            <input type="button" value="Registrate" class="LoginButton" id="SignUpButton"/>
+        </a>
+    </div>
+    <p id="MelaoProject">Proyecto Melao - 2025</p>
+{% endblock %}

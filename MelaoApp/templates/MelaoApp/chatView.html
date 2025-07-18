@@ -1,0 +1,56 @@
+{% extends 'MelaoApp/base.html' %}
+{% load static %}
+
+{% block title %}Melao - Chat{% endblock %}
+
+{% block static_css %}
+    <link rel="stylesheet" href="{% static 'MelaoApp/css/chatView.css' %}">
+{% endblock %}
+
+{% block static_js %}
+    <script src="{% static 'MelaoApp/js/chatList.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="chat-container">
+        <div class="messages-container">
+            <p class="chat-date">
+                25 Octubre 2025
+            </p>
+            <div class="message">
+                <div class="message-content">
+                    <p class="username">Ethan</p>
+                    <p class="text">¡Hola! ¿Cómo estás?</p>
+                </div>
+                <img class="profile-photo" src="{% static 'MelaoApp/img/ethan_carter.png' %}" width="30" height="30" alt="">
+            </div>
+
+            <div class="message incoming-message">
+                <img class="profile-photo" src="{% static 'MelaoApp/img/pfp_example.png' %}" width="30" height="30" alt="">
+                <div class="message-content">
+                    <p class="username">Tú</p>
+                    <p class="text">¡Todo bien! ¿Y tú?</p>
+                </div>
+            </div>
+
+            <p class="chat-date">
+                25 Octubre 2025
+            </p>
+
+            <div class="message">
+                <div class="message-content">
+                    <p class="username">Ethan</p>
+                    <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam nostrum illum fuga.
+                    Esse tenetur placeat eaque impedit omnis explicabo atque, dolore incidunt odit repudiandae illo quaerat, praesentium reiciendis id blanditiis vero neque sed ipsam sunt deserunt ut voluptas possimus. Non, necessitatibus dignissimos!
+                    Quidem ullam totam laudantium in culpa id, doloremque qui. Quod </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="input-container">
+            <input type="text" id="message-input" placeholder="Escribe un mensaje...">
+            <button id="send-button">
+                <img src="{% static 'MelaoApp/img/right_arrow_button.svg' %}" alt="Enviar">
+            </button>
+    </div>
+{% endblock %}

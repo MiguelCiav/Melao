@@ -1,0 +1,22 @@
+{% extends 'MelaoApp/base.html' %}
+{% load static %}
+
+{% block title %}Melao - Registrarse{% endblock %}
+
+{% block static_css %}
+    <link rel="stylesheet" href="{% static 'MelaoApp/css/signUpView.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="LoginPannel">
+        <h1>Crear una cuenta</h1>
+        <input type="text" placeholder="Nombre completo" class="UserDataInput"/>
+        <input type="text" placeholder="Usuario" class="UserDataInput"/>
+        <input type="email" placeholder="Correo electrónico" class="UserDataInput"/> {# Se cambió el tipo a email #}
+        <input type="password" placeholder="Contraseña" class="UserDataInput"/>
+        <input type="text" placeholder="Fecha de nacimiento (DD/MM/YYYY)" class="UserDataInput"/>
+        <a href="{% url 'MelaoApp:home' %}"> {# Corregida la URL con el prefijo de la app #}
+            <input type="button" value="Registrarse" class="LoginButton"/>
+        </a>
+    </div>
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends 'MelaoApp/base.html' %}
+{% load static %}
+
+{% block title %}Melao - Modificar Perfil{% endblock %}
+
+{% block static_css %}
+    <link rel="stylesheet" href="{% static 'MelaoApp/css/modifyProfile.css' %}">
+{% endblock %}
+
+{% block static_js %}
+    <script src="{% static 'MelaoApp/js/languageAndThemeConfig.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="pfp-button">
+        <img id="profile-image" alt="Foto de Perfil" src="{% static 'MelaoApp/img/pfp_example.png' %}">
+        <a class="black-link" href="">Editar foto de perfil</a> {# Mantengo vacío si aún no hay URL #}
+    </div>
+
+    <div class="option-container">
+        <div class="text-container">
+            <p class="title">Información Personal</p>
+            <p class="subtitle">Actualizar biografía</p>
+        </div>
+        <img src="{% static 'MelaoApp/img/right_arrow.svg' %}" alt="">
+    </div>
+
+    <div class="option-container">
+        <div class="text-container">
+            <p class="title">Seguridad y Acceso</p>
+            <p class="subtitle">Cambiar contraseña</p>
+        </div>
+        <img src="{% static 'MelaoApp/img/right_arrow.svg' %}" alt="">
+    </div>
+
+    <div class="option-container">
+        <div class="text-container">
+            <a class="black-link" href="{% url 'MelaoApp:language_and_theme_config_view' %}"> {# Corregido a {% url %} #}
+                <p class="title">Apariencia</p>
+                <p class="subtitle">Personalizar idioma y tema</p>
+            </a>
+        </div>
+        <a href="{% url 'MelaoApp:language_and_theme_config_view' %}"> {# Corregido a {% url %} #}
+            <img src="{% static 'MelaoApp/img/right_arrow.svg' %}" alt="">
+        </a>
+    </div>
+
+    <div class="option-container">
+        <div class="text-container">
+            <p class="title">Configuraciones de Privacidad</p>
+            <p class="subtitle">Gestionar quien puede ver mis publicaciones.</p>
+        </div>
+        <img src="{% static 'MelaoApp/img/right_arrow.svg' %}" alt="">
+    </div>
+
+    <div class="option-container">
+        <div class="text-container">
+            <p class="title">Configurar Notificaciones</p>
+            <p class="subtitle">Gestionar las preferencias de notificaciones.</p>
+        </div>
+        <img src="{% static 'MelaoApp/img/right_arrow.svg' %}" alt="">
+    </div>
+{% endblock %}

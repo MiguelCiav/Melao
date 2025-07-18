@@ -1,0 +1,17 @@
+{% extends 'MelaoApp/base.html' %}
+{% load static %}
+
+{% block title %}Melao - Chat{% endblock %}
+
+{% block static_css %}
+    <link rel="stylesheet" href="{% static 'MelaoApp/css/chatList.css' %}">
+{% endblock %}
+
+{% block static_js %}
+    <script src="{% static 'MelaoApp/js/chatList.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="ChatsPannel">
+    </div>
+{% endblock %}

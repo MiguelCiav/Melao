@@ -1,0 +1,19 @@
+{% extends 'MelaoApp/base.html' %}
+{% load static %}
+
+{% block title %}Melao - Modificar Perfil{% endblock %}
+
+{% block static_css %}
+    <link rel="stylesheet" href="{% static 'MelaoApp/css/newPost.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="PostPannel">
+        <div class="PostDiv">
+            <img src="{% static 'MelaoApp/img/EthanHuntProfile.png' %}">
+            <textarea id="PostTextArea" placeholder="¿Qué estás pensando?"></textarea>
+            <img src="{% static 'MelaoApp/img/IMG-Icon.png' %}" id="ImageIcon" class="PostIcon">
+            <img src="{% static 'MelaoApp/img/Video-Icon.png' %}" id="VideoIcon" class="PostIcon">
+        </div>
+    </div>
+{% endblock %}

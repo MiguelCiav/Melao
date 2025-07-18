@@ -1,0 +1,29 @@
+{% extends 'MelaoApp/base.html' %}
+{% load static %}
+
+{% block title %}Melao - Configuración{% endblock %}
+
+{% block static_css %}
+    <link rel="stylesheet" href="{% static 'MelaoApp/css/languageAndThemeConfig.css' %}">
+{% endblock %}
+
+{% block static_js %}
+    <script src="{% static 'MelaoApp/js/languageAndThemeConfig.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="ConfigPancnel">
+        <div id="Language">
+            <h2>Idioma</h2>
+            <select name="Languages" class="Languages">
+                <option value="Español">Español</option>
+                <option value="Ingles">Inglés</option>
+            </select>
+        </div>
+        <div id="Theme">
+            <h2>Tema</h2>
+            <div class="ThemeButton" id="LightMode"><p>Claro</p></div>
+            <div class="ThemeButton" id="DarkMode"><p>Oscuro</p></div>
+        </div>
+    </div>
+{% endblock %}

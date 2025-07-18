@@ -1,0 +1,22 @@
+{% extends 'MelaoApp/base.html' %}
+{% load static %}
+
+{% block title %}Melao - Amigos{% endblock %}
+
+{% block static_css %}
+    <link rel="stylesheet" href="{% static 'MelaoApp/css/friendsList.css' %}">
+{% endblock %}
+
+{% block static_js %}
+    <script src="{% static 'MelaoApp/js/friendsList.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="SearchTabDiv">
+        <img src="{% static 'MelaoApp/img/Lupa.png' %}">
+        <input type="text" placeholder="Buscar...">
+    </div>
+    
+    <div class="FriendsPannel">
+    </div>
+{% endblock %}
