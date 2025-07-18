@@ -4,11 +4,8 @@
 {% block title %}Melao - Chat{% endblock %}
 
 {% block static_css %}
+{{ block.super }}
     <link rel="stylesheet" href="{% static 'MelaoApp/css/chatView.css' %}">
-{% endblock %}
-
-{% block static_js %}
-    <script src="{% static 'MelaoApp/js/chatList.js' %}"></script>
 {% endblock %}
 
 {% block content %}

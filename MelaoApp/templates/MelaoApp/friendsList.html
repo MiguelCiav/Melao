@@ -4,11 +4,69 @@
 {% block title %}Melao - Amigos{% endblock %}
 
 {% block static_css %}
+{{ block.super }}
     <link rel="stylesheet" href="{% static 'MelaoApp/css/friendsList.css' %}">
 {% endblock %}
 
 {% block static_js %}
-    <script src="{% static 'MelaoApp/js/friendsList.js' %}"></script>
+    <script>
+        let dataDummy = [
+            {
+                name: "Ethan Hunt",
+                image: "{% static 'MelaoApp/img/EthanHuntProfile.png' %}"
+            },
+            {
+                name: "Ethan Hunt",
+                image: "{% static 'MelaoApp/img/EthanHuntProfile.png' %}"
+            },
+            {
+                name: "Ethan Hunt",
+                image: "{% static 'MelaoApp/img/EthanHuntProfile.png' %}"
+            },
+            {
+                name: "Ethan Hunt",
+                image: "{% static 'MelaoApp/img/EthanHuntProfile.png' %}"
+            },
+            {
+                name: "Ethan Hunt",
+                image: "{% static 'MelaoApp/img/EthanHuntProfile.png' %}"
+            }
+        ];
+
+        function renderPeople(people) {
+            people.forEach(element => {
+                const personDiv = document.createElement("div");
+                personDiv.setAttribute("class", "PersonDiv");
+
+                const personImg = document.createElement("img");
+                personImg.setAttribute("src", element.image);
+                personImg.setAttribute("width", "70");
+                personImg.setAttribute("height", "70");
+                personImg.setAttribute("alt", "X");
+
+                const personName = document.createElement("p");
+                personName.setAttribute("class", "PersonName");
+                personName.innerText = element.name;
+
+                const deleteFriend = document.createElement("img");
+                deleteFriend.setAttribute("src", "{% static 'MelaoApp/img/X-Search-Icon-Filled.png' %}");
+                deleteFriend.setAttribute("width", "30");
+                deleteFriend.setAttribute("height", "30");
+                deleteFriend.setAttribute("alt", "X");
+                deleteFriend.setAttribute("class", "DeleteFriendIcon");
+
+                personDiv.appendChild(personImg);
+                personDiv.appendChild(personName);
+                personDiv.appendChild(deleteFriend);
+
+                document.getElementsByClassName("FriendsPannel")[0].appendChild(personDiv);
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            renderPeople(dataDummy);
+        });
+    </script>
 {% endblock %}
 
 {% block content %}

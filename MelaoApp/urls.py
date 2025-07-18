@@ -9,7 +9,6 @@ urlpatterns = [
     path('chat/', views.chat_view, name='chat_view'),
     path('friends/', views.friends_list, name='friends_list'),
     path('config/language-theme/', views.language_and_theme_config_view, name='language_and_theme_config_view'),
-    path('login/', views.login_view, name='login_view'),
     path('profile/edit/', views.modify_profile, name='modify_profile'),
     path('new-post/', views.new_post_view, name='new_post_view'),
     path('post/', views.post_view, name='post_view'),

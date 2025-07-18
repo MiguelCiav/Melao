@@ -4,10 +4,88 @@
 {% block title %}Melao - Buscar{% endblock %}
 
 {% block static_js %}
-    <script src="{% static 'MelaoApp/js/searchPeople.js' %}"></script>
+    <script>
+        let dataDummy = [
+            {
+                name: "Ethan Hunt",
+                image: "{% static 'MelaoApp/img/EthanHuntProfile.png' %}",
+            },
+            {
+                name: "Ethan Hunt",
+                image: "{% static 'MelaoApp/img/EthanHuntProfile.png' %}",
+            },
+            {
+                name: "Ethan Hunt",
+                image: "{% static 'MelaoApp/img/EthanHuntProfile.png' %}",
+            },
+            {
+                name: "Ethan Hunt",
+                image: "{% static 'MelaoApp/img/EthanHuntProfile.png' %}",
+            },
+            {
+                name: "Ethan Hunt",
+                image: "{% static 'MelaoApp/img/EthanHuntProfile.png' %}",
+            },
+            {
+                name: "Ethan Hunt",
+                image: "{% static 'MelaoApp/img/EthanHuntProfile.png' %}",
+            },
+            {
+                name: "Ethan Hunt",
+                image: "{% static 'MelaoApp/img/EthanHuntProfile.png' %}",
+            },
+            {
+                name: "Ethan Hunt",
+                image: "{% static 'MelaoApp/img/EthanHuntProfile.png' %}",
+            }
+        ];
+
+        function renderPeople(people) {
+            people.forEach(element => {
+                const personDiv = document.createElement("div");
+                personDiv.setAttribute("class", "PersonDiv");
+
+                const personImg = document.createElement("img");
+                personImg.setAttribute("src", element.image);
+                personImg.setAttribute("width", "70");
+                personImg.setAttribute("height", "70");
+                personImg.setAttribute("alt", "X");
+
+                const personName = document.createElement("p");
+                personName.setAttribute("class", "PersonName");
+                personName.innerText = element.name;
+
+                const addFriends = document.createElement("img");
+                addFriends.setAttribute("src", "{% static '/MelaoApp/img/AddFriend.png' %}");
+                addFriends.setAttribute("width", "30");
+                addFriends.setAttribute("height", "30");
+                addFriends.setAttribute("alt", "AddFriend");
+                addFriends.setAttribute("class", "Icon");
+
+                const chat = document.createElement("img");
+                chat.setAttribute("src", "{% static '/MelaoApp/img/Chat.png' %}");
+                chat.setAttribute("width", "30");
+                chat.setAttribute("height", "30");
+                chat.setAttribute("alt", "Chat");
+                chat.setAttribute("class", "Icon");
+
+                personDiv.appendChild(personImg);
+                personDiv.appendChild(personName);
+                personDiv.appendChild(addFriends);
+                personDiv.appendChild(chat);
+
+                document.getElementsByClassName("SearchPannel")[0].appendChild(personDiv);
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            renderPeople(dataDummy);
+        });
+    </script>
 {% endblock %}
 
 {% block static_css %}
+{{ block.super }}
     <link rel="stylesheet" href="{% static 'MelaoApp/css/searchPeople.css' %}">
 {% endblock %}
 
