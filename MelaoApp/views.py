@@ -16,9 +16,6 @@ def friends_list(request):
 def language_and_theme_config_view(request):
     return render(request, 'MelaoApp/languageAndThemeConfigView.html')
 
-def login_view(request):
-    return render(request, 'MelaoApp/loginView.html')
-
 def modify_profile(request):
     return render(request, 'MelaoApp/modifyProfile.html')
 

@@ -2,7 +2,6 @@
     display: flex;
     flex-direction: column;
     padding: 16px;
-    max-width: 480px;
     background-color: white;
 }
 
@@ -16,6 +15,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin-bottom: 12px;
 }
 
 .welcome-logo h1 {
@@ -76,7 +76,7 @@ footer p {
 .welcome-container a {
     color: #8C8059;
     text-decoration: none;
-    margin-top: 12px;
+    margin: 12px 0;
 }
 
 @media (max-width: 600px) {
@@ -91,7 +91,7 @@ footer p {
         flex-direction: row;
         justify-content: center;
         align-items: center;
-        padding: 32px 0;
+        margin: 32px 0;
     }
 
     .welcome-container {
