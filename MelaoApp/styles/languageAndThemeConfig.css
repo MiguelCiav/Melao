@@ -131,38 +131,38 @@ body {
 }
 
 #DarkMode {
-    background-color: lightgray; /* Un estilo por defecto para el botón de oscuro */
+    background-color: lightgray;
     border-color: gray;
     color: black;
 }
 
-/* Estilos para el Modo Oscuro */
+
 body.dark-mode {
-    background-color: #211C12; /* Color de fondo oscuro */
-    color: #f0f0f0; /* Color de texto claro */
+    background-color: #211C12; 
+    color: #f0f0f0; 
 }
 
 body.dark-mode .NavBar {
-    background-color: #211C12; /* Navbar oscuro */
+    background-color: #211C12;
 }
 body.dark-mode .Menu {
-    background-color: #473D24; /* Navbar oscuro */
+    background-color: #473D24; 
 }
 
 
 body.dark-mode #LightMode {
-    background-color: #555; /* Botón de claro en modo oscuro */
+    background-color: #555; 
     border-color: #777;
     color: #bbb;
 }
 
 body.dark-mode #DarkMode {
-    background-color: #9C854A; /* Botón de oscuro resaltado en modo oscuro */
+    background-color: #9C854A; 
     border-color: #9C854A;
     color: white;
 }
 
-/* Agrega reglas similares para otros elementos como h2, p, etc. */
+
 body.dark-mode h2 {
     color: #f0f0f0;
 }
