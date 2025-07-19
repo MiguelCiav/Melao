@@ -136,3 +136,51 @@
 .comment-field input:focus {
     outline: none;
 }
+
+footer{
+    /*The footer should stay at the bottom and be sticky*/
+    position: sticky;
+    bottom: 0;
+    background-color: white;
+}
+
+ul{
+    margin: 0;
+    margin-top: auto;
+    padding: 0;
+    width: 100vw;
+    height: 8vh;
+    display: inline-flex;
+    list-style: none;
+    align-items: center;
+    justify-items: space-evenly;
+    justify-content: space-evenly;
+}
+
+ul img{
+    width: 30;
+    height: 35;
+}
+
+body.dark-mode {
+    background-color: #211C12; 
+    color: #f0f0f0;
+}
+body.dark-mode .NavBar {
+    background-color: #211C12; 
+}
+body.dark-mode .Menu {
+    background-color: #473D24;
+}
+
+body.dark-mode h2 {
+    color: #f0f0f0;
+}
+
+body.dark-mode .comment-field{
+    background-color: #473D24;
+}
+
+body.dark-mode .comment-field input{
+    color: #f0f0f0;
+}
