@@ -3,130 +3,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Melao</title>
-    <link rel="stylesheet" href="/css/postView.css">
+    <title>Melao - Post</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/postView.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="NavBar">
-        <a id="Arrow-button" href="./home.html">
-            <img src="/img/left_arrow.svg" width="24" height="24" alt="X">
+    <header class="mobile-navbar">
+        <a href="home.html">
+            <img src="img/left_arrow.svg" width="24" height="24" alt="Back">
         </a>
-    <p id="PerfilText">Post</p>
+        <p>Ethan Harper</p>
     </header>
-
-    <div class="post">
-        <div class="post-author">
-            <img class="profile-image" alt="Foto de Perfil" src="/img/ethan_carter.png">
-            Ethan Carter
-        </div>
-        <div class="content">
-            En mi empresa, los gerentes buscan formar equipos auto-organizados que logren resultados con poca o ninguna supervisión.
-        </div>
-        <div class="option-container">
-            <div class="option">
-                <img src="/img/comment.svg" alt="">
-                <p class="counter">25</p>
-            </div>
-            <div class="option">
-                <img src="/img/like.svg" alt="">
-                <p class="counter">10</p>
-            </div>
-        </div>
+    <div class="desktop-navbar">
+        <ul class="nav-list">
+            <li>
+                <a class="logo-container" href="home.html">
+                    <img src="img/logoIcono.png" alt="Home">
+                    <p class="logo-text">Melao</p>
+                </a>
+            </li>
+            <li><a href="newPostView.html">Publicar</a></li>
+            <li><a href="chatListView.html">Chat</a></li>
+            <li><a href="friendsList.html">Amigos</a></li>
+            <li><a href="searchPersonView.html">Buscar Personas</a></li>
+        </ul>
+        <ul class="nav-list">
+            <li class="right-nav-item">
+                <a href="viewNotifications.html">
+                    <img src="img/bell.svg" alt="Notificaciones">
+                </a>
+            </li>
+            <li class="right-nav-item">
+                <a href="profile.html">
+                    <img src="img/pfp_example.png" alt="Perfil">
+                </a>
+            </li>
+        </ul>
     </div>
+    
+    <main>
+        <div class="post">
+            <div class="post-author">
+                <img class="profile-image" alt="Foto de perfil de Ethan Carter" src="img/ethan_carter.png">
+                Ethan Carter
+            </div>
+            <div class="content">
+                En mi empresa, los gerentes buscan formar equipos auto-organizados que logren resultados con poca o ninguna supervisión.
+            </div>
+            <div class="option-container">
+                <div class="option">
+                    <img src="img/comment.svg" alt="Icono de comentario">
+                    <p class="counter">25</p>
+                </div>
+                <div class="option">
+                    <img src="img/like.svg" alt="Icono de me gusta">
+                    <p class="counter">10</p>
+                </div>
+            </div>
+        </div>
 
-    <div class="comment">
-        <div class="comment-content">
-            <img class="comment-pfp" src="/img/ethan_carter_2.png" alt="">
-            <div class="comment-text">
-                <p class="username">Juan Encarta</p>
-                <p class="text">
-                    Este enfoque tiene muchos errores. El más importante es que asignar tareas y esperar resultados no funciona.
-                </p>
+        <div class="comment">
+            <div class="comment-content">
+                <img class="comment-pfp" src="img/ethan_carter_2.png" alt="Foto de perfil de Juan Encarta">
+                <div class="comment-text">
+                    <p class="username">Juan Encarta</p>
+                    <p class="text">
+                        Este enfoque tiene muchos errores. El más importante es que asignar tareas y esperar resultados no funciona.
+                    </p>
+                </div>
+            </div>
+            <div class="comment-option-container">
+                <div class="comment-option">
+                    <img src="img/comment.svg" alt="Icono de comentario">
+                    <p class="counter">3</p>
+                </div>
             </div>
         </div>
-        <div class="comment-option-container">
-            <div class="comment-option">
-                <img src="/img/comment.svg" alt="">
-                <p class="counter">3</p>
-            </div>
-        </div>
-    </div>
 
-    <div class="comment">
-        <div class="comment-content">
-            <img class="comment-pfp" src="/img/ethan_carter_2.png" alt="">
-            <div class="comment-text">
-                <p class="username">Juan Encarta</p>
-                <p class="text">
-                    Este enfoque tiene muchos errores. El más importante es que asignar tareas y esperar resultados no funciona.
-                </p>
+        <div class="comment">
+            <div class="comment-content">
+                <img class="comment-pfp" src="img/ethan_carter_2.png" alt="Foto de perfil de Juan Encarta">
+                <div class="comment-text">
+                    <p class="username">Juan Encarta</p>
+                    <p class="text">
+                        Este enfoque tiene muchos errores. El más importante es que asignar tareas y esperar resultados no funciona.
+                    </p>
+                </div>
+            </div>
+            <div class="comment-option-container">
+                <div class="comment-option">
+                    <img src="img/comment.svg" alt="Icono de comentario">
+                    <p class="counter">3</p>
+                </div>
             </div>
         </div>
-        <div class="comment-option-container">
-            <div class="comment-option">
-                <img src="/img/comment.svg" alt="">
-                <p class="counter">3</p>
-            </div>
-        </div>
-    </div>
 
-    <div class="comment">
-        <div class="comment-content">
-            <img class="comment-pfp" src="/img/ethan_carter_2.png" alt="">
-            <div class="comment-text">
-                <p class="username">Juan Encarta</p>
-                <p class="text">
-                    Este enfoque tiene muchos errores. El más importante es que asignar tareas y esperar resultados no funciona.
-                </p>
+        <div class="comment">
+            <div class="comment-content">
+                <img class="comment-pfp" src="img/ethan_carter_2.png" alt="Foto de perfil de Juan Encarta">
+                <div class="comment-text">
+                    <p class="username">Juan Encarta</p>
+                    <p class="text">
+                        Este enfoque tiene muchos errores. El más importante es que asignar tareas y esperar resultados no funciona.
+                    </p>
+                </div>
+            </div>
+            <div class="comment-option-container">
+                <div class="comment-option">
+                    <img src="img/comment.svg" alt="Icono de comentario">
+                    <p class="counter">3</p>
+                </div>
             </div>
         </div>
-        <div class="comment-option-container">
-            <div class="comment-option">
-                <img src="/img/comment.svg" alt="">
-                <p class="counter">3</p>
-            </div>
-        </div>
-    </div>
 
-    <div class="comment">
-        <div class="comment-content">
-            <img class="comment-pfp" src="/img/ethan_carter_2.png" alt="">
-            <div class="comment-text">
-                <p class="username">Juan Encarta</p>
-                <p class="text">
-                    Este enfoque tiene muchos errores. El más importante es que asignar tareas y esperar resultados no funciona.
-                </p>
+        <div class="comment">
+            <div class="comment-content">
+                <img class="comment-pfp" src="img/ethan_carter_2.png" alt="Foto de perfil de Juan Encarta">
+                <div class="comment-text">
+                    <p class="username">Juan Encarta</p>
+                    <p class="text">
+                        Este enfoque tiene muchos errores. El más importante es que asignar tareas y esperar resultados no funciona.
+                    </p>
+                </div>
+            </div>
+            <div class="comment-option-container">
+                <div class="comment-option">
+                    <img src="img/comment.svg" alt="Icono de comentario">
+                    <p class="counter">3</p>
+                </div>
             </div>
         </div>
-        <div class="comment-option-container">
-            <div class="comment-option">
-                <img src="/img/comment.svg" alt="">
-                <p class="counter">3</p>
-            </div>
-        </div>
-    </div>
 
-    <div class="comment-input">
-        <img class="input-img" src="/img/pfp_example.png" alt="">
-        <div class="comment-field">
-            <input type="text" placeholder="Agrega un comentario">
-            <img src="/img/right_arrow_button.svg" alt="">
+        <div class="comment-input">
+            <img class="input-img" src="img/pfp_example.png" alt="Tu foto de perfil">
+            <div class="comment-field">
+                <input type="text" placeholder="Agrega un comentario">
+                <img src="img/right_arrow_button.svg" alt="Botón de enviar comentario">
+            </div>
         </div>
-    </div>
+    </main>
 
     <footer>
         <nav class="Menu">
-            <ul>
-                <li><a href="./home.html"><img src="/img/HomeIcon.png" alt="Home"></a></li>
-                <li><a href="./friendsList.html"><img src="/img/FriendsIcon.png" alt="Friends"></a></li>
-                <li><a href="./chats.html"><img src="/img/ChatIcon.png" alt="Chat"></a></li>
-                <li><a href="./newPostView.html"><img src="/img/PostIcon.png" alt="Post"></a></li>
-                <li><a href="./notifications.html"><img src="/img/NotificationsIcon.png" alt="Bell"></a></li>
-                <li><a href="./profile.html"><img src="/img/UserIcon.png" alt="User"></a></li>
+            <ul class="footer-list">
+                <li><a href="home.html"><img src="img/HomeIconSelected.png" alt="Home"></a></li>
+                <li><a href="friendsList.html"><img src="img/FriendsIcon.png" alt="Friends"></a></li>
+                <li><a href="chatListView.html"><img src="img/ChatIcon.png" alt="Chat"></a></li>
+                <li><a href="newPostView.html"><img src="img/PostIcon.png" alt="Post"></a></li>
+                <li><a href="viewNotifications.html"><img src="img/NotificationsIcon.png" alt="Bell"></a></li>
+                <li><a href="profile.html"><img src="img/UserIcon.png" alt="User"></a></li>
             </ul>
         </nav>
     </footer>
 </body>
+</html>

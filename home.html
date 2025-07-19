@@ -3,33 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        let dataDummy = [
+            {
+                name: "Ethan Hunt",
+                image: "/img/EthanHuntProfile.png",
+                postDescription: "Alrededor de las 7 PM, nos reuniremos en la biblioteca.",
+                last_connection: "2d",
+                likes: 12,
+                comments: 5
+            },
+            {
+                name: "Sophia Carter",
+                image: "/img/EthanHuntProfile.png",
+                postDescription: "ATI es lo más duro del planeta chamo.",
+                last_connection: "1d",
+                likes: 25,
+                comments: 10
+            }
+        ];
+
+        function renderPosts(posts) {
+            document.getElementsByClassName("HomePannel");
+            posts.forEach(element => {
+                const postDiv = document.createElement("div");
+                postDiv.setAttribute("class", "HomePost");
+
+                const postImg = document.createElement("img");
+                postImg.setAttribute("src", element.image);
+                postImg.setAttribute("width", "70");
+                postImg.setAttribute("height", "70");
+                postImg.setAttribute("alt", "X");
+
+                const postName = document.createElement("p");
+                postName.setAttribute("class", "person-name");
+                postName.innerText = element.name;
+
+                const postDescription = document.createElement("p");
+                postDescription.setAttribute("class", "PostDescription");
+                postDescription.innerText = element.postDescription;
+
+                const postlast_connection = document.createElement("p");
+                postlast_connection.setAttribute("class", "last_connection");
+                postlast_connection.innerText = element.last_connection;
+
+                const postLikes = document.createElement("div");
+                postLikes.setAttribute("class", "PostLikes");
+
+                const likeImg = document.createElement("img");
+                likeImg.setAttribute("src", "img/Like.png");
+                likeImg.setAttribute("width", "20");
+                likeImg.setAttribute("height", "20");
+
+                const likesCount = document.createElement("p");
+                likesCount.setAttribute("class", "LikesCount");
+                likesCount.innerText = element.likes;
+
+                const postComments = document.createElement("div");
+                postComments.setAttribute("class", "PostComments");
+                const commentImg = document.createElement("img");
+                commentImg.setAttribute("src", "/img/Comment.png");
+                commentImg.setAttribute("width", "20");
+                commentImg.setAttribute("height", "20");
+                const commentsCount = document.createElement("p");
+                commentsCount.setAttribute("class", "CommentsCount");
+                commentsCount.innerText = element.comments;
+
+                postDiv.appendChild(postImg);
+                postDiv.appendChild(postName);
+                postDiv.appendChild(postDescription);
+                postDiv.appendChild(postlast_connection);
+                postLikes.appendChild(likeImg);
+                postLikes.appendChild(likesCount);
+                postComments.appendChild(commentImg);
+                postComments.appendChild(commentsCount);
+                postDiv.appendChild(postLikes);
+                postDiv.appendChild(postComments);
+                document.getElementsByClassName("HomePannel")[0].appendChild(postDiv);
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            renderPosts(dataDummy);
+        });
+    </script>
     <title>Melao</title>
+    <link rel="stylesheet" href="/css/base.css">
     <link rel="stylesheet" href="/css/home.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
-    <script src="/js/home.js"></script>
 </head>
 <body>
-    <header class="NavBar">
-        <div class="NavBarLogo">
-            <img id="LogoImg" src="/img/logo.png" alt="Logo" width="40" height="40" >
-            <p id="LogoText">Melao</p>
-        </div>
-        <a id="Lupa-button" href="./searchPersonView.html">
-            <img src="/img/Lupa.png" width="30" height="30" alt="X">
+    <header class="mobile-navbar">
+        <a href="home.html">
+            <img src="img/left_arrow.svg" width="24" height="24" alt="X">
         </a>
+        <p>Ethan Harper</p>
     </header>
-    <div class="HomePannel"></div>
+    <div class="desktop-navbar">
+        <ul class="nav-list">
+            <li>
+                <a class="logo-container" href="home.html">
+                    <img src="/img/logoIcono.png" alt="Home">
+                    <p class="logo-text">Melao</p>
+                </a>
+            </li>
+            <li><a href="newPostView.html">Publicar</a></li>
+            <li><a href="chatListView.html">Chat</a></li>
+            <li><a href="friendsList.html">Amigos</a></li>
+            <li><a href="searchPersonView.html">Buscar Personas</a></li>
+        </ul>
+        <ul class="nav-list">
+            <li class="right-nav-item">
+                <a href="viewNotifications.html">
+                    <img src="img/bell.svg" alt="Notificaciones">
+                </a>
+            </li>
+            <li class="right-nav-item">
+                <a href="profile.html">
+                    <img src="img/pfp_example.png" alt="Perfil">
+                </a>
+            </li>
+        </ul>
+    </div>
+    
+    <main>
+        <div class="HomePannel"></div>
+    </main>
+
     <footer>
         <nav class="Menu">
-            <ul>
-                <li><a href="./home.html"><img src="/img/HomeIconSelected.png" alt="Home"></a></li>
-                <li><a href="./friendsList.html"><img src="/img/FriendsIcon.png" alt="Friends"></a></li>
-                <li><a href="./chatListView.html"><img src="/img/ChatIcon.png" alt="Chat"></a></li>
-                <li><a href="./newPostView.html"><img src="/img/PostIcon.png" alt="Post"></a></li>
-                <li><a href="./viewNotifications.html"><img src="/img/NotificationsIcon.png" alt="Bell"></a></li>
-                <li><a href="./profile.html"><img src="/img/UserIcon.png" alt="User"></a></li>
+            <ul class="footer-list">
+                <li><a href="home.html"><img src="img/HomeIconSelected.png" alt="Home"></a></li>
+                <li><a href="friendsList.html"><img src="img/FriendsIcon.png" alt="Friends"></a></li>
+                <li><a href="chatListView.html"><img src="img/ChatIcon.png" alt="Chat"></a></li>
+                <li><a href="newPostView.html"><img src="img/PostIcon.png" alt="Post"></a></li>
+                <li><a href="viewNotifications.html"><img src="img/NotificationsIcon.png" alt="Bell"></a></li>
+                <li><a href="profile.html"><img src="img/UserIcon.png" alt="User"></a></li>
             </ul>
         </nav>
     </footer>

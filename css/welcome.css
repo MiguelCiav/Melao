@@ -1,47 +1,110 @@
-html{
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 1.3vw;
-}
-
-body{    
-    margin: 0;
-    width: 100vw;
-    height: 95vh;
-    font-size: 2.5rem;
-    text-align: center;
+.welcome-container {
     display: flex;
     flex-direction: column;
+    padding: 16px;
+    background-color: white;
+}
+
+.description {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.welcome-logo {
+    display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    margin-bottom: 12px;
 }
 
-.NavBar{
-    width: 100vw;
-    height: 10vh;
-    align-items: center;
-    justify-items: center;
-    font-size: 3.5rem;
-    font-weight: bold;
+.welcome-logo h1 {
+    font-size: 2rem;
+    text-align: center;
 }
 
-.LoginButton{
-    width: 90vw;
-    height: 7vh;
+.button {
+    justify-self: center;
     background-color: #E4AC73;
     color: black;
     font-weight: bold;
-    font-size: 2.5rem;
-    border-radius: 10px;
+    font-size: 1rem;
+    border-radius: 12px;
     border-style: none;
+    margin-top: 12px;
+    padding: 12px;
 }
 
-#SignUpButton{
+.sign-up {
     background-color: #E8E0CF;
-    margin-top: 2%;
 }
 
-#MelaoProject{
+footer p {
+    text-align: center;
+    color: #9C854A;
+    font-size: 1rem;
+    margin-bottom: 8px;
+}
+
+/* DESKTOP-ELEMENTS */
+
+.input-field {
+    margin-top: 12px;
+    border-style: none;
+    border-radius: 12px;
+    padding: 16px;
+    background-color: #F2F0E8;
+    font-size: 1rem;
+}
+
+.input-field::placeholder {
     color: #8C8059;
-    font-size: 2rem;
-    margin-top: auto;
+}
+
+.input-field:active {
+    outline: none;
+    font-size: 1rem;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 12px;
+}
+
+.welcome-container a {
+    color: #8C8059;
+    text-decoration: none;
+    margin: 12px 0;
+}
+
+@media (max-width: 600px) {
+    .desktop-content {
+        display: none;
+    }
+}
+
+@media (min-width: 601px) {
+    main {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin: 32px 0;
+    }
+
+    .welcome-container {
+        max-width: 600px;
+        padding: 32px;
+        border-radius: 6px;
+    }
+
+    body {
+        background-color: #E4AC73;
+    }
+
+    .description {
+        margin-bottom: 12px;
+    }
 }

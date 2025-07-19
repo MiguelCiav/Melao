@@ -1,51 +1,22 @@
-html{
-    font-family: 'Plus Jakarta Sans', sans-serif;
-}
-
-body{
-    padding: 0;
-    margin: 0;
-    height: 100vh;
-    width: 100vw;
+main {
     display: flex;
     flex-direction: column;
-    justify-items: center;
     align-items: center;
+    padding: 16px;
+    max-height: calc(100vh - 68px);
 }
 
-.NavBar{
-    margin: 0;
-    width: 90vw;
-    height: 10vh;
-    background-color: white;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    align-items: center;
-    font-weight: bold;
-    font-size: 1.3em;
-    margin-left: 5%;
-}
-
-#NavBarText{
-    grid-column: 2;
-    align-self: flex-end;
-}
-
-.SearchTabDiv{
-    width: 90%;
-    height: 10%;
+.search-tab {
+    display: flex;
+    flex-direction: row;
     background-color: #F2F0E8;
-    border-radius: 15px;
-    display: inline-flex;
-    align-items: center;
-    justify-self: center;
+    padding: 12px 16px;
+    border-radius: 12px;
+    max-width: 800px;
+    width: 100%;
 }
 
-.SearchTabDiv *{
-    margin-left: 2%;
-}
-
-.SearchTabDiv input{
+.search-tab input{
     width: 70%;
     font-size: 1em;
     border-style: none;
@@ -53,21 +24,32 @@ body{
 }
 
 .FriendsPannel{
-    width: 100vw;
-    height: 90vh;
-    display: inline-flex;
+    margin-top: 24px;
+    display: flex;
     flex-direction: column;
-    align-items: center;
     overflow-y: scroll;
+    max-width: 800px;
+    width: 100%;
 }
 
-.PersonDiv{
-    margin-top: 4%;
-    width: 90%;
-    height: 15%;
-    display: grid;
-    grid-template-columns: 25% 55% 20%;
+.person{
+    margin-top: 16px;
+    display: flex;
+    flex-direction: row;
     align-items: center;
+}
+
+.person:first-child {
+    margin-top: 0;
+}
+
+.person img {
+    margin-right: 24px;
+}
+
+.person img:nth-child(3) {
+    margin-left: auto;
+    margin-right: 4px;
 }
 
 .DeleteFriendIcon{
@@ -75,33 +57,14 @@ body{
     justify-self: flex-end;
 }
 
-.PersonName{
-    grid-column: 2;
-    font-size: 1.2em;
+@media (min-width: 601px) {
+    body {
+        background-color: #FCFAF7;
+    }
 }
 
-footer{
-    margin-top: auto;
-    border-width: 0;
-    border-top: 1px;
-    border-color: black;
-    border-style: solid;
-}
-
-ul{
-    margin: 0;
-    margin-top: auto;
-    padding: 0;
-    width: 100vw;
-    height: 8vh;
-    display: inline-flex;
-    list-style: none;
-    align-items: center;
-    justify-items: space-evenly;
-    justify-content: space-evenly;
-}
-
-ul img{
-    width: 30;
-    height: 35;
+@media (max-width: 600px) {
+    main {
+        max-height: calc(100vh - 128px);
+    }
 }

@@ -3,41 +3,147 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Melao</title>
-    <link rel="stylesheet" href="/css/searchPeople.css">
+    <title>Melao - Buscar</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/searchPeople.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
-    <script src="/js/searchPeople.js"></script>
 </head>
 <body>
-    <header class="NavBar">
-        <a id="Arrow-button" href="./home.html">
-            <img src="/img/BackArrow.png" width="30" height="30" alt="X">
+    <header class="mobile-navbar">
+        <a href="home.html">
+            <img src="img/left_arrow.svg" width="24" height="24" alt="Back">
         </a>
-        <p id="NavBarText">Buscar</p>
+        <p>Ethan Harper</p>
     </header>
+    <div class="desktop-navbar">
+        <ul class="nav-list">
+            <li>
+                <a class="logo-container" href="home.html">
+                    <img src="img/logoIcono.png" alt="Home">
+                    <p class="logo-text">Melao</p>
+                </a>
+            </li>
+            <li><a href="newPostView.html">Publicar</a></li>
+            <li><a href="chatListView.html">Chat</a></li>
+            <li><a href="friendsList.html">Amigos</a></li>
+            <li><a href="searchPersonView.html">Buscar Personas</a></li>
+        </ul>
+        <ul class="nav-list">
+            <li class="right-nav-item">
+                <a href="viewNotifications.html">
+                    <img src="img/bell.svg" alt="Notificaciones">
+                </a>
+            </li>
+            <li class="right-nav-item">
+                <a href="profile.html">
+                    <img src="img/pfp_example.png" alt="Perfil">
+                </a>
+            </li>
+        </ul>
+    </div>
+    
+    <main>
+        <div class="search-tab">
+            <img src="img/Lupa.png" alt="Icono de lupa">
+            <input type="text" placeholder="Buscar...">
+            <img src="img/X-Search-Icon.png" alt="Icono de borrar búsqueda">
+        </div>
+        
+        <div class="search-panel"></div>
+    </main>
 
-    <div class="SearchTabDiv">
-        <img src="/img/Lupa.png">
-        <input type="text" placeholder="Buscar...">
-        <img src="/img/X-Search-Icon.png">
-    </div>
-    
-    <div class="SearchPannel">
-    </div>
-    
     <footer>
         <nav class="Menu">
-            <ul>
-                <li><a href="./home.html"><img src="/img/HomeIconSelected.png" alt="Home"></a></li>
-                <li><a href="./friendsList.html"><img src="/img/FriendsIcon.png" alt="Friends"></a></li>
-                <li><a href="./chatListView.html"><img src="/img/ChatIcon.png" alt="Chat"></a></li>
-                <li><a href="./newPostView.html"><img src="/img/PostIcon.png" alt="Post"></a></li>
-                <li><a href="./viewNotifications.html"><img src="/img/NotificationsIcon.png" alt="Bell"></a></li>
-                <li><a href="./profile.html"><img src="/img/UserIcon.png" alt="User"></a></li>
+            <ul class="footer-list">
+                <li><a href="home.html"><img src="img/HomeIconSelected.png" alt="Home"></a></li>
+                <li><a href="friendsList.html"><img src="img/FriendsIcon.png" alt="Friends"></a></li>
+                <li><a href="chatListView.html"><img src="img/ChatIcon.png" alt="Chat"></a></li>
+                <li><a href="newPostView.html"><img src="img/PostIcon.png" alt="Post"></a></li>
+                <li><a href="viewNotifications.html"><img src="img/NotificationsIcon.png" alt="Bell"></a></li>
+                <li><a href="profile.html"><img src="img/UserIcon.png" alt="User"></a></li>
             </ul>
         </nav>
     </footer>
+
+    <script>
+        let dataDummy = [
+            {
+                name: "Ethan Hunt",
+                image: "img/EthanHuntProfile.png",
+            },
+            {
+                name: "Ethan Hunt",
+                image: "img/EthanHuntProfile.png",
+            },
+            {
+                name: "Ethan Hunt",
+                image: "img/EthanHuntProfile.png",
+            },
+            {
+                name: "Ethan Hunt",
+                image: "img/EthanHuntProfile.png",
+            },
+            {
+                name: "Ethan Hunt",
+                image: "img/EthanHuntProfile.png",
+            },
+            {
+                name: "Ethan Hunt",
+                image: "img/EthanHuntProfile.png",
+            },
+            {
+                name: "Ethan Hunt",
+                image: "img/EthanHuntProfile.png",
+            },
+            {
+                name: "Ethan Hunt",
+                image: "img/EthanHuntProfile.png",
+            }
+        ];
+
+        function renderPeople(people) {
+            people.forEach(element => {
+                const person = document.createElement("div");
+                person.setAttribute("class", "person");
+
+                const personImg = document.createElement("img");
+                personImg.setAttribute("src", element.image);
+                personImg.setAttribute("width", "70");
+                personImg.setAttribute("height", "70");
+                personImg.setAttribute("alt", "Profile picture");
+
+                const person_name = document.createElement("p");
+                person_name.setAttribute("class", "person_name");
+                person_name.innerText = element.name;
+
+                const addFriends = document.createElement("img");
+                addFriends.setAttribute("src", "img/AddFriend.png");
+                addFriends.setAttribute("width", "30");
+                addFriends.setAttribute("height", "30");
+                addFriends.setAttribute("alt", "Add friend");
+                addFriends.setAttribute("class", "Icon");
+
+                const chat = document.createElement("img");
+                chat.setAttribute("src", "img/Chat.png");
+                chat.setAttribute("width", "30");
+                chat.setAttribute("height", "30");
+                chat.setAttribute("alt", "Start chat");
+                chat.setAttribute("class", "Icon");
+
+                person.appendChild(personImg);
+                person.appendChild(person_name);
+                person.appendChild(addFriends);
+                person.appendChild(chat);
+
+                document.getElementsByClassName("search-panel")[0].appendChild(person);
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            renderPeople(dataDummy);
+        });
+    </script>
 </body>
 </html>

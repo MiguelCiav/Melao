@@ -3,42 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Melao</title>
-    <link rel="stylesheet" href="/css/newPost.css">
+    <title>Melao - New Post</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/newPost.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
-    <script src="/js/newPost.js"></script>
 </head>
 <body>
-    <header class="NavBar">
-        <a id="X-Icon" href="./home.html">
-            <img src="/img/X-Icon.png" width="30" height="30" alt="X">
+    <header class="mobile-navbar">
+        <a href="home.html">
+            <img src="img/left_arrow.svg" width="24" height="24" alt="X">
         </a>
-        <p id="NavBarText">Nuevo post</p>
-        <a id="PostLink" href="./home.html">
-            <p id="PostText">Publicar</p>
-        </a>
+        <p>Ethan Harper</p>
     </header>
-
-    <div class="PostPannel">
-        <div class="PostDiv">
-            <img src="/img/EthanHuntProfile.png">
-            <textarea id="PostTextArea" placeholder="¿Qué estás pensando?"></textarea>
-            <img src="/img/IMG-Icon.png" id="ImageIcon" class="PostIcon">
-            <img src="/img/Video-Icon.png" id="VideoIcon" class="PostIcon">
-        </div>
+    <div class="desktop-navbar">
+        <ul class="nav-list">
+            <li>
+                <a class="logo-container" href="home.html">
+                    <img src="img/logoIcono.png" alt="Home">
+                    <p class="logo-text">Melao</p>
+                </a>
+            </li>
+            <li><a href="newPostView.html">Publicar</a></li>
+            <li><a href="chatListView.html">Chat</a></li>
+            <li><a href="friendsList.html">Amigos</a></li>
+            <li><a href="searchPersonView.html">Buscar Personas</a></li>
+        </ul>
+        <ul class="nav-list">
+            <li class="right-nav-item">
+                <a href="viewNotifications.html">
+                    <img src="img/bell.svg" alt="Notificaciones">
+                </a>
+            </li>
+            <li class="right-nav-item">
+                <a href="profile.html">
+                    <img src="img/pfp_example.png" alt="Perfil">
+                </a>
+            </li>
+        </ul>
     </div>
     
+    <main>
+        <div class="PostPannel">
+            <div class="PostDiv">
+                <img src="img/EthanHuntProfile.png" class="profile-image">
+                <textarea placeholder="¿Qué estás pensando?"></textarea>
+                <img src="img/IMG-Icon.png" id="ImageIcon" class="PostIcon" alt="Add image">
+                <img src="img/Video-Icon.png" id="VideoIcon" class="PostIcon" alt="Add video">
+            </div>
+        </div>
+    </main>
+
     <footer>
         <nav class="Menu">
-            <ul>
-                <li><a href="./home.html"><img src="/img/HomeIconSelected.png" alt="Home"></a></li>
-                <li><a href="./friendsList.html"><img src="/img/FriendsIcon.png" alt="Friends"></a></li>
-                <li><a href="./chatListView.html"><img src="/img/ChatIcon.png" alt="Chat"></a></li>
-                <li><a href="./newPostView.html"><img src="/img/PostIcon.png" alt="Post"></a></li>
-                <li><a href="./viewNotifications.html"><img src="/img/NotificationsIcon.png" alt="Bell"></a></li>
-                <li><a href="./profile.html"><img src="/img/UserIcon.png" alt="User"></a></li>
+            <ul class="footer-list">
+                <li><a href="home.html"><img src="img/HomeIconSelected.png" alt="Home"></a></li>
+                <li><a href="friendsList.html"><img src="img/FriendsIcon.png" alt="Friends"></a></li>
+                <li><a href="chatListView.html"><img src="img/ChatIcon.png" alt="Chat"></a></li>
+                <li><a href="newPostView.html"><img src="img/PostIcon.png" alt="Post"></a></li>
+                <li><a href="viewNotifications.html"><img src="img/NotificationsIcon.png" alt="Bell"></a></li>
+                <li><a href="profile.html"><img src="img/UserIcon.png" alt="User"></a></li>
             </ul>
         </nav>
     </footer>

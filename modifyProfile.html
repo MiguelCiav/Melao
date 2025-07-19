@@ -3,69 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Melao</title>
-    <link rel="stylesheet" href="/css/modifyProfile.css">
+    <title>Melao - Modificar Perfil</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/modifyProfile.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+    <script src="js/languageAndThemeConfig.js"></script>
 </head>
 <body>
-    <header class="NavBar">
-        <a id="Arrow-button" href="./home.html">
-            <img src="/img/left_arrow.svg" width="24" height="24" alt="X">
+    <header class="mobile-navbar">
+        <a href="home.html">
+            <img src="img/left_arrow.svg" width="24" height="24" alt="X">
         </a>
-    <p id="PerfilText">Configuraciones</p>
+        <p>Ethan Harper</p>
     </header>
-
-    <div class="pfp-button">
-        <img id="profile-image" alt="Foto de Perfil" src="/img/pfp_example.png">
-        <a class="black-link" href="">Editar foto de perfil</a>
+    <div class="desktop-navbar">
+        <ul class="nav-list">
+            <li>
+                <a class="logo-container" href="home.html">
+                    <img src="img/logoIcono.png" alt="Home">
+                    <p class="logo-text">Melao</p>
+                </a>
+            </li>
+            <li><a href="newPostView.html">Publicar</a></li>
+            <li><a href="chatListView.html">Chat</a></li>
+            <li><a href="friendsList.html">Amigos</a></li>
+            <li><a href="searchPersonView.html">Buscar Personas</a></li>
+        </ul>
+        <ul class="nav-list">
+            <li class="right-nav-item">
+                <a href="viewNotifications.html">
+                    <img src="img/bell.svg" alt="Notificaciones">
+                </a>
+            </li>
+            <li class="right-nav-item">
+                <a href="profile.html">
+                    <img src="img/pfp_example.png" alt="Perfil">
+                </a>
+            </li>
+        </ul>
     </div>
-
-    <div class="option-container">
-        <div class="text-container">
-            <p class="title">Información Personal</p>
-            <p class="subtitle">Actualizar biografía</p>
+    
+    <main>
+        <div class="pfp-button">
+            <img id="profile-image" alt="Foto de Perfil" src="img/pfp_example.png">
+            <a class="black-link" href="">Editar foto de perfil</a>
         </div>
-        <img src="/img/right_arrow.svg" alt="">
-    </div>
 
-    <div class="option-container">
-        <div class="text-container">
-            <p class="title">Idioma y Tema</p>
-            <p class="subtitle">Escojer mi idioma preferido y tema para la aplicación</p>
+        <div class="option-container">
+            <div class="text-container">
+                <p class="title">Información Personal</p>
+                <p class="subtitle">Actualizar biografía</p>
+            </div>
+            <img src="img/right_arrow.svg" alt="">
         </div>
-        <a href="./languageAndThemeConfigView.html">
-            <img src="/img/right_arrow.svg" alt="">
-        </a>
-    </div>
 
-    <div class="option-container">
-        <div class="text-container">
-            <p class="title">Configuraciones de Privacidad</p>
-            <p class="subtitle">Gestionar quien puede ver mis publicaciones.</p>
+        <div class="option-container">
+            <div class="text-container">
+                <p class="title">Seguridad y Acceso</p>
+                <p class="subtitle">Cambiar contraseña</p>
+            </div>
+            <img src="img/right_arrow.svg" alt="">
         </div>
-        <img src="/img/right_arrow.svg" alt="">
-    </div>
 
-    <div class="option-container">
-        <div class="text-container">
-            <p class="title">Configurar Notificaciones</p>
-            <p class="subtitle">Gestionar las preferencias de notificaciones.</p>
+        <div class="option-container">
+            <div class="text-container">
+                <a class="black-link" href="languageAndThemeConfigView.html">
+                    <p class="title">Apariencia</p>
+                    <p class="subtitle">Personalizar idioma y tema</p>
+                </a>
+            </div>
+            <a href="languageAndThemeConfigView.html">
+                <img src="img/right_arrow.svg" alt="">
+            </a>
         </div>
-        <img src="/img/right_arrow.svg" alt="">
-    </div>
+
+        <div class="option-container">
+            <div class="text-container">
+                <p class="title">Configuraciones de Privacidad</p>
+                <p class="subtitle">Gestionar quien puede ver mis publicaciones.</p>
+            </div>
+            <img src="img/right_arrow.svg" alt="">
+        </div>
+
+        <div class="option-container">
+            <div class="text-container">
+                <p class="title">Configurar Notificaciones</p>
+                <p class="subtitle">Gestionar las preferencias de notificaciones.</p>
+            </div>
+            <img src="img/right_arrow.svg" alt="">
+        </div>
+    </main>
 
     <footer>
         <nav class="Menu">
-            <ul>
-                <li><a href="./home.html"><img src="/img/HomeIcon.png" alt="Home"></a></li>
-                <li><a href="./friendsList.html"><img src="/img/FriendsIcon.png" alt="Friends"></a></li>
-                <li><a href="./chats.html"><img src="/img/ChatIcon.png" alt="Chat"></a></li>
-                <li><a href="./newPostView.html"><img src="/img/PostIcon.png" alt="Post"></a></li>
-                <li><a href="./notifications.html"><img src="/img/NotificationsIcon.png" alt="Bell"></a></li>
-                <li><a href="./profile.html"><img src="/img/UserIcon.png" alt="User"></a></li>
+            <ul class="footer-list">
+                <li><a href="home.html"><img src="img/HomeIconSelected.png" alt="Home"></a></li>
+                <li><a href="friendsList.html"><img src="img/FriendsIcon.png" alt="Friends"></a></li>
+                <li><a href="chatListView.html"><img src="img/ChatIcon.png" alt="Chat"></a></li>
+                <li><a href="newPostView.html"><img src="img/PostIcon.png" alt="Post"></a></li>
+                <li><a href="viewNotifications.html"><img src="img/NotificationsIcon.png" alt="Bell"></a></li>
+                <li><a href="profile.html"><img src="img/UserIcon.png" alt="User"></a></li>
             </ul>
         </nav>
     </footer>
 </body>
+</html>

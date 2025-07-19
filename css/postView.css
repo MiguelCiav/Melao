@@ -1,26 +1,3 @@
-html{
-    font-family: 'Plus Jakarta Sans', sans-serif;
-}
-
-body{
-    padding: 0;
-    margin: 0;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-
-.NavBar{
-    margin: 0;
-    background-color: white;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    align-items: center;
-    font-weight: bold;
-    font-size: 1.3em;
-    padding: 16px;
-}
-
 #PerfilText{
     grid-column: 2;
     align-self: flex-end;
@@ -158,29 +135,4 @@ body{
 
 .comment-field input:focus {
     outline: none;
-}
-
-footer{
-    /*The footer should stay at the bottom and be sticky*/
-    position: sticky;
-    bottom: 0;
-    background-color: white;
-}
-
-ul{
-    margin: 0;
-    margin-top: auto;
-    padding: 0;
-    width: 100vw;
-    height: 8vh;
-    display: inline-flex;
-    list-style: none;
-    align-items: center;
-    justify-items: space-evenly;
-    justify-content: space-evenly;
-}
-
-ul img{
-    width: 30;
-    height: 35;
 }

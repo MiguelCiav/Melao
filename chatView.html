@@ -3,91 +3,172 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Melao</title>
-    <link rel="stylesheet" href="/css/chatView.css">
+    <title>Melao - Chat</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/chatView.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="NavBar">
-        <a id="Arrow-button" href="./home.html">
-            <img src="/img/left_arrow.svg" width="24" height="24" alt="X">
+    <header class="mobile-navbar">
+        <a href="home.html">
+            <img src="img/left_arrow.svg" width="24" height="24" alt="X">
         </a>
-    <p id="PerfilText">Ethan Harper</p>
+        <p>Ethan Harper</p>
     </header>
     <div class="desktop-navbar">
         <ul class="nav-list">
             <li>
-                <a class="logo-container" href="/MelaoApp/views/MelaoApp/home.html">
-                    <img src="/img/logoIcono.png" alt="Home">
+                <a class="logo-container" href="home.html">
+                    <img src="img/logoIcono.png" alt="Home">
                     <p class="logo-text">Melao</p>
                 </a>
             </li>
-            <li><a href="/MelaoApp/views/MelaoApp/newPostView.html">Publicar</a></li>
-            <li><a href="/MelaoApp/views/MelaoApp/chatView.html">Chat</a></li>
-            <li><a href="/MelaoApp/views/MelaoApp/friendsList.html">Amigos</a></li>
-            <li><a href="/MelaoApp/views/MelaoApp/searchPersonView.html">Buscar Personas</a></li>
+            <li><a href="newPostView.html">Publicar</a></li>
+            <li><a href="chatListView.html">Chat</a></li>
+            <li><a href="friendsList.html">Amigos</a></li>
+            <li><a href="searchPersonView.html">Buscar Personas</a></li>
         </ul>
         <ul class="nav-list">
             <li class="right-nav-item">
-                <a href="/MelaoApp/views/MelaoApp/viewNotifications.html">
-                    <img src="/img/bell.svg" alt="">
+                <a href="viewNotifications.html">
+                    <img src="img/bell.svg" alt="Notificaciones">
                 </a>
             </li>
             <li class="right-nav-item">
-                <a href="/MelaoApp/views/MelaoApp/profile.html">
-                    <img src="/img/pfp_example.png" alt="">
+                <a href="profile.html">
+                    <img src="img/pfp_example.png" alt="Perfil">
                 </a>
             </li>
         </ul>
     </div>
-    <div class="chat-container">
-        <div class="messages-container">
-            <p class="chat-date">
-                25 Octubre 2025
-            </p>
-            <div class="message">
-                <div class="message-content">
-                    <p class="username">Ethan</p>
-                    <p class="text">¡Hola! ¿Cómo estás?</p>
-                </div>
-                <img class="profile-photo" src="/img/ethan_carter.png" width="40" height="40">
-            </div>
-            <div class="message-received">
-                <img class="profile-photo" src="/img/pfp_example.png" width="40" height="40" alt="">
-                <div class="message-content-received">
-                    <p class="username-received">Sofia</p>
-                    <p class="text-received">Todo bien, ¿Y tú?</p>
-                </div>
-            </div>
-            <div class="message-received">
-                <img class="profile-photo" src="/img/pfp_example.png" width="40" height="40" alt="">
-                <div class="message-content-received">
-                    <p class="username-received">Sofia</p>
-                    <p class="text-received">Estaba justo pensando en que, Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea temporibus corrupti ratione architecto quisquam. Odit similique odio officia voluptatum earum. Excepturi qui illo at fugit facilis numquam nostrum illum fuga.
-                    Esse tenetur placeat eaque impedit omnis explicabo atque, dolore incidunt odit repudiandae illo quaerat, praesentium reiciendis id blanditiis vero neque sed ipsam sunt deserunt ut voluptas possimus. Non, necessitatibus dignissimos!
-                    Quidem ullam totam laudantium in culpa id, doloremque qui. Quod </p>
-                </div>
+    
+    <main>
+        <div class="chats-pannel desktop-content">
+            <p class="title">Lista de Chats</p>
+            <div class="search-tab">
+                <img src="img/Lupa.png" alt="Icono de lupa">
+                <input type="text" placeholder="Buscar...">
+                <img src="img/X-Search-Icon.png" alt="Icono de borrar búsqueda">
             </div>
         </div>
-    </div>
-    <div class="input-container">
-            <input type="text" id="message-input" placeholder="Escribe un mensaje...">
-            <button id="send-button">
-                <img src="/img/right_arrow_button.svg" alt="Enviar">
-            </button>
-    </div>
+        <div class="chat-container">
+            <div class="messages-container">
+                <p class="chat-date">
+                    25 Octubre 2025
+                </p>
+                <div class="message">
+                    <div class="message-content">
+                        <p class="username">Tú</p>
+                        <p class="text">¡Hola! ¿Cómo estás?</p>
+                    </div>
+                    <img class="profile-photo" src="img/ethan_carter.png" width="30" height="30" alt="">
+                </div>
+
+                <div class="message incoming">
+                    <img class="profile-photo" src="img/pfp_example.png" width="30" height="30" alt="">
+                    <div class="message-content">
+                        <p class="username-received">Sophia</p>
+                        <p class="text-received">¡Todo bien! ¿Y tú?</p>
+                    </div>
+                </div>
+
+                <p class="chat-date">
+                    25 Octubre 2025
+                </p>
+
+                <div class="message">
+                    <div class="message-content">
+                        <p class="username">Tú</p>
+                        <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam nostrum illum fuga.
+                        Esse tenetur placeat eaque impedit omnis explicabo atque, dolore incidunt odit repudiandae illo quaerat, praesentium reiciendis id blanditiis vero neque sed ipsam sunt deserunt ut voluptas possimus. Non, necessitatibus dignissimos!
+                        Quidem ullam totam laudantium in culpa id, doloremque qui. Quod </p>
+                    </div>
+                    <img class="profile-photo" src="img/ethan_carter.png" width="30" height="30" alt="">
+                </div>
+            </div>
+            <div class="input-container">
+                    <input type="text" id="message-input" placeholder="Escribe un mensaje...">
+                    <button id="send-button">
+                        <img src="img/right_arrow_button.svg" alt="Enviar">
+                    </button>
+            </div>
+        </div>
+    </main>
+
     <footer>
         <nav class="Menu">
-            <ul>
-                <li><a href="./home.html"><img src="/img/HomeIcon.png" alt="Home"></a></li>
-                <li><a href="./friendsList.html"><img src="/img/FriendsIcon.png" alt="Friends"></a></li>
-                <li><a href="./chats.html"><img src="/img/ChatIcon.png" alt="Chat"></a></li>
-                <li><a href="./newPost.html"><img src="/img/PostIcon.png" alt="Post"></a></li>
-                <li><a href="./notifications.html"><img src="/img/NotificationsIcon.png" alt="Bell"></a></li>
-                <li><a href="./profile.html"><img src="/img/UserIcon.png" alt="User"></a></li>
+            <ul class="footer-list">
+                <li><a href="home.html"><img src="img/HomeIconSelected.png" alt="Home"></a></li>
+                <li><a href="friendsList.html"><img src="img/FriendsIcon.png" alt="Friends"></a></li>
+                <li><a href="chatListView.html"><img src="img/ChatIcon.png" alt="Chat"></a></li>
+                <li><a href="newPostView.html"><img src="img/PostIcon.png" alt="Post"></a></li>
+                <li><a href="viewNotifications.html"><img src="img/NotificationsIcon.png" alt="Bell"></a></li>
+                <li><a href="profile.html"><img src="img/UserIcon.png" alt="User"></a></li>
             </ul>
         </nav>
     </footer>
+
+    <script>
+        let dataDummy = [
+            {
+                name: "Ethan Hunt",
+                image: "img/EthanHuntProfile.png",
+                messages_count: "3 Mensajes Nuevos"
+            },
+            {
+                name: "Ethan Hunt",
+                image: "img/EthanHuntProfile.png",
+                messages_count: "3 Mensajes Nuevos"
+            },
+            {
+                name: "Ethan Hunt",
+                image: "img/EthanHuntProfile.png",
+                messages_count: "3 Mensajes Nuevos"
+            },
+            {
+                name: "Ethan Hunt",
+                image: "img/EthanHuntProfile.png",
+                messages_count: "3 Mensajes Nuevos"
+            },
+            {
+                name: "Ethan Hunt",
+                image: "img/EthanHuntProfile.png",
+                messages_count: "3 Mensajes Nuevos"
+            }
+        ];
+
+        function renderPeople(people) {
+            people.forEach(element => {
+                const person = document.createElement("div");
+                person.setAttribute("class", "person");
+
+                const personImg = document.createElement("img");
+                personImg.setAttribute("src", element.image);
+                personImg.setAttribute("width", "70");
+                personImg.setAttribute("height", "70");
+                personImg.setAttribute("alt", "X");
+
+                const person_name = document.createElement("p");
+                person_name.setAttribute("class", "person-name");
+                person_name.innerText = element.name;
+
+                const personlast_connection = document.createElement("p");
+                personlast_connection.setAttribute("class", "last-connection");
+                personlast_connection.innerText = element.messages_count;
+
+                person.appendChild(personImg);
+                person.appendChild(person_name);
+                person.appendChild(personlast_connection);
+
+                document.getElementsByClassName("chats-pannel")[0].appendChild(person);
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            renderPeople(dataDummy);
+        });
+    </script>
 </body>
+</html>

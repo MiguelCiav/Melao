@@ -3,24 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Melao</title>
-    <link rel="stylesheet" href="/css/welcome.css">
+    <title>Bienvenido</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/welcome.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
 </head>
-<header class="NavBar">
-    <p id="LogoText">Melao</p>
-</header>
 <body>
-    <img src="/img/logo.png" alt="Logo" class="Logo" width="80" height="80">
-    <h1>Bienvenido a Melao</h1>
-    <p id="description">Conéctate con tus compañeros, comparte experiencias y mantente al día con lo que sucede en la comunidad ATI.</p>
-    <a href="./loginView.html">
-        <input type="button" value="Iniciar Sesión" class="LoginButton"/>
-    </a>
-    <a href="./signUpView.html">
-        <input type="button" value="Registrate" class="LoginButton" id="SignUpButton"/>
-    </a>
-    <p id="MelaoProject">Proyecto Melao - 2025</p>
+    <header class="mobile-navbar">
+        <p>Melao</p>
+    </header>
+    <div class="desktop-navbar">
+        <ul class="nav-list">
+            <li>
+                <a class="logo-container" href="welcome.html">
+                    <img src="img/logoIcono.png" alt="Home">
+                    <p class="logo-text">Melao</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+    
+    <main>
+        <div class="welcome-container">
+            <div class="welcome-logo">
+                <img src="img/logo.png" alt="Logo de Melao" class="Logo" width="80" height="80">
+                <h1>Bienvenido a Melao</h1>
+            </div>
+            <p class="description">Conéctate con tus compañeros, comparte experiencias y mantente al día con lo que sucede en la comunidad ATI.</p>
+
+            <input type="text" placeholder="Ingresa tu correo electronico" class="input-field" id="email">
+            <input type="password" placeholder="Ingresa tu contraseña" class="input-field">
+            <div class="remember-me">
+                <label for="remember-me">Recuerdame</label>
+                <input type="checkbox" id="remember-me">
+            </div>
+            <a href="#" class="desktop-content">¿Has olvidado tu contraseña?</a>
+
+            <button onclick="window.location.href='home.html'" class="button">
+                Iniciar Sesion
+            </button>
+            <button onclick="window.location.href='signUpView.html'" class="button sign-up">
+                Registrarse
+            </button>
+        </div>
+    </main>
+
+    <footer>
+        <p>Proyecto Melao - 2025</p>
+    </footer>
 </body>
+</html>
