@@ -3,6 +3,7 @@ main {
     flex-direction: column;
     align-items: center;
     padding: 16px;
+    max-height: calc(100vh - 68px);
 }
 
 .search-tab {
@@ -59,5 +60,11 @@ main {
 @media (min-width: 601px) {
     body {
         background-color: #FCFAF7;
+    }
+}
+
+@media (max-width: 600px) {
+    main {
+        max-height: calc(100vh - 128px);
     }
 }

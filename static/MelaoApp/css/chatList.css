@@ -13,6 +13,7 @@ main {
     display: grid;
     grid-template-columns: 70px auto;
     align-items: center;
+    text-decoration: none;
 }
 
 .person:first-child {
@@ -29,6 +30,7 @@ main {
     grid-column: 2;
     align-self: center;
     margin-left: 16px;
+    color: black;
 }
 
 .last-connection{
