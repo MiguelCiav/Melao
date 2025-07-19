@@ -1,3 +1,9 @@
+main {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+}
+
 #PostLink{
     grid-column: 3;
     text-decoration: none;
@@ -5,24 +11,27 @@
 }
 
 .PostPannel{
-    width: 100vw;
-    height: 90vh;
-    display: inline-flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
-    overflow-y: scroll;
 }
 
 .PostDiv{
-    width: 90%;
-    height: 25%;
     display: grid;
-    grid-template-columns: 25% 55% 20%;
-    grid-template-rows: 65% 35%;
+    grid-template-columns: 40px auto;
+    grid-template-rows: auto 40px;
     background-color: #F5F0E5;
     justify-items: center;
     border-radius: 15px;
-    padding-top: 5%;
+    border: 1px solid #E8E3CF;
+    width: 100%;
+    max-width: 800px;
+    padding: 16px;
+}
+
+.profile-image {
+    width: 40px;
+    height: 40px;
 }
 
 .PostIcon{
@@ -34,26 +43,31 @@
 
 textarea{
     grid-row: 1;
-    grid-column: 2/4;
-    width: 95%;
-    height: 90%;
+    grid-column: 2/3;
     border-style: none;
     background-color: #F5F0E5;
-    align-items: center;
-    align-self: flex-end;
     outline: none;
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 1.2em;
+    font-size: 1rem;
+    width: 100%;
+    height: 100%;
+    max-height: 400px;
+    padding-left: 12px;
+    field-sizing: content;
+    resize: none;
+}
+
+textarea:focus {
+    border-style: none;
 }
 
 #ImageIcon{
     grid-column: 2;
-    justify-self: flex-end;
+    margin-left: calc(100% - 108px);
 }
 
 #VideoIcon{
-    justify-self: flex-start;
-    grid-column: 3;
+    grid-column: 2;
+    margin-left: auto;
 }
 
 #X-Icon{
@@ -61,4 +75,10 @@ textarea{
     height: 30px;
     cursor: pointer;
     margin-left: 50%;
+}
+
+@media (min-width: 601px) {
+    body {
+        background-color: #FCFAF7;
+    }
 }
