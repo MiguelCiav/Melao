@@ -14,17 +14,18 @@
 
 {% block content %}
     <div class="ConfigPancnel">
+        <img src="{% static 'MelaoApp/img/left_arrow.svg' %}" alt="Volver" class="BackButton" onclick="history.back()">
+        <p class="title">Idioma</p>
         <div id="Language">
-            <h2>Idioma</h2>
             <select name="Languages" class="Languages">
                 <option value="Español">Español</option>
                 <option value="Ingles">Inglés</option>
             </select>
         </div>
+        <p class="title">Tema</p>
         <div id="Theme">
-            <h2>Tema</h2>
-            <div class="ThemeButton" id="LightMode"><p>Claro</p></div>
-            <div class="ThemeButton" id="DarkMode"><p>Oscuro</p></div>
+            <button class="ThemeButton" id="LightMode"><p>Claro</p></button>
+            <button class="ThemeButton" id="DarkMode"><p>Oscuro</p></button>
         </div>
     </div>
 {% endblock %}
