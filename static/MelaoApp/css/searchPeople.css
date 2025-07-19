@@ -1,43 +1,70 @@
-.SearchPannel{
-    width: 100vw;
-    height: 90vh;
-    display: inline-flex;
+main {
+    display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 16px;
+}
+
+.search-panel{
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
     overflow-y: scroll;
+    max-width: 800px;
+    width: 100%;
 }
 
-.SearchTabDiv{
-    width: 90%;
-    height: 10%;
+.search-tab{
+    display: flex;
+    flex-direction: row;
     background-color: #F2F0E8;
-    border-radius: 15px;
-    display: inline-flex;
-    align-items: center;
-    justify-self: center;
+    padding: 12px 16px;
+    border-radius: 12px;
+    max-width: 800px;
+    width: 100%;
 }
 
-.SearchTabDiv *{
-    margin-left: 2%;
+.search-tab img:nth-child(3) {
+    margin-left: auto;
 }
 
-.SearchTabDiv input{
-    width: 70%;
+.search-tab input{
     font-size: 1em;
     border-style: none;
     background-color: #F2F0E8;
 }
 
-.PersonDiv{
-    margin-top: 4%;
-    width: 90%;
-    height: 50%;
-    display: grid;
-    grid-template-columns: 25% 45% 15% 15%;
+.person{
+    margin-top: 16px;
+    display: flex;
+    flex-direction: row;
     align-items: center;
+}
+
+.person:first-child {
+    margin-top: 0;
+}
+
+.person img {
+    margin-right: 24px;
+}
+
+.person img:nth-child(3) {
+    margin-left: auto;
+    margin-right: 16px;
+}
+
+.person img:nth-child(4) {
+    margin-right: 4px;
 }
 
 .Icon{
     width: 40px;
     height: 40px;
+}
+
+@media (min-width: 601px) {
+    body {
+        background-color: #FCFAF7;
+    }
 }

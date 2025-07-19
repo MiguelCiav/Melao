@@ -1,23 +1,21 @@
-#NavBarText{
-    grid-column: 2;
-    align-self: flex-end;
-}
-
-.SearchTabDiv{
-    width: 90%;
-    height: 10%;
-    background-color: #F2F0E8;
-    border-radius: 15px;
-    display: inline-flex;
+main {
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-self: center;
+    padding: 16px;
 }
 
-.SearchTabDiv *{
-    margin-left: 2%;
+.search-tab {
+    display: flex;
+    flex-direction: row;
+    background-color: #F2F0E8;
+    padding: 12px 16px;
+    border-radius: 12px;
+    max-width: 800px;
+    width: 100%;
 }
 
-.SearchTabDiv input{
+.search-tab input{
     width: 70%;
     font-size: 1em;
     border-style: none;
@@ -25,21 +23,32 @@
 }
 
 .FriendsPannel{
-    width: 100vw;
-    height: 90vh;
-    display: inline-flex;
+    margin-top: 24px;
+    display: flex;
     flex-direction: column;
-    align-items: center;
     overflow-y: scroll;
+    max-width: 800px;
+    width: 100%;
 }
 
-.PersonDiv{
-    margin-top: 4%;
-    width: 90%;
-    height: 15%;
-    display: grid;
-    grid-template-columns: 25% 55% 20%;
+.person{
+    margin-top: 16px;
+    display: flex;
+    flex-direction: row;
     align-items: center;
+}
+
+.person:first-child {
+    margin-top: 0;
+}
+
+.person img {
+    margin-right: 24px;
+}
+
+.person img:nth-child(3) {
+    margin-left: auto;
+    margin-right: 4px;
 }
 
 .DeleteFriendIcon{
@@ -47,7 +56,8 @@
     justify-self: flex-end;
 }
 
-.PersonName{
-    grid-column: 2;
-    font-size: 1.2em;
+@media (min-width: 601px) {
+    body {
+        background-color: #FCFAF7;
+    }
 }

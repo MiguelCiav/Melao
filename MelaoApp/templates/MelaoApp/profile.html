@@ -10,7 +10,7 @@
                 name: "Ethan Hunt",
                 image: "{% static 'MelaoApp/img/EthanHuntProfile.png' %}",
                 postDescription: "Alrededor de las 7 PM, nos reuniremos en la biblioteca.",
-                lastConnection: "2d",
+                last_connection: "2d",
                 likes: 12,
                 comments: 5
             },
@@ -18,7 +18,7 @@
                 name: "Ethan Hunt",
                 image: "{% static 'MelaoApp/img/EthanHuntProfile.png' %}",
                 postDescription: "ATI es lo más duro del planeta chamo.",
-                lastConnection: "1d",
+                last_connection: "1d",
                 likes: 25,
                 comments: 10
             },
@@ -26,7 +26,7 @@
                 name: "Ethan Hunt",
                 image: "{% static 'MelaoApp/img/EthanHuntProfile.png' %}",
                 postDescription: "Alrededor de las 7 PM, nos reuniremos en la biblioteca.",
-                lastConnection: "2d",
+                last_connection: "2d",
                 likes: 12,
                 comments: 5
             },
@@ -34,7 +34,7 @@
                 name: "Ethan Hunt",
                 image: "{% static 'MelaoApp/img/EthanHuntProfile.png' %}",
                 postDescription: "ATI es lo más duro del planeta chamo.",
-                lastConnection: "1d",
+                last_connection: "1d",
                 likes: 25,
                 comments: 10
             }
@@ -58,16 +58,16 @@
                 postImg.setAttribute("alt", "X");
 
                 const postName = document.createElement("p");
-                postName.setAttribute("class", "PersonName");
+                postName.setAttribute("class", "person-name");
                 postName.innerText = element.name;
 
                 const postDescription = document.createElement("p");
                 postDescription.setAttribute("class", "PostDescription");
                 postDescription.innerText = element.postDescription;
 
-                const postLastConnection = document.createElement("p");
-                postLastConnection.setAttribute("class", "LastConnection");
-                postLastConnection.innerText = element.lastConnection;
+                const postlast_connection = document.createElement("p");
+                postlast_connection.setAttribute("class", "last_connection");
+                postlast_connection.innerText = element.last_connection;
 
                 const postLikes = document.createElement("div");
                 postLikes.setAttribute("class", "PostLikes");
@@ -94,7 +94,7 @@
                 postDiv.appendChild(postImg);
                 postDiv.appendChild(postName);
                 postDiv.appendChild(postDescription);
-                postDiv.appendChild(postLastConnection);
+                postDiv.appendChild(postlast_connection);
                 postLikes.appendChild(likeImg);
                 postLikes.appendChild(likesCount);
                 postComments.appendChild(commentImg);
@@ -127,8 +127,10 @@
             </a>
             <input type="button" value="Compartir Perfil" class="ProfileButton" id="ShareProfileButton"/>
         </div>
+        <p class="title">Sobre Mi</p>
+        <p class="about-me">Soy estudiante de la UCV, me gusta el café y los videojuegos. Actualmente estudio ATI y disfruto aprender sobre nuevas tecnologías.</p>
+        <p class="title">Muro</p>
         <div class="Posts">
-            <h1 class="PostsText">Muro</h1>
         </div> 
     </div>
 {% endblock %}
