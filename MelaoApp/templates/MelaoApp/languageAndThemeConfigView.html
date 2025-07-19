@@ -1,0 +1,31 @@
+{% extends 'MelaoApp/base.html' %}
+{% load static %}
+
+{% block title %}Melao - Configuración{% endblock %}
+
+{% block static_css %}
+{{ block.super }}
+    <link rel="stylesheet" href="{% static 'MelaoApp/css/languageAndThemeConfig.css' %}">
+{% endblock %}
+
+{% block static_js %}
+    <script src="{% static 'MelaoApp/js/languageAndThemeConfig.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="ConfigPancnel">
+        <img src="{% static 'MelaoApp/img/left_arrow.svg' %}" alt="Volver" class="BackButton" onclick="history.back()">
+        <p class="title">Idioma</p>
+        <div id="Language">
+            <select name="Languages" class="Languages">
+                <option value="Español">Español</option>
+                <option value="Ingles">Inglés</option>
+            </select>
+        </div>
+        <p class="title">Tema</p>
+        <div id="Theme">
+            <button class="ThemeButton" id="LightMode"><p>Claro</p></button>
+            <button class="ThemeButton" id="DarkMode"><p>Oscuro</p></button>
+        </div>
+    </div>
+{% endblock %}

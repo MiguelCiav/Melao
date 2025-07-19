@@ -1,0 +1,100 @@
+{% extends 'MelaoApp/base.html' %}
+{% load static %}
+
+{% block title %}Melao - Home{% endblock %}
+
+{% block static_css %}
+{{ block.super }}
+    <link rel="stylesheet" href="{% static 'MelaoApp/css/home.css' %}">
+{% endblock %}
+
+{% block static_js %}
+    <script>
+        let dataDummy = [
+            {
+                name: "Ethan Hunt",
+                image: "{% static 'MelaoApp/img/EthanHuntProfile.png' %}",
+                postDescription: "Alrededor de las 7 PM, nos reuniremos en la biblioteca.",
+                last_connection: "2d",
+                likes: 12,
+                comments: 5
+            },
+            {
+                name: "Sophia Carter",
+                image: "{% static 'MelaoApp/img/EthanHuntProfile.png' %}",
+                postDescription: "ATI es lo más duro del planeta chamo.",
+                last_connection: "1d",
+                likes: 25,
+                comments: 10
+            }
+        ];
+
+        function renderPosts(posts) {
+            document.getElementsByClassName("HomePannel");
+            posts.forEach(element => {
+                const postDiv = document.createElement("div");
+                postDiv.setAttribute("class", "HomePost");
+
+                const postImg = document.createElement("img");
+                postImg.setAttribute("src", element.image);
+                postImg.setAttribute("width", "70");
+                postImg.setAttribute("height", "70");
+                postImg.setAttribute("alt", "X");
+
+                const postName = document.createElement("p");
+                postName.setAttribute("class", "person-name");
+                postName.innerText = element.name;
+
+                const postDescription = document.createElement("p");
+                postDescription.setAttribute("class", "PostDescription");
+                postDescription.innerText = element.postDescription;
+
+                const postlast_connection = document.createElement("p");
+                postlast_connection.setAttribute("class", "last_connection");
+                postlast_connection.innerText = element.last_connection;
+
+                const postLikes = document.createElement("div");
+                postLikes.setAttribute("class", "PostLikes");
+
+                const likeImg = document.createElement("img");
+                likeImg.setAttribute("src", "{% static '/MelaoApp/img/Like.png' %}");
+                likeImg.setAttribute("width", "20");
+                likeImg.setAttribute("height", "20");
+
+                const likesCount = document.createElement("p");
+                likesCount.setAttribute("class", "LikesCount");
+                likesCount.innerText = element.likes;
+
+                const postComments = document.createElement("div");
+                postComments.setAttribute("class", "PostComments");
+                const commentImg = document.createElement("img");
+                commentImg.setAttribute("src", "{% static '/MelaoApp/img/Comment.png' %}");
+                commentImg.setAttribute("width", "20");
+                commentImg.setAttribute("height", "20");
+                const commentsCount = document.createElement("p");
+                commentsCount.setAttribute("class", "CommentsCount");
+                commentsCount.innerText = element.comments;
+
+                postDiv.appendChild(postImg);
+                postDiv.appendChild(postName);
+                postDiv.appendChild(postDescription);
+                postDiv.appendChild(postlast_connection);
+                postLikes.appendChild(likeImg);
+                postLikes.appendChild(likesCount);
+                postComments.appendChild(commentImg);
+                postComments.appendChild(commentsCount);
+                postDiv.appendChild(postLikes);
+                postDiv.appendChild(postComments);
+                document.getElementsByClassName("HomePannel")[0].appendChild(postDiv);
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            renderPosts(dataDummy);
+        });
+    </script>
+{% endblock %}
+
+{% block content %}
+    <div class="HomePannel"></div>
+{% endblock %}

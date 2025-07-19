@@ -1,0 +1,125 @@
+{% extends 'MelaoApp/base.html' %}
+{% load static %}
+
+{% block title %}Melao - Chat{% endblock %}
+
+{% block static_css %}
+{{ block.super }}
+    <link rel="stylesheet" href="{% static 'MelaoApp/css/chatView.css' %}">
+{% endblock %}
+
+{% block static_js %}
+    <script>
+    let dataDummy = [
+        {
+            name: "Ethan Hunt",
+            image: "{% static 'MelaoApp/img/EthanHuntProfile.png' %}",
+            messages_count: "3 Mensajes Nuevos"
+        },
+        {
+            name: "Ethan Hunt",
+            image: "{% static 'MelaoApp/img/EthanHuntProfile.png' %}",
+            messages_count: "3 Mensajes Nuevos"
+        },
+        {
+            name: "Ethan Hunt",
+            image: "{% static 'MelaoApp/img/EthanHuntProfile.png' %}",
+            messages_count: "3 Mensajes Nuevos"
+        },
+        {
+            name: "Ethan Hunt",
+            image: "{% static 'MelaoApp/img/EthanHuntProfile.png' %}",
+            messages_count: "3 Mensajes Nuevos"
+        },
+        {
+            name: "Ethan Hunt",
+            image: "{% static 'MelaoApp/img/EthanHuntProfile.png' %}",
+            messages_count: "3 Mensajes Nuevos"
+        }
+        ];
+
+        function renderPeople(people) {
+        people.forEach(element => {
+            const person = document.createElement("div");
+            person.setAttribute("class", "person");
+
+            const personImg = document.createElement("img");
+            personImg.setAttribute("src", element.image);
+            personImg.setAttribute("width", "70");
+            personImg.setAttribute("height", "70");
+            personImg.setAttribute("alt", "X");
+
+            const person_name = document.createElement("p");
+            person_name.setAttribute("class", "person-name");
+            person_name.innerText = element.name;
+
+            const personlast_connection = document.createElement("p");
+            personlast_connection.setAttribute("class", "last-connection");
+            personlast_connection.innerText = element.messages_count;
+
+            person.appendChild(personImg);
+            person.appendChild(person_name);
+            person.appendChild(personlast_connection);
+
+            document.getElementsByClassName("chats-pannel")[0].appendChild(person);
+        });
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+        renderPeople(dataDummy);
+        });
+    </script>
+{% endblock %}
+
+{% block content %}
+    <div class="chats-pannel desktop-content">
+        <p class="title">Lista de Chats</p>
+        <div class="search-tab">
+            <img src="{% static 'MelaoApp/img/Lupa.png' %}" alt="Icono de lupa">
+            <input type="text" placeholder="Buscar...">
+            <img src="{% static 'MelaoApp/img/X-Search-Icon.png' %}" alt="Icono de borrar búsqueda">
+        </div>
+    </div>
+    <div class="chat-container">
+        <div class="messages-container">
+            <p class="chat-date">
+                25 Octubre 2025
+            </p>
+            <div class="message">
+                <div class="message-content">
+                    <p class="username">Tú</p>
+                    <p class="text">¡Hola! ¿Cómo estás?</p>
+                </div>
+                <img class="profile-photo" src="{% static 'MelaoApp/img/ethan_carter.png' %}" width="30" height="30" alt="">
+            </div>
+
+            <div class="message incoming">
+                <img class="profile-photo" src="{% static 'MelaoApp/img/pfp_example.png' %}" width="30" height="30" alt="">
+                <div class="message-content">
+                    <p class="username-received">Sophia</p>
+                    <p class="text-received">¡Todo bien! ¿Y tú?</p>
+                </div>
+            </div>
+
+            <p class="chat-date">
+                25 Octubre 2025
+            </p>
+
+            <div class="message">
+                <div class="message-content">
+                    <p class="username">Tú</p>
+                    <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam nostrum illum fuga.
+                    Esse tenetur placeat eaque impedit omnis explicabo atque, dolore incidunt odit repudiandae illo quaerat, praesentium reiciendis id blanditiis vero neque sed ipsam sunt deserunt ut voluptas possimus. Non, necessitatibus dignissimos!
+                    Quidem ullam totam laudantium in culpa id, doloremque qui. Quod </p>
+                </div>
+                <img class="profile-photo" src="{% static 'MelaoApp/img/ethan_carter.png' %}" width="30" height="30" alt="">
+            </div>
+        </div>
+        <div class="input-container">
+                <input type="text" id="message-input" placeholder="Escribe un mensaje...">
+                <button id="send-button">
+                    <img src="{% static 'MelaoApp/img/right_arrow_button.svg' %}" alt="Enviar">
+                </button>
+        </div>
+    </div>
+{% endblock %}

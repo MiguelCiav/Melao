@@ -1,0 +1,136 @@
+{% extends 'MelaoApp/base.html' %}
+{% load static %}
+
+{% block title %}Melao - Perfil{% endblock %}
+
+{% block static_js %}
+    <script>
+        let dataDummy = [
+            {
+                name: "Ethan Hunt",
+                image: "{% static 'MelaoApp/img/EthanHuntProfile.png' %}",
+                postDescription: "Alrededor de las 7 PM, nos reuniremos en la biblioteca.",
+                last_connection: "2d",
+                likes: 12,
+                comments: 5
+            },
+            {
+                name: "Ethan Hunt",
+                image: "{% static 'MelaoApp/img/EthanHuntProfile.png' %}",
+                postDescription: "ATI es lo más duro del planeta chamo.",
+                last_connection: "1d",
+                likes: 25,
+                comments: 10
+            },
+            {
+                name: "Ethan Hunt",
+                image: "{% static 'MelaoApp/img/EthanHuntProfile.png' %}",
+                postDescription: "Alrededor de las 7 PM, nos reuniremos en la biblioteca.",
+                last_connection: "2d",
+                likes: 12,
+                comments: 5
+            },
+            {
+                name: "Ethan Hunt",
+                image: "{% static 'MelaoApp/img/EthanHuntProfile.png' %}",
+                postDescription: "ATI es lo más duro del planeta chamo.",
+                last_connection: "1d",
+                likes: 25,
+                comments: 10
+            }
+        ];
+
+        function renderProfileImage(image){
+            document.getElementById("ProfileName").innerText = "Ethan Hunt";
+            document.getElementById("ProfileImage").setAttribute("src", image);
+        }
+
+        function renderPosts(posts) {
+            document.getElementsByClassName("Posts");
+            posts.forEach(element => {
+                const postDiv = document.createElement("div");
+                postDiv.setAttribute("class", "ProfilePost");
+
+                const postImg = document.createElement("img");
+                postImg.setAttribute("src", element.image);
+                postImg.setAttribute("width", "70");
+                postImg.setAttribute("height", "70");
+                postImg.setAttribute("alt", "X");
+
+                const postName = document.createElement("p");
+                postName.setAttribute("class", "person-name");
+                postName.innerText = element.name;
+
+                const postDescription = document.createElement("p");
+                postDescription.setAttribute("class", "PostDescription");
+                postDescription.innerText = element.postDescription;
+
+                const postlast_connection = document.createElement("p");
+                postlast_connection.setAttribute("class", "last_connection");
+                postlast_connection.innerText = element.last_connection;
+
+                const postLikes = document.createElement("div");
+                postLikes.setAttribute("class", "PostLikes");
+
+                const likeImg = document.createElement("img");
+                likeImg.setAttribute("src", "{% static '/MelaoApp/img/Like.png' %}");
+                likeImg.setAttribute("width", "20");
+                likeImg.setAttribute("height", "20");
+
+                const likesCount = document.createElement("p");
+                likesCount.setAttribute("class", "LikesCount");
+                likesCount.innerText = element.likes;
+
+                const postComments = document.createElement("div");
+                postComments.setAttribute("class", "PostComments");
+                const commentImg = document.createElement("img");
+                commentImg.setAttribute("src", "{% static '/MelaoApp/img/Comment.png' %}");
+                commentImg.setAttribute("width", "20");
+                commentImg.setAttribute("height", "20");
+                const commentsCount = document.createElement("p");
+                commentsCount.setAttribute("class", "CommentsCount");
+                commentsCount.innerText = element.comments;
+
+                postDiv.appendChild(postImg);
+                postDiv.appendChild(postName);
+                postDiv.appendChild(postDescription);
+                postDiv.appendChild(postlast_connection);
+                postLikes.appendChild(likeImg);
+                postLikes.appendChild(likesCount);
+                postComments.appendChild(commentImg);
+                postComments.appendChild(commentsCount);
+                postDiv.appendChild(postLikes);
+                postDiv.appendChild(postComments);
+                document.getElementsByClassName("Posts")[0].appendChild(postDiv);
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            renderPosts(dataDummy);
+            renderProfileImage("{% static 'MelaoApp/img/EthanHuntProfile.png' %}");
+        });
+    </script>
+{% endblock %}
+
+{% block static_css %}
+{{ block.super }}
+    <link rel="stylesheet" href="{% static 'MelaoApp/css/profile.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="ProfilePannel">
+        <img id="ProfileImage" alt ="Imagen de perfil">
+        <p id="ProfileName"></p>
+        <div class="ProfileButtonsDiv">
+            <a href="{% url 'MelaoApp:modify_profile' %}">
+                <input type="button" value="Editar Perfil" class="ProfileButton" id="EditProfileButton"/>
+            </a>
+            <input type="button" value="Compartir Perfil" class="ProfileButton" id="ShareProfileButton"/>
+        </div>
+        <p class="title">Sobre Mi</p>
+        <p class="about-me">Soy estudiante de la UCV, me gusta el café y los videojuegos. Actualmente estudio ATI y disfruto aprender sobre nuevas tecnologías.</p>
+        <p class="title">Muro</p>
+        <div class="Posts">
+        </div> 
+    </div>
+{% endblock %}
