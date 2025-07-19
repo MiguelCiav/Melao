@@ -1,12 +1,21 @@
-# ~/Universidad/ATI/Proyecto/Melao/MelaoApp/urls.py
 from django.urls import path
 from . import views
 
 app_name = 'MelaoApp'
 
 urlpatterns = [
-    path('', views.index, name='index'),
-    path('about/', views.about, name='about'),
-    path('productos/<int:id_producto>/', views.ver_producto, name='ver_producto'),
-    path('lista/', views.lista_productos, name='lista_productos'),
+    path('home/', views.home, name='home'),
+    path('chats/', views.chat_list_view, name='chat_list_view'),
+    path('chat/', views.chat_view, name='chat_view'),
+    path('friends/', views.friends_list, name='friends_list'),
+    path('config/language-theme/', views.language_and_theme_config_view, name='language_and_theme_config_view'),
+    path('profile/edit/', views.modify_profile, name='modify_profile'),
+    path('new-post/', views.new_post_view, name='new_post_view'),
+    path('post/', views.post_view, name='post_view'),
+    path('profile/', views.profile, name='profile'),
+    path('search/', views.search_person_view, name='search_person_view'),
+    path('signup/', views.sign_up_view, name='sign_up_view'),
+    path('notifications/', views.view_notifications, name='view_notifications'),
+    path('', views.welcome, name='welcome'),
+    path('welcome/', views.welcome, name='welcome-root'),
 ]

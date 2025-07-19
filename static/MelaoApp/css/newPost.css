@@ -1,0 +1,84 @@
+main {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+}
+
+#PostLink{
+    grid-column: 3;
+    text-decoration: none;
+    color: #9E8747;
+}
+
+.PostPannel{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.PostDiv{
+    display: grid;
+    grid-template-columns: 40px auto;
+    grid-template-rows: auto 40px;
+    background-color: #F5F0E5;
+    justify-items: center;
+    border-radius: 15px;
+    border: 1px solid #E8E3CF;
+    width: 100%;
+    max-width: 800px;
+    padding: 16px;
+}
+
+.profile-image {
+    width: 40px;
+    height: 40px;
+}
+
+.PostIcon{
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    grid-row: 2;
+}
+
+textarea{
+    grid-row: 1;
+    grid-column: 2/3;
+    border-style: none;
+    background-color: #F5F0E5;
+    outline: none;
+    font-size: 1rem;
+    width: 100%;
+    height: 100%;
+    max-height: 400px;
+    padding-left: 12px;
+    field-sizing: content;
+    resize: none;
+}
+
+textarea:focus {
+    border-style: none;
+}
+
+#ImageIcon{
+    grid-column: 2;
+    margin-left: calc(100% - 108px);
+}
+
+#VideoIcon{
+    grid-column: 2;
+    margin-left: auto;
+}
+
+#X-Icon{
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    margin-left: 50%;
+}
+
+@media (min-width: 601px) {
+    body {
+        background-color: #FCFAF7;
+    }
+}

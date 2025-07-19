@@ -101,4 +101,3 @@ Este proyecto usa [SemVer](https://semver.org/). Para ver los cambios, consulta 
 ### UC Comentar: Validaciones de comentarios
 <img src="https://i.imgur.com/aoD1Jvi.jpeg" width="500">
 
-

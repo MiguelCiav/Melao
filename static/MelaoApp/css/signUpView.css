@@ -1,0 +1,7 @@
+@import url('welcome.css');
+
+@media (min-width: 601px) {
+    .welcome-container {
+        width: 100%
+    }
+}
