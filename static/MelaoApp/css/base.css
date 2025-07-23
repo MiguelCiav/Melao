@@ -119,3 +119,8 @@ footer {
         display: none;
     }
 }
+
+body.dark-mode, body.dark-mode .mobile-navbar, body.dark-mode .desktop-navbar {
+    background-color: #211C12; 
+    color: #f0f0f0; 
+}
