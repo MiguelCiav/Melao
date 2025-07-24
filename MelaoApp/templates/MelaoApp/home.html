@@ -19,7 +19,7 @@
                 likes: 12,
                 comments: 5
             },
-            {
+             {
                 name: "Sophia Carter",
                 image: "{% static 'MelaoApp/img/EthanHuntProfile.png' %}",
                 postDescription: "ATI es lo más duro del planeta chamo.",
@@ -29,11 +29,65 @@
             }
         ];
 
+        let dataDummyDesktop = [
+            {
+                name: "Ethan Hunt",
+                image: "{% static 'MelaoApp/img/EthanHuntProfile.png' %}",
+                postDescription: "¡Sofía y yo nos graduamos!.",
+                postDate: "2d",
+                postImage: "{% static 'MelaoApp/img/PostImage.png' %}",
+                likes: 12,
+                comments: 5,
+                comments_made: [
+                    {
+                        user: {
+                            name: "Sophia Carter",
+                            image: "{% static 'MelaoApp/img/SophiaCarterProfile.png' %}"
+                        },
+                        description: "¡Estoy orgullosa de ti, amigo!",
+                        postDate: "2h",
+                        likes: 1,
+                        comments: 0,
+                    },
+                    {
+                        user: {
+                            name: "Ethan Hunt",
+                            image: "{% static 'MelaoApp/img/EthanHuntProfile.png' %}"
+                        },
+                        description: "¡Y yo de ti!",
+                        postDate: "2h",
+                        likes: 1,
+                        comments: 0,
+                    }
+                ]
+            },
+            {
+                name: "Sophia Carter",
+                image: "{% static 'MelaoApp/img/SophiaCarterProfile.png' %}",
+                postDescription: "Graduación luego de ATI.",
+                postDate: "2w",
+                postImage: "{% static 'MelaoApp/img/PostImage.png' %}",
+                likes: 25,
+                comments: 10,
+                comments_made: [
+                    {
+                        user: {
+                            name: "Ethan Hunt",
+                            image: "{% static 'MelaoApp/img/EthanHuntProfile.png' %}"
+                        },
+                        description: "¡Lo logramos!",
+                        postDate: "1d",
+                        likes: 2,
+                        comments: 1,
+                    }
+                ]
+            }
+        ];
+
         function renderPosts(posts) {
-            document.getElementsByClassName("HomePannel");
             posts.forEach(element => {
                 const postDiv = document.createElement("div");
-                postDiv.setAttribute("class", "HomePost");
+                postDiv.setAttribute("class", "Home-post");
 
                 const postImg = document.createElement("img");
                 postImg.setAttribute("src", element.image);
@@ -46,7 +100,7 @@
                 postName.innerText = element.name;
 
                 const postDescription = document.createElement("p");
-                postDescription.setAttribute("class", "PostDescription");
+                postDescription.setAttribute("class", "Post-description");
                 postDescription.innerText = element.postDescription;
 
                 const postlast_connection = document.createElement("p");
@@ -54,7 +108,7 @@
                 postlast_connection.innerText = element.last_connection;
 
                 const postLikes = document.createElement("div");
-                postLikes.setAttribute("class", "PostLikes");
+                postLikes.setAttribute("class", "Post-likes");
 
                 const likeImg = document.createElement("img");
                 likeImg.setAttribute("src", "{% static '/MelaoApp/img/Like.png' %}");
@@ -62,17 +116,17 @@
                 likeImg.setAttribute("height", "20");
 
                 const likesCount = document.createElement("p");
-                likesCount.setAttribute("class", "LikesCount");
+                likesCount.setAttribute("class", "Likes-count");
                 likesCount.innerText = element.likes;
 
                 const postComments = document.createElement("div");
-                postComments.setAttribute("class", "PostComments");
+                postComments.setAttribute("class", "Post-comments");
                 const commentImg = document.createElement("img");
                 commentImg.setAttribute("src", "{% static '/MelaoApp/img/Comment.png' %}");
                 commentImg.setAttribute("width", "20");
                 commentImg.setAttribute("height", "20");
                 const commentsCount = document.createElement("p");
-                commentsCount.setAttribute("class", "CommentsCount");
+                commentsCount.setAttribute("class", "Comments-count");
                 commentsCount.innerText = element.comments;
 
                 postDiv.appendChild(postImg);
@@ -85,16 +139,135 @@
                 postComments.appendChild(commentsCount);
                 postDiv.appendChild(postLikes);
                 postDiv.appendChild(postComments);
-                document.getElementsByClassName("HomePannel")[0].appendChild(postDiv);
+                document.getElementsByClassName("Home-pannel")[0].appendChild(postDiv);
             });
+        }
+
+        function renderPostsDesktop(posts){
+            posts.forEach((element) => {
+                const postPannelDiv = document.createElement("div");
+                postPannelDiv.setAttribute("class", "Post-pannel");
+                const userPostPannelDiv = document.createElement("div");
+                userPostPannelDiv.setAttribute("class", "User-post-pannel");
+                const profileImage = document.createElement("img");
+                profileImage.setAttribute("src", element.image);
+                profileImage.setAttribute("class", "profile-image");
+                const personNameDiv = document.createElement("div");
+                personNameDiv.setAttribute("class", "Person-name-div");
+                const personName = document.createElement("p");
+                personName.setAttribute("class", "Person-name");
+                personName.innerText = element.name;
+                const postDate = document.createElement("p");
+                postDate.setAttribute("class", "Post-date");
+                postDate.innerText = element.postDate;
+                const postDescription = document.createElement("p");
+                postDescription.setAttribute("class", "Post-description");
+                postDescription.innerText = element.postDescription;
+                const postImage = document.createElement("img");
+                postImage.setAttribute("src", element.postImage);
+                postImage.setAttribute("class", "Post-image");
+                postImage.setAttribute("width", "100");
+                postImage.setAttribute("height", "100");
+                const postLikes = document.createElement("div");
+                postLikes.setAttribute("class", "Post-likes");
+                const likeIcon = document.createElement("img");
+                likeIcon.setAttribute("src", "{% static 'MelaoApp/img/Like.png' %}");
+                likeIcon.setAttribute("class", "Post-icon");
+                likeIcon.setAttribute("alt", "Like");
+                const postLikesText = document.createElement("p");
+                postLikesText.setAttribute("class", "Post-likes-text");
+                postLikesText.innerText = element.likes;
+                const postComments = document.createElement("div");
+                postComments.setAttribute("class", "Post-comments");
+                const commentIcon = document.createElement("img");
+                commentIcon.setAttribute("src", "{% static 'MelaoApp/img/Comment.png' %}");
+                commentIcon.setAttribute("class", "Post-icon");
+                commentIcon.setAttribute("alt", "Comments");
+                const postCommentsText = document.createElement("p");
+                postCommentsText.setAttribute("class", "Post-comments-text");
+                postCommentsText.innerText = element.comments;
+
+                const postCommentsDiv = document.createElement("div");
+                postCommentsDiv.setAttribute("class", "Post-comments-div");
+
+                personNameDiv.appendChild(personName);
+                personNameDiv.appendChild(postDate);
+                userPostPannelDiv.appendChild(profileImage);
+                userPostPannelDiv.appendChild(personNameDiv);
+                userPostPannelDiv.appendChild(postDescription);
+                userPostPannelDiv.appendChild(postImage);
+                postLikes.appendChild(likeIcon);
+                postLikes.appendChild(postLikesText);
+                postComments.appendChild(commentIcon);
+                postComments.appendChild(postCommentsText);
+                userPostPannelDiv.appendChild(postLikes);
+                userPostPannelDiv.appendChild(postComments);
+                postPannelDiv.appendChild(userPostPannelDiv);
+                postPannelDiv.appendChild(postCommentsDiv);
+                renderCommentsDesktop(postCommentsDiv, element.comments_made);
+                document.getElementsByClassName("Home-pannel desktop-content")[0].appendChild(postPannelDiv);
+            });
+        }
+
+        function renderCommentsDesktop(post, comment){
+            if(!comment || comment.length === 0) return;
+            comment.forEach((element)=> {
+                const commentDiv = document.createElement("div");
+                commentDiv.setAttribute("class", "User-comment-pannel");
+                const userCommentImage = document.createElement("img");
+                userCommentImage.setAttribute("src", element.user.image);
+                userCommentImage.setAttribute("class", "User-comment-image");
+                const personNameDiv = document.createElement("div");
+                personNameDiv.setAttribute("class", "Person-name-div");
+                const personName = document.createElement("p");
+                personName.setAttribute("class", "Person-name");
+                personName.innerText = element.user.name;
+                const postDate = document.createElement("p");
+                postDate.setAttribute("class", "Comment-date");
+                postDate.innerText = element.postDate;
+                const commentDescription = document.createElement("p");
+                commentDescription.setAttribute("class", "Comment-description");
+                commentDescription.innerText = element.description;
+                const commentLikes = document.createElement("div");
+                commentLikes.setAttribute("class", "Comment-likes");
+                const likeIcon = document.createElement("img");
+                likeIcon.setAttribute("src", "{% static 'MelaoApp/img/Like.png' %}");
+                likeIcon.setAttribute("class", "Post-icon");
+                const commentLikesText = document.createElement("p");
+                commentLikesText.setAttribute("class", "Comment-likes-text");
+                commentLikesText.innerText = element.likes || 0;
+                const commentComments = document.createElement("div");
+                commentComments.setAttribute("class", "Comment-comments");
+                const commentIcon = document.createElement("img");
+                commentIcon.setAttribute("src", "{% static 'MelaoApp/img/Comment.png' %}");
+                commentIcon.setAttribute("class", "Post-icon");
+                const commentCommentsText = document.createElement("p");
+                commentCommentsText.setAttribute("class", "Comment-comments-text");
+                commentCommentsText.innerText = element.comments || 0;
+
+                personNameDiv.appendChild(personName);
+                personNameDiv.appendChild(postDate);
+                commentDiv.appendChild(userCommentImage);
+                commentDiv.appendChild(personNameDiv);
+                commentDiv.appendChild(commentDescription);
+                commentLikes.appendChild(likeIcon);
+                commentLikes.appendChild(commentLikesText);
+                commentComments.appendChild(commentIcon);
+                commentComments.appendChild(commentCommentsText);
+                commentDiv.appendChild(commentLikes);
+                commentDiv.appendChild(commentComments);
+                post.appendChild(commentDiv);
+            })
         }
 
         document.addEventListener("DOMContentLoaded", function() {
             renderPosts(dataDummy);
+            renderPostsDesktop(dataDummyDesktop);
         });
     </script>
 {% endblock %}
 
 {% block content %}
-    <div class="HomePannel"></div>
+    <div class="Home-pannel mobile-content"></div>
+    <div class="Home-pannel desktop-content"></div>
 {% endblock %}

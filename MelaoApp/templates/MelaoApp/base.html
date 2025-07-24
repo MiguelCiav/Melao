@@ -11,6 +11,7 @@
     {% block static_js %}{% endblock %}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel = "icon" href = "{% static 'MelaoApp/img/logoIcono.png' %}" type = "image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -19,7 +20,7 @@
         <a href="{% url 'MelaoApp:home' %}">
             <img src="{% static 'MelaoApp/img/left_arrow.svg' %}" width="24" height="24" alt="X">
         </a>
-        <p>Ethan Harper</p>
+        <p>Melao</p>
     </header>
     <div class="desktop-navbar">
         <ul class="nav-list">

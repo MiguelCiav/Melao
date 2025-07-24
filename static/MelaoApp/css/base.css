@@ -24,7 +24,7 @@ main {
     grid-row: 1;
     display: grid;
     background-color: white;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 20% 70% 10%;
     align-items: center;
     font-weight: bold;
     font-size: 1.3rem;
