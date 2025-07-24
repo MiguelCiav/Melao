@@ -30,16 +30,31 @@
             <img src="{% static 'MelaoApp/img/logo.png' %}" alt="Logo de Melao" class="Logo" width="80" height="80">
             <h1>Crear una cuenta</h1>
         </div>
+        
+        {% if messages %}
+            <div>
+                {% for message in messages %}
+                    <div class="alert-{{ message.tags }}">
+                    {{ message }}
+                    </div>
+                 {% endfor %}
+            </div>
+        {% endif %}
 
-        <input type="text" placeholder="Nombre completo" class="input-field" id="name">
-        <input type="text" placeholder="Usuario" class="input-field">
-        <input type="email" placeholder="Correo electronico" class="input-field">
-        <input type="password" placeholder="Contraseña" class="input-field">
-        <input type="date" class="input-field">
-
-        <button onclick="document.location.href='{% url 'MelaoApp:home' %}'" class="button">
-            Registrarse
-        </button>
+        <div >
+            <form method="POST" action="{% url 'MelaoApp:registrar_estudiante' %}" class="display-form">
+                {% csrf_token %}
+                <input type="text" value="{{ form_data.full_name|default:'' }}" placeholder="Nombre completo" class="input-field" id="name" name="name" required>
+                <input type="text" value="{{ form_data.user|default:'' }}" placeholder="Usuario" class="input-field" name="user" required>
+                <input type="email" value="{{ form_data.email|default:'' }}" placeholder="Correo electronico" class="input-field" name="email" required>
+                <input type="password" placeholder="Contraseña" class="input-field" name="password" required>
+                <input type="date" value="{{ form_data.birth_date|default:'' }}" class="input-field" name="birth_date" required>
+            
+                <button type="submit" class="button">
+                    Registrarse
+                </button>
+            </form> 
+        </div>
         <button onclick="document.location.href='{% url 'MelaoApp:welcome' %}'" class="button sign-up">
             Volver
         </button>

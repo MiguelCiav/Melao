@@ -119,3 +119,25 @@ footer {
         display: none;
     }
 }
+
+
+/* reglas para darle estilo a los mensajes en los HTML usando 'django.contrib.messages', seguramente podemos usar estos mensajes en todos los HTML*/
+/* para usar mas reglas entrar en https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css y buscar "alert-<tipo_alerta>" */
+/* al intentar importar directamente el bootstrap en base.html dañaba todo el estilo de las paginas*/
+.alert-success{
+    color:#155724;
+    background-color:#d4edda;
+    border-color:#c3e6cb
+}
+
+.alert-error{
+    color:#721c24;
+    background-color:#f8d7da;
+    border-color:#f5c6cb
+}
+
+.alert-info{
+    color:#0c5460;
+    background-color:#d1ecf1;
+    border-color:#bee5eb
+}
