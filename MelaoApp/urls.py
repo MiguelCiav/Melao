@@ -18,4 +18,5 @@ urlpatterns = [
     path('notifications/', views.view_notifications, name='view_notifications'),
     path('', views.welcome, name='welcome'),
     path('welcome/', views.welcome, name='welcome-root'),
+    path('student_registration/', views.student_registration, name='student_registration'),
 ]

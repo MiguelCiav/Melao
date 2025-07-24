@@ -17,3 +17,13 @@ class Post(models.Model):
     
     def __str__(self):
         return self.title
+    
+class Estudiante(models.Model):
+    full_name = models.CharField(max_length=60)
+    user = models.CharField(max_length=15)
+    email = models.EmailField()
+    password = models.CharField(max_length=15)
+    bith_date = models.DateField()
+    
+    def __str__(self):
+        return self.full_name
