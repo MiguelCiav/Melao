@@ -4,13 +4,9 @@ function setTheme(){
 
     const applyTheme = (theme) => {
         if (theme === 'dark') {
-            body.classList.add('dark-mode');
-            localStorage.setItem('theme', 'dark');
             BackArrow.querySelector('img').src = '/MelaoApp/resources/DarkMode/BackArrow.png';
             
         } else {
-            body.classList.remove('dark-mode');
-            localStorage.setItem('theme', 'light');
             BackArrow.querySelector('img').src = '/MelaoApp/resources/BackArrow.png';
         }
     };
