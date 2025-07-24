@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from .models import Estudiante
 from django.contrib import messages
 
-def student_registration(request):
+def sign_up_save(request):
     if request.method == 'POST':
 
         # recuperar la data del POST para devolverla al formulario por si hay error, esto para que el usuario 

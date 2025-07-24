@@ -42,7 +42,7 @@
         {% endif %}
 
         <div >
-            <form method="POST" action="{% url 'MelaoApp:student_registration' %}" class="display-form">
+            <form method="POST" action="{% url 'MelaoApp:sign_up_save' %}" class="display-form">
                 {% csrf_token %}
                 <input type="text" value="{{ form_data.full_name|default:'' }}" placeholder="Nombre completo" class="input-field" id="name" name="name" required>
                 <input type="text" value="{{ form_data.user|default:'' }}" placeholder="Usuario" class="input-field" name="user" required>
