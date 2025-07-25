@@ -1,0 +1,81 @@
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px;
+}
+
+.NotificationsPannel{
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    max-width: 800px;
+    width: 100%;
+}
+
+.person{
+    margin-top: 16px;
+    display: grid;
+    grid-template-columns: 70px auto auto;
+    align-items: center;
+}
+
+.person:first-child {
+    margin-top: 0;
+}
+
+.person img{
+    grid-row: 1/3;
+    margin-left: auto;
+    margin-right: 4px;
+}
+
+.person-name{
+    grid-row: 1;
+    grid-column: 2;
+    align-self: center;
+    margin-left: 16px;
+}
+
+.Description{
+    grid-row: 2;
+    grid-column: 2;
+    color: #9C854A;
+    align-self: center;
+    margin-left: 16px;
+}
+
+.NotificationIcon{
+    grid-column: 3;
+}
+
+@media (min-width: 601px) {
+    body {
+        background-color: #FCFAF7;
+    }
+}
+
+body.dark-mode {
+    background-color: #211C12; 
+    color: #f0f0f0; 
+}
+body.dark-mode .NavBar {
+    background-color: #211C12; 
+}
+body.dark-mode .Menu {
+    background-color: #473D24;
+}
+
+body.dark-mode h2 {
+    color: #f0f0f0;
+}
+body.dark-mode .PersonName{
+    color:#f0f0f0;
+}
+body.dark-mode .SearchTabDiv{
+    background-color: #473D24;
+}
+body.dark-mode .SearchTabDiv input{
+    background-color: #473D24;
+    color: #f0f0f0;
+}

@@ -1,0 +1,186 @@
+#PerfilText{
+    grid-column: 2;
+    align-self: flex-end;
+    justify-self: center;
+    margin: 0px;
+}
+
+#Arrow-button{
+    width: 24px;
+    height: 24px;
+}
+
+.profile-image{
+    margin-right: 16px;
+}
+
+.post {
+    padding: 16px;
+}
+
+.option-container {
+    margin: 16px 0;
+}
+
+.post-author {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.option-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.option {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.option img {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+}
+
+.counter {
+    margin: 0px;
+}
+
+.comment {
+    padding: 0px 16px 16px 16px;
+}
+
+.comment-content {
+    display: flex;
+    align-items: start;
+}
+
+.comment-pfp {
+    margin-right: 12px;
+}
+
+.username {
+    font-weight: bold;
+    margin-top: 0px;
+    margin-bottom: 4px;
+}
+
+.text {
+    margin: 0;
+}
+
+.comment-option-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin: 8px 0;
+}
+
+.comment-option {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.comment-option img {
+    width: 21px;
+    height: 21px;
+    margin-right: 8px;
+}
+
+.black-link {
+    text-decoration: none;
+}
+
+.comment-input {
+    position:sticky;
+    bottom: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+}
+
+.input-img {
+    width: 40px;
+    height: 40px;
+    margin-right: 12px;
+    flex: 0 0 auto;
+}
+
+.comment-field {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #F5F0E5;
+    padding: 16px 12px;
+    border-radius: 12px;
+    flex: 1;
+}
+
+.comment-field input {
+    width: 100%;
+    border: none;
+    background-color: transparent;
+    font-size: 1em;
+}
+
+.comment-field input::placeholder {
+    color: #9E8747;
+}
+
+.comment-field input:focus {
+    outline: none;
+}
+
+footer{
+    /*The footer should stay at the bottom and be sticky*/
+    position: sticky;
+    bottom: 0;
+    background-color: white;
+}
+
+ul{
+    margin: 0;
+    margin-top: auto;
+    padding: 0;
+    width: 100vw;
+    height: 8vh;
+    display: inline-flex;
+    list-style: none;
+    align-items: center;
+    justify-items: space-evenly;
+    justify-content: space-evenly;
+}
+
+ul img{
+    width: 30;
+    height: 35;
+}
+
+body.dark-mode {
+    background-color: #211C12; 
+    color: #f0f0f0;
+}
+body.dark-mode .NavBar {
+    background-color: #211C12; 
+}
+body.dark-mode .Menu {
+    background-color: #473D24;
+}
+
+body.dark-mode h2 {
+    color: #f0f0f0;
+}
+
+body.dark-mode .comment-field{
+    background-color: #473D24;
+}
+
+body.dark-mode .comment-field input{
+    color: #f0f0f0;
+}
