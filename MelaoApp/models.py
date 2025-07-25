@@ -1,7 +1,15 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
+# MelaoApp/models.py
+from django.db import models
+from django.contrib.auth.models import AbstractUser
+
 class Student(AbstractUser):
+    """
+    Modelo personalizado para representar a un estudiante en la aplicación.
+    Extiende AbstractUser para aprovechar el sistema de autenticación de Django.
+    """
     full_name = models.CharField(max_length=255)
     profile_picture_url = models.URLField(max_length=500, blank=True, null=True)
     date_of_birth = models.DateField(blank=True, null=True)
@@ -12,6 +20,21 @@ class Student(AbstractUser):
     favorite_music = models.CharField(max_length=255, blank=True, null=True)
     favorite_videogame = models.CharField(max_length=255, blank=True, null=True)
     known_programming_languages = models.TextField(blank=True, null=True)
+
+    groups = models.ManyToManyField(
+        'auth.Group',
+        related_name='student_set', 
+        blank=True,
+        help_text='The groups this user belongs to. A user will get all permissions granted to each of their groups.',
+        verbose_name='groups',
+    )
+    user_permissions = models.ManyToManyField(
+        'auth.Permission',
+        related_name='student_permissions_set', 
+        blank=True,
+        help_text='Specific permissions for this user.',
+        verbose_name='user permissions',
+    )
 
     def __str__(self):
         return self.username
