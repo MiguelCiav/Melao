@@ -1,10 +1,21 @@
 #!/bin/bash
 
-echo "Applying database migrations..."
-python manage.py migrate --noinput
+# Go to project directory
+cd /var/www/Melao
 
-echo "Collecting static files..."
-python manage.py collectstatic --noinput
+# Run database operations
+/venv/bin/python manage.py makemigrations
+/venv/bin/python manage.py migrate
+/venv/bin/python manage.py collectstatic --noinput
 
-echo "Starting Gunicorn..."
-exec gunicorn Melao.wsgi:application --bind 0.0.0.0:8000
+# Set permissions
+chown -R :www-data /var/www/Melao
+chmod -R 775 /var/www/Melao
+
+if [ -f db.sqlite3 ]; then
+    chown :www-data db.sqlite3
+    chmod 664 db.sqlite3
+fi
+
+# Execute command
+exec "$@"
