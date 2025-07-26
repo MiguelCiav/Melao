@@ -26,6 +26,7 @@ main {
 
 .search-tab img:nth-child(3) {
     margin-left: auto;
+    cursor: pointer;
 }
 
 .search-tab input{
@@ -47,6 +48,11 @@ main {
 
 .person img {
     margin-right: 24px;
+    cursor: pointer;
+}
+
+.person p{
+    cursor: pointer;
 }
 
 .person img:nth-child(3) {
@@ -61,6 +67,7 @@ main {
 .Icon{
     width: 40px;
     height: 40px;
+    cursor: pointer;
 }
 
 @media (min-width: 601px) {

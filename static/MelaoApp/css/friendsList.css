@@ -45,6 +45,11 @@ main {
 
 .person img {
     margin-right: 24px;
+    cursor: pointer;
+}
+
+.person p{
+    cursor: pointer;
 }
 
 .person img:nth-child(3) {
