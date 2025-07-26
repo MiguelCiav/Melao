@@ -201,3 +201,28 @@ main {
         grid-row: 3;
     }
 }
+
+
+body.dark-mode {
+    background-color: #211C12; /* Color de fondo oscuro */
+    color: #f0f0f0; /* Color de texto claro */
+}
+body.dark-mode .NavBar {
+    background-color: #211C12; /* Navbar oscuro */
+}
+body.dark-mode .Menu {
+    background-color: #473D24; /* Navbar oscuro */
+}
+/* Agrega reglas similares para otros elementos como h2, p, etc. */
+body.dark-mode h2 {
+    color: #f0f0f0;
+}
+body.dark-mode .HomePost {
+    color: #9C854A;
+}
+body.dark-mode .PersonName{
+    color:#f0f0f0;
+}
+body.dark-mode .HomePost{
+    color: #C9BA91;
+}

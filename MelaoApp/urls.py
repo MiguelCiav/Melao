@@ -18,4 +18,5 @@ urlpatterns = [
     path('notifications/', views.view_notifications, name='view_notifications'),
     path('', views.welcome, name='welcome'),
     path('welcome/', views.welcome, name='welcome-root'),
+    path('set-theme/', views.set_theme, name='set_theme'),
 ]
