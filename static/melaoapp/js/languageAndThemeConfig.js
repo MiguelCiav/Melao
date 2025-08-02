@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Construimos la URL con el parámetro 'theme'
         // Asumiendo que tu URL para set_theme es '/set-theme/' o '/melaoapp/set-theme/'
         // Ajusta la URL según la que hayas definido en tu urls.py
-        const url = `/melaoapp/set-theme/?theme=${theme}`; // Ejemplo: /melaoapp/set-theme/
+        const url = `/set-theme/?theme=${theme}`; // Ejemplo: /melaoapp/set-theme/
         
         // Simplemente redirigimos el navegador. Django hará la magia de la cookie y la recarga.
         window.location.href = url;

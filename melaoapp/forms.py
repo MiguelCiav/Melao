@@ -1,4 +1,4 @@
-# MelaoApp/forms.py
+# melaoapp/forms.py
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from .models import Usuario, Group
@@ -38,5 +38,5 @@ class UsuarioEditForm(UserChangeForm):
         
         self.fields['user_permissions'].widget = forms.CheckboxSelectMultiple()
         self.fields['user_permissions'].queryset = Permission.objects.filter(
-            content_type__app_label='MelaoApp'
+            content_type__app_label='melaoapp'
         )

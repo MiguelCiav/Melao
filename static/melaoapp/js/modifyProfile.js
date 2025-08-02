@@ -4,17 +4,17 @@ function setTheme(){
 
     const applyTheme = (theme) => {
         if (theme === 'dark') {
-            BackArrow.querySelector('img').src = '/MelaoApp/resources/DarkMode/BackArrow.png';
+            BackArrow.querySelector('img').src = '/melaoapp/resources/DarkMode/BackArrow.png';
             Array.from(RightArrow).forEach(el => {
                 const img = el.querySelector('img');
-                if (img) img.src = '/MelaoApp/resources/DarkMode/right_arrow.png';
+                if (img) img.src = '/melaoapp/resources/DarkMode/right_arrow.png';
             });
             
         } else {
-            BackArrow.querySelector('img').src = '/MelaoApp/resources/BackArrow.png';
+            BackArrow.querySelector('img').src = '/melaoapp/resources/BackArrow.png';
             Array.from(RightArrow).forEach(el => {
                 const img = el.querySelector('img');
-                if (img) img.src = '/MelaoApp/resources/right_arrow.svg';
+                if (img) img.src = '/melaoapp/resources/right_arrow.svg';
             });
         }
     };

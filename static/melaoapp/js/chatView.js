@@ -3,10 +3,10 @@ function setTheme(){
 
     const applyTheme = (theme) => {
         if (theme === 'dark') {
-            BackArrow.querySelector('img').src = '/MelaoApp/resources/DarkMode/BackArrow.png';
+            BackArrow.querySelector('img').src = '/melaoapp/resources/DarkMode/BackArrow.png';
             
         } else {
-            BackArrow.querySelector('img').src = '/MelaoApp/resources/BackArrow.png';
+            BackArrow.querySelector('img').src = '/melaoapp/resources/BackArrow.png';
         }
     };
     

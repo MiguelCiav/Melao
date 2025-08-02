@@ -1,4 +1,4 @@
-# MelaoApp/middleware.py
+# melaoapp/middleware.py
 import threading
 from django.utils import timezone
 from .models import AccessLog, Usuario

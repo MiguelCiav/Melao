@@ -4,9 +4,9 @@ function setTheme(){
 
     const applyTheme = (theme) => {
         if (theme === 'dark') {
-            Xicon.querySelector('img').src = '/MelaoApp/resources/DarkMode/X-Icon.png';
+            Xicon.querySelector('img').src = '/melaoapp/resources/DarkMode/X-Icon.png';
         } else {
-            Xicon.querySelector('img').src = '/MelaoApp/resources/X-Icon.png';
+            Xicon.querySelector('img').src = '/melaoapp/resources/X-Icon.png';
         }
     };
     
