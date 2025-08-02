@@ -1,5 +1,7 @@
 from django.urls import path
 from . import views
+from django.contrib.admin.views.decorators import staff_member_required
+from django.contrib.auth import views as auth_views
 
 app_name = 'melaoapp'
 

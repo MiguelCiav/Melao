@@ -67,6 +67,7 @@ main {
     border-style: none;
     padding: 16px 32px;
     border-radius: 12px;
+    cursor: pointer;
 }
 
 .ProfileButton:first-child{
@@ -137,7 +138,6 @@ main {
     justify-self: flex-end;
     align-items: center;
     justify-content: space-around;
-    margin-top: 12px;
 }
 
 .PostComments img{
@@ -147,6 +147,10 @@ main {
 @media (min-width: 601px) {
     body {
         background-color: #FCFAF7;
+    }
+
+    .ProfilePannel{
+        overflow-y: hidden;
     }
 }
 
