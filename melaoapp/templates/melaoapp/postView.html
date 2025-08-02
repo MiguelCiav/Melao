@@ -1,0 +1,111 @@
+{% extends 'melaoapp/base.html' %}
+{% load static %}
+
+{% block title %}Melao - Modificar Perfil{% endblock %}
+
+{% block static_css %}
+{{ block.super }}
+    <link rel="stylesheet" href="{% static 'melaoapp/css/postView.css' %}">
+{% endblock %}
+
+{% block content %}
+     <div class="post">
+        <div class="post-author">
+            <img class="profile-image" alt="Foto de perfil de Ethan Carter" src="{% static 'melaoapp/img/ethan_carter.png' %}"> {# Alt text mejorado #}
+            Ethan Carter
+        </div>
+        <div class="content">
+            En mi empresa, los gerentes buscan formar equipos auto-organizados que logren resultados con poca o ninguna supervisión.
+        </div>
+        <div class="option-container">
+            <div class="option">
+                <img src="{% static 'melaoapp/img/comment.svg' %}" alt="Icono de comentario"> {# Alt text añadido #}
+                <p class="counter">25</p>
+            </div>
+            <div class="option">
+                <img src="{% static 'melaoapp/img/like.svg' %}" alt="Icono de me gusta"> {# Alt text añadido #}
+                <p class="counter">10</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="comment">
+        <div class="comment-content">
+            <img class="comment-pfp" src="{% static 'melaoapp/img/ethan_carter_2.png' %}" alt="Foto de perfil de Juan Encarta"> {# Alt text mejorado #}
+            <div class="comment-text">
+                <p class="username">Juan Encarta</p>
+                <p class="text">
+                    Este enfoque tiene muchos errores. El más importante es que asignar tareas y esperar resultados no funciona.
+                </p>
+            </div>
+        </div>
+        <div class="comment-option-container">
+            <div class="comment-option">
+                <img src="{% static 'melaoapp/img/comment.svg' %}" alt="Icono de comentario"> {# Alt text añadido #}
+                <p class="counter">3</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="comment">
+        <div class="comment-content">
+            <img class="comment-pfp" src="{% static 'melaoapp/img/ethan_carter_2.png' %}" alt="Foto de perfil de Juan Encarta">
+            <div class="comment-text">
+                <p class="username">Juan Encarta</p>
+                <p class="text">
+                    Este enfoque tiene muchos errores. El más importante es que asignar tareas y esperar resultados no funciona.
+                </p>
+            </div>
+        </div>
+        <div class="comment-option-container">
+            <div class="comment-option">
+                <img src="{% static 'melaoapp/img/comment.svg' %}" alt="Icono de comentario">
+                <p class="counter">3</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="comment">
+        <div class="comment-content">
+            <img class="comment-pfp" src="{% static 'melaoapp/img/ethan_carter_2.png' %}" alt="Foto de perfil de Juan Encarta">
+            <div class="comment-text">
+                <p class="username">Juan Encarta</p>
+                <p class="text">
+                    Este enfoque tiene muchos errores. El más importante es que asignar tareas y esperar resultados no funciona.
+                </p>
+            </div>
+        </div>
+        <div class="comment-option-container">
+            <div class="comment-option">
+                <img src="{% static 'melaoapp/img/comment.svg' %}" alt="Icono de comentario">
+                <p class="counter">3</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="comment">
+        <div class="comment-content">
+            <img class="comment-pfp" src="{% static 'melaoapp/img/ethan_carter_2.png' %}" alt="Foto de perfil de Juan Encarta">
+            <div class="comment-text">
+                <p class="username">Juan Encarta</p>
+                <p class="text">
+                    Este enfoque tiene muchos errores. El más importante es que asignar tareas y esperar resultados no funciona.
+                </p>
+            </div>
+        </div>
+        <div class="comment-option-container">
+            <div class="comment-option">
+                <img src="{% static 'melaoapp/img/comment.svg' %}" alt="Icono de comentario">
+                <p class="counter">3</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="comment-input">
+        <img class="input-img" src="{% static 'melaoapp/img/pfp_example.png' %}" alt="Tu foto de perfil"> {# Alt text mejorado #}
+        <div class="comment-field">
+            <input type="text" placeholder="Agrega un comentario">
+            <img src="{% static 'melaoapp/img/right_arrow_button.svg' %}" alt="Botón de enviar comentario"> {# Alt text mejorado #}
+        </div>
+    </div>
+{% endblock %}

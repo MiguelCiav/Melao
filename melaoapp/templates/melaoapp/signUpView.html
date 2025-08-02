@@ -1,0 +1,53 @@
+{% extends 'melaoapp/base.html' %}
+{% load static %}
+
+{% block title %}Crear una cuenta{% endblock %}
+
+{% block static_css %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'melaoapp/css/signUpView.css' %}">
+{% endblock %}
+
+{% block custom_header %}
+<header class="mobile-navbar">
+        <p>Crear una cuenta</p>
+</header>
+<div class="desktop-navbar">
+    <ul class="nav-list">
+        <li>
+            <a class="logo-container" href="{% url 'melaoapp:welcome' %}">
+                <img src="{% static 'melaoapp/img/logoIcono.png' %}" alt="Home">
+                <p class="logo-text">Melao</p>
+            </a>
+        </li>
+    </ul>
+</div>
+{% endblock %}
+
+{% block content %}
+    <div class="welcome-container">
+        <div class="welcome-logo desktop-content">
+            <img src="{% static 'melaoapp/img/logo.png' %}" alt="Logo de Melao" class="Logo" width="80" height="80">
+            <h1>Crear una cuenta</h1>
+        </div>
+
+        <input type="text" placeholder="Nombre completo" class="input-field" id="name">
+        <input type="text" placeholder="Usuario" class="input-field">
+        <input type="email" placeholder="Correo electronico" class="input-field">
+        <input type="password" placeholder="Contraseña" class="input-field">
+        <input type="date" class="input-field">
+
+        <button onclick="document.location.href='{% url 'melaoapp:home' %}'" class="button">
+            Registrarse
+        </button>
+        <button onclick="document.location.href='{% url 'melaoapp:welcome' %}'" class="button sign-up">
+            Volver
+        </button>
+    </div>
+{% endblock %}
+
+{% block custom_footer %}
+<footer>
+    <p>Al registrarte, aceptas nuestras Condiciones, Política de Privacidad y Uso de Cookies.</p>
+</footer>
+{% endblock %}

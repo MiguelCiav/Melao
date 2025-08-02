@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Melao{% endblock %}</title>
+    {% block static_css %}
+        <link rel="stylesheet" href="{% static 'melaoapp/css/base.css' %}">
+    {% endblock %}
+    {% block static_js %}{% endblock %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel = "icon" href = "{% static 'melaoapp/img/logoIcono.png' %}" type = "image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+</head>
+<body {% if request.COOKIES.theme == 'dark' %}class="dark-mode"{% endif %}>
+    {% block custom_header %}
+    <header class="mobile-navbar">
+        <a href="{% url 'melaoapp:home' %}">
+            <img src="{% static 'melaoapp/img/left_arrow.svg' %}" width="24" height="24" alt="X">
+        </a>
+        <p>Melao</p>
+    </header>
+    <div class="desktop-navbar">
+        <ul class="nav-list">
+            <li>
+                <a class="logo-container" href="{% url 'melaoapp:home' %}">
+                    <img src="{% static 'melaoapp/img/logoIcono.png' %}" alt="Home">
+                    <p class="logo-text">Melao</p>
+                </a>
+            </li>
+            <li><a href="{% url 'melaoapp:new_post_view' %}">Publicar</a></li>
+            <li><a href="{% url 'melaoapp:chat_list_view' %}">Chat</a></li>
+            <li><a href="{% url 'melaoapp:friends_list' %}">Amigos</a></li>
+            <li><a href="{% url 'melaoapp:search_person_view' %}">Buscar Personas</a></li>
+        </ul>
+        <ul class="nav-list">
+            <li class="right-nav-item">
+                <a href="{% url 'melaoapp:view_notifications' %}">
+                    <img src="{% static 'melaoapp/img/bell.svg' %}" alt="Notificaciones">
+                </a>
+            </li>
+            <li class="right-nav-item">
+                <a href="{% url 'melaoapp:profile' %}">
+                    <img src="{% static 'melaoapp/img/pfp_example.png' %}" alt="Perfil">
+                </a>
+            </li>
+        </ul>
+    </div>
+    {% endblock %}
+    
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    {% block custom_footer %}
+    <footer>
+        <nav class="Menu">
+            <ul class="footer-list">
+                <li><a href="{% url 'melaoapp:home' %}"><img src="{% static 'melaoapp/img/HomeIconSelected.png' %}" alt="Home"></a></li>
+                <li><a href="{% url 'melaoapp:friends_list' %}"><img src="{% static 'melaoapp/img/FriendsIcon.png' %}" alt="Friends"></a></li>
+                <li><a href="{% url 'melaoapp:chat_list_view' %}"><img src="{% static 'melaoapp/img/ChatIcon.png' %}" alt="Chat"></a></li>
+                <li><a href="{% url 'melaoapp:new_post_view' %}"><img src="{% static 'melaoapp/img/PostIcon.png' %}" alt="Post"></a></li>
+                <li><a href="{% url 'melaoapp:view_notifications' %}"><img src="{% static 'melaoapp/img/NotificationsIcon.png' %}" alt="Bell"></a></li>
+                <li><a href="{% url 'melaoapp:profile' %}"><img src="{% static 'melaoapp/img/UserIcon.png' %}" alt="User"></a></li>
+            </ul>
+        </nav>
+    </footer>
+    {% endblock %}
+</body>
+</html>

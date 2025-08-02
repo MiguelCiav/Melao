@@ -1,0 +1,78 @@
+{% extends 'melaoapp/base.html' %}
+{% load static %}
+
+{% block title %}Notificaciones{% endblock %}
+
+{% block static_js %}
+    <script>
+        let dataDummy = [
+            {
+                name: "Ethan Hunt",
+                image: "{% static 'melaoapp/img/EthanHuntProfile.png' %}",
+                description: "Envió petición de amistad",
+                notificationIcon: "{% static '/melaoapp/img/AddFriendBGLess.png' %}"
+            },
+            {
+                name: "Ethan Hunt",
+                image: "{% static 'melaoapp/img/EthanHuntProfile.png' %}",
+                description: "Envió petición de chat",
+                notificationIcon: "{% static '/melaoapp/img/chatRequest.png' %}"
+            },
+            {
+                name: "Ethan Hunt",
+                image: "{% static 'melaoapp/img/EthanHuntProfile.png' %}",
+                description: "Comentó tu publicación",
+                notificationIcon: "{% static '/melaoapp/img/Comment.png' %}"
+            }
+        ];
+
+        function renderPeople(people) {
+            people.forEach(element => {
+                const person = document.createElement("div");
+                person.setAttribute("class", "person");
+
+                const personImg = document.createElement("img");
+                personImg.setAttribute("src", element.image);
+                personImg.setAttribute("width", "70");
+                personImg.setAttribute("height", "70");
+                personImg.setAttribute("alt", "X");
+
+                const person_name = document.createElement("p");
+                person_name.setAttribute("class", "person-name");
+                person_name.innerText = element.name;
+
+                const description = document.createElement("p");
+                description.setAttribute("class", "Description");
+                description.innerText = element.description;
+
+                const notificationIcon = document.createElement("img");
+                notificationIcon.setAttribute("src", element.notificationIcon);
+                notificationIcon.setAttribute("width", "30");
+                notificationIcon.setAttribute("height", "30");
+                notificationIcon.setAttribute("alt", "X");
+                notificationIcon.setAttribute("class", "NotificationIcon");
+
+                person.appendChild(personImg);
+                person.appendChild(person_name);
+                person.appendChild(description);
+                person.appendChild(notificationIcon);
+
+                document.getElementsByClassName("NotificationsPannel")[0].appendChild(person);
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            renderPeople(dataDummy);
+        });
+    </script>
+{% endblock %}
+
+{% block static_css %}
+{{ block.super }}
+    <link rel="stylesheet" href="{% static 'melaoapp/css/viewNotifications.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="NotificationsPannel">
+    </div>
+{% endblock %}

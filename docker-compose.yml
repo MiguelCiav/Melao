@@ -3,25 +3,10 @@ version: '3.8'
 services:
   web:
     build: .
-    volumes:
-      - .:/app  # <--- Agrega esta línea para mapear el directorio actual a /app en el contenedor
-      - sqlite_data:/app/db_data
-    # Agrega ports si quieres acceder directamente al servidor de desarrollo de Django
-    # por ejemplo, si ejecutas `python manage.py runserver 0.0.0.0:8000` directamente en el contenedor
     ports:
-      - "8000:8000" # Esto es si quieres saltarte Apache por un momento y probar solo Django
-    # También puedes añadir un comando por defecto para desarrollo si no usas entrypoint.sh para runserver
-    # command: python manage.py runserver 0.0.0.0:8000 # Opcional, si quieres ejecutarlo así en desarrollo
-
-  apache:
-    image: httpd:2.4
-    ports:
-      - "8080:80"
+      - "8000:80"
     volumes:
-      - ./apache-django.conf:/usr/local/apache2/conf/extra/httpd-vhosts.conf:ro
-      - ./static:/app/static:ro
-    depends_on:
-      - web
-
-volumes:
-  sqlite_data:
+      - .:/var/www/Melao
+    environment:
+      - PROJECT_NAME=Melao
+      - APP_NAME=melaoapp

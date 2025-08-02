@@ -1,0 +1,65 @@
+# Python artifacts
+__pycache__/
+**/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+.python-version
+
+# Editor and OS files
+.vscode/
+.DS_Store
+*~
+
+# Test, coverage, and build artifacts
+.pytest_cache/
+.mypy_cache/
+.pylint.d/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.egg-info/
+.eggs/
+build/
+dist/
+htmlcov/
+
+# Installer logs
+pip-log.txt
+
+# Lock files
+Pipfile.lock
+poetry.lock
+
+# Docker files
+docker-compose.override.yml
+*.pid
+
+# Logs
+*.log
+
+# Env files
+.env
+.env.*
+
+# Node modules (if any)
+node_modules/
+
+# Media and database files
+db_data/
+*.sqlite3
+
+# Static and media files (if not needed for build)
+static/
+media/
