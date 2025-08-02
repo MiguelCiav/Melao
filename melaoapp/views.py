@@ -41,9 +41,6 @@ def welcome(request):
     return render(request, 'melaoapp/welcome.html')
 
 def set_theme(request):
-    """
-    Vista para establecer la preferencia del tema (claro/oscuro) en una cookie.
-    """
     if request.method == 'GET': # Podrías usar POST también, pero GET es más simple para un enlace/botón
         theme = request.GET.get('theme', 'light') # Obtiene 'theme' del parámetro URL, por defecto 'light'
         
