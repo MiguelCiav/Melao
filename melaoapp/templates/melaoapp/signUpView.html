@@ -1,5 +1,6 @@
 {% extends 'melaoapp/base.html' %}
 {% load static %}
+{% load widget_tweaks %}
 
 {% block title %}Crear una cuenta{% endblock %}
 
@@ -25,25 +26,27 @@
 {% endblock %}
 
 {% block content %}
-    <div class="welcome-container">
-        <div class="welcome-logo desktop-content">
-            <img src="{% static 'melaoapp/img/logo.png' %}" alt="Logo de Melao" class="Logo" width="80" height="80">
-            <h1>Crear una cuenta</h1>
-        </div>
-
-        <input type="text" placeholder="Nombre completo" class="input-field" id="name">
-        <input type="text" placeholder="Usuario" class="input-field">
-        <input type="email" placeholder="Correo electronico" class="input-field">
-        <input type="password" placeholder="Contraseña" class="input-field">
-        <input type="date" class="input-field">
-
-        <button onclick="document.location.href='{% url 'melaoapp:home' %}'" class="button">
-            Registrarse
-        </button>
-        <button onclick="document.location.href='{% url 'melaoapp:welcome' %}'" class="button sign-up">
-            Volver
-        </button>
+<div class="welcome-container">
+    <div class="welcome-logo desktop-content">
+        <img src="{% static 'melaoapp/img/logo.png' %}" alt="Logo de Melao" class="Logo" width="80" height="80">
+        <h1>Crear una cuenta</h1>
     </div>
+
+    <form method="post" action="">
+        {% csrf_token %}
+        {{ form.username|add_class:"input-field"|attr:"placeholder:Usuario" }}
+        {{ form.email|add_class:"input-field"|attr:"placeholder:Correo electrónico" }}
+        {{ form.first_name|add_class:"input-field"|attr:"placeholder:Nombre" }}
+        {{ form.last_name|add_class:"input-field"|attr:"placeholder:Apellido" }}
+        {{ form.gender|add_class:"input-field" }}
+        {{ form.date_of_birth|add_class:"input-field"|attr:"placeholder:Fecha de nacimiento" }}
+        {{ form.password1|add_class:"input-field"|attr:"placeholder:Contraseña" }}
+        {{ form.password2|add_class:"input-field"|attr:"placeholder:Confirmar contraseña" }}
+
+        <button type="submit" class="button">Registrarse</button>
+        <button type="button" onclick="window.location.href='{% url 'melaoapp:welcome' %}'" class="button sign-up">Volver</button>
+    </form>
+</div>
 {% endblock %}
 
 {% block custom_footer %}

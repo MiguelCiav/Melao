@@ -16,7 +16,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'melaoapp'
+    'melaoapp',
+    'widget_tweaks'
 ]
 
 MIDDLEWARE = [

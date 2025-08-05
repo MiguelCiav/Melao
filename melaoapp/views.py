@@ -1,9 +1,5 @@
-from django.http import HttpResponse
-from django.contrib.auth.views import LoginView, LogoutView
-from django.contrib.auth import login
-from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib.admin.views.decorators import staff_member_required
+from django.shortcuts import render, redirect
+from .forms import CustomUserCreationForm
 
 def sign_up_view(request):
     return render(request, 'melaoapp/signUpView.html', {'form': form})
@@ -75,7 +71,15 @@ def search_person_view(request):
     return render(request, 'melaoapp/searchPersonView.html')
 
 def sign_up_view(request):
-    return render(request, 'melaoapp/signUpView.html')
+    if request.method == 'POST':
+        form = CustomUserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('melaoapp:welcome')
+    else:
+        form = CustomUserCreationForm()
+    
+    return render(request, 'melaoapp/signUpView.html', {'form': form})
 
 def view_notifications(request):
     return render(request, 'melaoapp/viewNotifications.html')

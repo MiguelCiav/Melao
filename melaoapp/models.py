@@ -7,11 +7,6 @@ class Student(models.Model):
     date_of_birth = models.DateField(blank=True, null=True)
     gender = models.CharField(max_length=1, blank=True, null=True)
     self_description = models.TextField(blank=True, null=True)
-    favorite_color = models.CharField(max_length=50, blank=True, null=True)
-    favorite_book = models.CharField(max_length=255, blank=True, null=True)
-    favorite_music = models.CharField(max_length=255, blank=True, null=True)
-    favorite_videogame = models.CharField(max_length=255, blank=True, null=True)
-    known_programming_languages = models.TextField(blank=True, null=True)
 
     def __str__(self):
         return self.user.username
