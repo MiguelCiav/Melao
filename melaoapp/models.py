@@ -1,13 +1,11 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class Student(models.Model):
-    username = models.CharField(max_length=150, primary_key=True)
-    full_name = models.CharField(max_length=255)
-    password = models.CharField(max_length=128)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     profile_picture_url = models.URLField(max_length=500, blank=True, null=True)
     date_of_birth = models.DateField(blank=True, null=True)
     gender = models.CharField(max_length=1, blank=True, null=True)
-    email = models.EmailField(unique=True)
     self_description = models.TextField(blank=True, null=True)
     favorite_color = models.CharField(max_length=50, blank=True, null=True)
     favorite_book = models.CharField(max_length=255, blank=True, null=True)
@@ -15,6 +13,8 @@ class Student(models.Model):
     favorite_videogame = models.CharField(max_length=255, blank=True, null=True)
     known_programming_languages = models.TextField(blank=True, null=True)
 
+    def __str__(self):
+        return self.user.username
 
 class Post(models.Model):
     id = models.AutoField(primary_key=True)
@@ -25,8 +25,16 @@ class Post(models.Model):
     post_date = models.DateField(blank=True, null = True)
 
 class Is_friend_of(models.Model):
-    username_1 = models.ForeignKey(Student, on_delete=models.CASCADE)
-    username_2 = models.ForeignKey(Student, on_delete=models.CASCADE)
+    username_1 = models.ForeignKey(
+        Student,
+        on_delete=models.CASCADE,
+        related_name="friendships_initiated"
+    )
+    username_2 = models.ForeignKey(
+        Student,
+        on_delete=models.CASCADE,
+        related_name="friendships_received"
+    )
 
 class Notification(models.Model):
     id = models.AutoField(primary_key=True)
@@ -48,13 +56,16 @@ class Message(models.Model):
     creation_time = models.DateField(blank=True, null=True)
 
 class Sends_Request(models.Model):
-    username_1 = models.ForeignKey(Student, on_delete=models.CASCADE)
-    username_2 = models.ForeignKey(Student, on_delete=models.CASCADE)
-    type = models.TextField()
-
-class Receives_request(models.Model):
-    username_1 = models.ForeignKey(Student, on_delete=models.CASCADE)
-    username_2 = models.ForeignKey(Student, on_delete=models.CASCADE)
+    username_1 = models.ForeignKey(
+        Student,
+        on_delete=models.CASCADE,
+        related_name="sends_requests_sent"
+    )
+    username_2 = models.ForeignKey(
+        Student,
+        on_delete=models.CASCADE,
+        related_name="sends_requests_received"
+    )
     type = models.TextField()
 
 class Likes(models.Model):
@@ -70,5 +81,13 @@ class Comment(models.Model):
     date = models.DateField(blank=True, null = True)
 
 class Belongs_to(models.Model):
-    parent_comment_id = models.ForeignKey(Comment, on_delete=models.CASCADE)
-    child_comment_id = models.ForeignKey(Comment, on_delete=True)
+    parent_comment_id = models.ForeignKey(
+        Comment,
+        on_delete=models.CASCADE,
+        related_name="parent_belongs"
+    )
+    child_comment_id = models.ForeignKey(
+        Comment,
+        on_delete=models.CASCADE,
+        related_name="child_belongs"
+    )
