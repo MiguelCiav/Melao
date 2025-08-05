@@ -32,6 +32,16 @@
         </div>
         <p class="description">Conéctate con tus compañeros, comparte experiencias y mantente al día con lo que sucede en la comunidad ATI.</p>
 
+        {% if messages %}
+        <div>
+            {% for message in messages %}
+                <div class="alert-{{ message.tags }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
         <input type="text" placeholder="Ingresa tu correo electronico" class="input-field" id="name">
         <input type="email" placeholder="Ingresa tu contraseña" class="input-field">
         <div class="remember-me">

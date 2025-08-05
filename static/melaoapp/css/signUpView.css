@@ -26,3 +26,8 @@ body.dark-mode .UserDataInput{
     background-color: #473D24;
     color: #f0f0f0;
 }
+
+.display-form{
+    display: flex;
+    flex-direction: column;
+}

@@ -1,8 +1,24 @@
 # melaoapp/forms.py
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
-from .models import Usuario, Group
+from .models import Usuario, Group, Student
 from django.contrib.auth.models import Permission
+
+class StudentRegistrationForm(UserCreationForm):
+    # Añade los campos específicos de Student aquí si son requeridos
+    full_name = forms.CharField(max_length=255, required=True, label="Nombre completo")
+    date_of_birth = forms.DateField(required=True, label="Fecha de nacimiento", widget=forms.DateInput(attrs={'type': 'date'}))
+
+    class Meta(UserCreationForm.Meta):
+        model = Student
+        # Añade los campos específicos de tu modelo Student
+        fields = UserCreationForm.Meta.fields + ('full_name', 'email', 'date_of_birth',)
+        # Personaliza los labels
+        labels = {
+            'username': 'Nombre de usuario',
+            'email': 'Correo electrónico',
+        }
+
 
 class RegistroForm(UserCreationForm):
     email = forms.EmailField(required=True)

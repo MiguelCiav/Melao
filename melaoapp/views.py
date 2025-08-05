@@ -4,9 +4,10 @@ from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.admin.views.decorators import staff_member_required
-from .forms import RegistroForm, UsuarioEditForm
+from .forms import RegistroForm, UsuarioEditForm, StudentRegistrationForm
 from .models import Usuario, AccessLog
 from django.urls import reverse_lazy
+from django.contrib import messages
 
 class AdminLogoutView(LogoutView):
     """Vista personalizada para logout del admin"""
@@ -18,13 +19,19 @@ class AdminLogoutView(LogoutView):
 
 def sign_up_view(request):
     if request.method == 'POST':
-        form = RegistroForm(request.POST)
+        form = StudentRegistrationForm(request.POST)
         if form.is_valid():
+            messages.success(request, '¡Registro exitoso! Ahora puedes iniciar sesión.')
             user = form.save()
-            login(request, user)
-            return redirect('melaoapp:home')
+            # Opcional: Iniciar sesión automáticamente al usuario
+            # login(request, user)
+            return redirect('melaoapp:welcome')
+        else:
+            messages.error(request,"Hubo un error en el formulario. Revisa los campos marcados")
+            return render(request, 'melaoapp/signUpView.html', {'form': form})
     else:
-        form = RegistroForm()
+        form = StudentRegistrationForm()
+        
     return render(request, 'melaoapp/signUpView.html', {'form': form})
 
 def home(request):
@@ -93,8 +100,8 @@ def profile(request):
 def search_person_view(request):
     return render(request, 'melaoapp/searchPersonView.html')
 
-def sign_up_view(request):
-    return render(request, 'melaoapp/signUpView.html')
+#def sign_up_view(request):
+#    return render(request, 'melaoapp/signUpView.html')
 
 def view_notifications(request):
     return render(request, 'melaoapp/viewNotifications.html')

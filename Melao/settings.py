@@ -84,6 +84,9 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+#STATICFILES_DIRS = [
+#    os.path.join(BASE_DIR, 'static'),
+#]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
@@ -92,3 +95,7 @@ AUTH_USER_MODEL = 'melaoapp.Usuario'
 LOGIN_REDIRECT_URL = '/home/'
 LOGOUT_REDIRECT_URL = '/welcome/'
 LOGIN_URL = '/login/'
+
+USE_I18N = True
+USE_L10N = True
+LANGUAGE_CODE = 'es'

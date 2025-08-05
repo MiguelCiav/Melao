@@ -30,16 +30,53 @@
             <img src="{% static 'melaoapp/img/logo.png' %}" alt="Logo de Melao" class="Logo" width="80" height="80">
             <h1>Crear una cuenta</h1>
         </div>
+    {% if messages %}
+        <div>
+            {% for message in messages %}
+                <div class="alert-{{ message.tags }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+        <form method="POST" class="display-form">
+            {% csrf_token %}
 
-        <input type="text" placeholder="Nombre completo" class="input-field" id="name">
-        <input type="text" placeholder="Usuario" class="input-field">
-        <input type="email" placeholder="Correo electronico" class="input-field">
-        <input type="password" placeholder="Contraseña" class="input-field">
-        <input type="date" class="input-field">
+            <input type="text" placeholder="Nombre completo" class="input-field" id="full_name" name="full_name" value="{{ form.full_name.value|default:'' }}">
+            
+            <input type="text" placeholder="Usuario" class="input-field" id="username" name="username" value="{{ form.username.value|default:'' }}">
+            {% for error in form.username.errors %}
+                <small class="alert-error">{{ error }}</small>
+            {% endfor %}
 
-        <button onclick="document.location.href='{% url 'melaoapp:home' %}'" class="button">
-            Registrarse
-        </button>
+            <input type="email" placeholder="Correo electronico" class="input-field" id="email" name="email" value="{{ form.email.value|default:'' }}">
+            {% for error in form.email.errors %}
+                <small class="alert-error">{{ error }}</small>
+            {% endfor %}
+
+            <input type="password" placeholder="Contraseña" class="input-field" id="password" name="password1">
+            {% for error in form.password.errors %}
+                <small class="alert-error">{{ error }}</small>
+            {% endfor %}
+
+            <input type="password" placeholder="Confirmar Contraseña" class="input-field" id="password2" name="password2">
+            {% for error in form.password2.errors %}
+                <small class="alert-error">{{ error }}</small>
+            {% endfor %}
+
+            <input type="date" class="input-field" id="date_of_birth" name="date_of_birth" value="{{ form.date_of_birth.value|default:'' }}">
+
+            {% if form.non_field_errors %}
+                <div class="non-field-errors">
+                    {% for error in form.non_field_errors %}
+                        <p class="alert-error">{{ error }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            <button type="submit" class="button">Registrarse</button>
+        </form>
+
         <button onclick="document.location.href='{% url 'melaoapp:welcome' %}'" class="button sign-up">
             Volver
         </button>

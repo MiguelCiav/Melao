@@ -96,6 +96,7 @@ class Student(AbstractUser):
     Extiende AbstractUser para aprovechar el sistema de autenticación de Django.
     """
     full_name = models.CharField(max_length=255)
+    email = models.EmailField(unique=True, blank=False, null=False)
     profile_picture_url = models.URLField(max_length=500, blank=True, null=True)
     date_of_birth = models.DateField(blank=True, null=True)
     gender = models.CharField(max_length=20, blank=True, null=True)
