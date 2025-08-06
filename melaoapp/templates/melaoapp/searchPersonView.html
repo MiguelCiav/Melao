@@ -5,81 +5,24 @@
 
 {% block static_js %}
     <script>
-        let dataDummy = [
-            {
-                name: "Ethan Hunt",
-                image: "{% static 'melaoapp/img/EthanHuntProfile.png' %}",
-            },
-            {
-                name: "Ethan Hunt",
-                image: "{% static 'melaoapp/img/EthanHuntProfile.png' %}",
-            },
-            {
-                name: "Ethan Hunt",
-                image: "{% static 'melaoapp/img/EthanHuntProfile.png' %}",
-            },
-            {
-                name: "Ethan Hunt",
-                image: "{% static 'melaoapp/img/EthanHuntProfile.png' %}",
-            },
-            {
-                name: "Ethan Hunt",
-                image: "{% static 'melaoapp/img/EthanHuntProfile.png' %}",
-            },
-            {
-                name: "Ethan Hunt",
-                image: "{% static 'melaoapp/img/EthanHuntProfile.png' %}",
-            },
-            {
-                name: "Ethan Hunt",
-                image: "{% static 'melaoapp/img/EthanHuntProfile.png' %}",
-            },
-            {
-                name: "Ethan Hunt",
-                image: "{% static 'melaoapp/img/EthanHuntProfile.png' %}",
-            }
-        ];
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.querySelector('.search-tab input');
+            const persons = document.querySelectorAll('.person');
 
-        function renderPeople(people) {
-            people.forEach(element => {
-                const person = document.createElement("div");
-                person.setAttribute("class", "person");
+            searchInput.addEventListener('input', function(event) {
+                const searchTerm = event.target.value.toLowerCase();
 
-                const personImg = document.createElement("img");
-                personImg.setAttribute("src", element.image);
-                personImg.setAttribute("width", "70");
-                personImg.setAttribute("height", "70");
-                personImg.setAttribute("alt", "X");
+                persons.forEach(person => {
+                    const personNameElement = person.querySelector('.person_name');
+                    const personName = personNameElement.textContent.toLowerCase();
 
-                const person_name = document.createElement("p");
-                person_name.setAttribute("class", "person_name");
-                person_name.innerText = element.name;
-
-                const addFriends = document.createElement("img");
-                addFriends.setAttribute("src", "{% static '/melaoapp/img/AddFriend.png' %}");
-                addFriends.setAttribute("width", "30");
-                addFriends.setAttribute("height", "30");
-                addFriends.setAttribute("alt", "AddFriend");
-                addFriends.setAttribute("class", "Icon");
-
-                const chat = document.createElement("img");
-                chat.setAttribute("src", "{% static '/melaoapp/img/Chat.png' %}");
-                chat.setAttribute("width", "30");
-                chat.setAttribute("height", "30");
-                chat.setAttribute("alt", "Chat");
-                chat.setAttribute("class", "Icon");
-
-                person.appendChild(personImg);
-                person.appendChild(person_name);
-                person.appendChild(addFriends);
-                person.appendChild(chat);
-
-                document.getElementsByClassName("search-panel")[0].appendChild(person);
+                    if (personName.startsWith(searchTerm)) {
+                        person.style.display = 'flex';
+                    } else {
+                        person.style.display = 'none';
+                    }
+                });
             });
-        }
-
-        document.addEventListener("DOMContentLoaded", function() {
-            renderPeople(dataDummy);
         });
     </script>
 {% endblock %}
@@ -97,5 +40,13 @@
     </div>
     
     <div class="search-panel">
+        {% for person in persons %}
+        <div class="person">
+            <img src="{{ person.profile_picture_url }}" width="70" height="70" alt="X">
+            <p class="person_name">{{ person.user.first_name }} {{ person.user.last_name }}</p>
+            <img src="/static/melaoapp/img/AddFriend.png" width="30" height="30" alt="AddFriend" class="Icon">
+            <img src="/static/melaoapp/img/Chat.png" width="30" height="30" alt="Chat" class="Icon">
+        </div>
+        {% endfor %}
     </div>
 {% endblock %}
