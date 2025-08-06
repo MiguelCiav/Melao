@@ -1,5 +1,8 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth import authenticate, login
 from .forms import CustomUserCreationForm
+from django.contrib.auth.decorators import login_required
 
 def sign_up_view(request):
     return render(request, 'melaoapp/signUpView.html', {'form': form})
@@ -28,8 +31,11 @@ def new_post_view(request):
 def post_view(request):
     return render(request, 'melaoapp/postView.html')
 
+@login_required(login_url='melaoapp:welcome')
 def profile(request):
-    return render(request, 'melaoapp/profile.html')
+    full_name = request.user.get_full_name()
+    context = {"full_name": full_name}
+    return render(request, 'melaoapp/profile.html', context)
 
 def search_person_view(request):
     return render(request, 'melaoapp/searchPersonView.html')
@@ -63,9 +69,6 @@ def new_post_view(request):
 
 def post_view(request):
     return render(request, 'melaoapp/postView.html')
-
-def profile(request):
-    return render(request, 'melaoapp/profile.html')
 
 def search_person_view(request):
     return render(request, 'melaoapp/searchPersonView.html')
@@ -85,23 +88,23 @@ def view_notifications(request):
     return render(request, 'melaoapp/viewNotifications.html')
 
 def welcome(request):
-    return render(request, 'melaoapp/welcome.html')
+    if request.method == 'POST':
+        form = AuthenticationForm(request, data=request.POST)
+        if form.is_valid():
+            user = form.get_user()
+            login(request, user)
+            return redirect('melaoapp:home')
+    else:
+        form = AuthenticationForm()
+    
+    return render(request, 'melaoapp/welcome.html', {'form': form})
 
 def set_theme(request):
-    if request.method == 'GET': # Podrías usar POST también, pero GET es más simple para un enlace/botón
-        theme = request.GET.get('theme', 'light') # Obtiene 'theme' del parámetro URL, por defecto 'light'
-        
-        # Opcional: Asegurarse de que el tema sea válido
+    if request.method == 'GET':
+        theme = request.GET.get('theme', 'light')
         if theme not in ['light', 'dark']:
             theme = 'light'
-
-        # Redirigir a la página anterior o a una URL específica
-        # request.META.get('HTTP_REFERER') contiene la URL de donde vino la solicitud
         response = redirect(request.META.get('HTTP_REFERER', '/')) 
-        
-        # Establecer la cookie 'theme'
-        response.set_cookie('theme', theme, max_age=60*60*24*365) # La cookie durará un año
-
+        response.set_cookie('theme', theme, max_age=60*60*24*365)
         return response
-    # Si la solicitud no es GET, simplemente redirige o maneja el error
-    return redirect('/') # O a donde sea apropiado
+    return redirect('/')

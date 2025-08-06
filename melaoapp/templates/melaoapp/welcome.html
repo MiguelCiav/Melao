@@ -1,5 +1,6 @@
 {% extends 'melaoapp/base.html' %}
 {% load static %}
+{% load widget_tweaks %}
 
 {% block title %}Bienvenido{% endblock %}
 
@@ -25,28 +26,45 @@
 {% endblock %}
 
 {% block content %}
-    <div class="welcome-container">
-        <div class="welcome-logo">
-            <img src="{% static 'melaoapp/img/logo.png' %}" alt="Logo de Melao" class="Logo" width="80" height="80">
-            <h1>Bienvenido a Melao</h1>
-        </div>
-        <p class="description">Conéctate con tus compañeros, comparte experiencias y mantente al día con lo que sucede en la comunidad ATI.</p>
+<form method="POST" class="welcome-container">
+    {% csrf_token %}
 
-        <input type="text" placeholder="Ingresa tu correo electronico" class="input-field" id="name">
-        <input type="email" placeholder="Ingresa tu contraseña" class="input-field">
-        <div class="remember-me">
-            <label for="remember-me">Recuerdame</label>
-            <input type="checkbox" id="remember-me">
-        </div>
-        <a href="" class="desktop-content">¿Has olvidado tu contraseña?</a>
-
-        <button onclick="document.location.href='{% url 'melaoapp:home' %}'" class="button">
-            Iniciar Sesion
-        </button>
-        <button onclick="document.location.href='{% url 'melaoapp:sign_up_view' %}'" class="button sign-up">
-            Registrarse
-        </button>
+    <div class="welcome-logo">
+        <img src="{% static 'melaoapp/img/logo.png' %}" alt="Logo de Melao" class="Logo" width="80" height="80">
+        <h1>Bienvenido a Melao</h1>
     </div>
+    
+    <p class="description">
+        Conéctate con tus compañeros, comparte experiencias y mantente al día con lo que sucede en la comunidad ATI.
+    </p>
+
+    <!-- Campo usuario -->
+    {% if form.username.errors %}
+        <div class="form-error">{{ form.username.errors }}</div>
+    {% endif %}
+    {{ form.username|add_class:"input-field" }}
+
+    <!-- Campo contraseña -->
+    {% if form.password.errors %}
+        <div class="form-error">{{ form.password.errors }}</div>
+    {% endif %}
+    {{ form.password|add_class:"input-field" }}
+
+    <div class="remember-me">
+        <label for="remember-me">Recuérdame</label>
+        <input type="checkbox" name="remember-me" id="remember-me">
+    </div>
+
+    <a href="#" class="desktop-content">¿Has olvidado tu contraseña?</a>
+
+    <button type="submit" class="button">
+        Iniciar Sesión
+    </button>
+
+    <button type="button" onclick="document.location.href='{% url 'melaoapp:sign_up_view' %}'" class="button sign-up">
+        Registrarse
+    </button>
+</form>
 {% endblock %}
 
 {% block custom_footer %}
