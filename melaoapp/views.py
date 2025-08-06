@@ -43,9 +43,6 @@ def search_person_view(request):
 def view_notifications(request):
     return render(request, 'melaoapp/viewNotifications.html')
 
-def welcome(request):
-    return render(request, 'melaoapp/welcome.html')
-
 def home(request):
     return render(request, 'melaoapp/home.html')
 
