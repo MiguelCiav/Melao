@@ -12,13 +12,25 @@
 {% block content %}
     <!-- Versión móvil -->
     <div class="Post-pannel mobile-content">
-        <div class="PostDiv">
+        <form method="post" enctype="multipart/form-data" class="PostDiv">
+            {% csrf_token %}
             <img src="{% static 'melaoapp/img/EthanHuntProfile.png' %}" class="profile-image">
-            <textarea></textarea>
-            <img src="{% static 'melaoapp/img/IMG-Icon.png' %}" id="ImageIcon" class="PostIcon">
-            <img src="{% static 'melaoapp/img/Video-Icon.png' %}" id="VideoIcon" class="PostIcon">
-        </div>
+            <textarea name="description" placeholder="Escribe lo que estás pensando..." rows="4"></textarea>
+            
+            <div class="mobile-icons-container">
+                <label for="id_multimedia_url">
+                    <img src="{% static 'melaoapp/img/IMG-Icon.png' %}" id="ImageIcon" class="PostIcon">
+                </label>
+                <input type="file" name="multimedia_url" id="id_multimedia_url" class="visually-hidden" accept="image/*,video/*">
+
+                <button type="submit" id="mobile-post-button" class="mobile-post-button">
+                    <img src="{% static 'melaoapp/img/right_arrow_button.svg' %}" class="PostIcon">
+                </button>
+            </div>
+            <input type="hidden" name="privacy_settings" value="1">
+        </form>
     </div>
+
 
     <!-- Versión escritorio -->
     <div class="Post-pannel desktop-content">
