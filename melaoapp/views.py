@@ -3,6 +3,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate, login
 from .forms import CustomUserCreationForm
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q
 from .models import Is_friend_of, Post, Student
 
 def sign_up_view(request):
@@ -12,7 +13,21 @@ def chat_list_view(request):
     return render(request, 'melaoapp/chatListView.html')
 
 def friends_list(request):
-    return render(request, 'melaoapp/friendsList.html')
+    current_student = Student.objects.get(user=request.user)
+
+    friendships = Is_friend_of.objects.filter(
+        Q(username_1=current_student) | Q(username_2=current_student)
+    )
+
+    friends_list = []
+    for friendship in friendships:
+        if friendship.username_1 == current_student:
+            friends_list.append(friendship.username_2)
+        else:
+            friends_list.append(friendship.username_1)
+
+    context = {'friends': friends_list}
+    return render(request, 'melaoapp/friendsList.html', context)
 
 def language_and_theme_config_view(request):
     return render(request, 'melaoapp/languageAndThemeConfigView.html')
