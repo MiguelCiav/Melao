@@ -7,14 +7,8 @@ from django.contrib.auth.decorators import login_required
 def sign_up_view(request):
     return render(request, 'melaoapp/signUpView.html', {'form': form})
 
-def home(request):
-    return render(request, 'melaoapp/home.html')
-
 def chat_list_view(request):
     return render(request, 'melaoapp/chatListView.html')
-
-def chat_view(request):
-    return render(request, 'melaoapp/chatView.html')
 
 def friends_list(request):
     return render(request, 'melaoapp/friendsList.html')
@@ -27,9 +21,6 @@ def modify_profile(request):
 
 def new_post_view(request):
     return render(request, 'melaoapp/newPostView.html')
-
-def post_view(request):
-    return render(request, 'melaoapp/postView.html')
 
 @login_required(login_url='melaoapp:welcome')
 def profile(request):
@@ -46,29 +37,14 @@ def view_notifications(request):
 def home(request):
     return render(request, 'melaoapp/home.html')
 
-def chat_list_view(request):
-    return render(request, 'melaoapp/chatListView.html')
-
 def chat_view(request):
     return render(request, 'melaoapp/chatView.html')
-
-def friends_list(request):
-    return render(request, 'melaoapp/friendsList.html')
 
 def language_and_theme_config_view(request):
     return render(request, 'melaoapp/languageAndThemeConfigView.html')
 
-def modify_profile(request):
-    return render(request, 'melaoapp/modifyProfile.html')
-
-def new_post_view(request):
-    return render(request, 'melaoapp/newPostView.html')
-
 def post_view(request):
     return render(request, 'melaoapp/postView.html')
-
-def search_person_view(request):
-    return render(request, 'melaoapp/searchPersonView.html')
 
 def sign_up_view(request):
     if request.method == 'POST':
@@ -80,9 +56,6 @@ def sign_up_view(request):
         form = CustomUserCreationForm()
     
     return render(request, 'melaoapp/signUpView.html', {'form': form})
-
-def view_notifications(request):
-    return render(request, 'melaoapp/viewNotifications.html')
 
 def welcome(request):
     if request.method == 'POST':
