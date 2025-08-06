@@ -36,7 +36,16 @@ class Notification(models.Model):
     sending_date = models.DateTimeField(auto_now_add=True)
     content = models.TextField()
     type = models.CharField(max_length=50)
-    username = models.ForeignKey(Student, on_delete=models.CASCADE)
+    receiver_username = models.ForeignKey(
+        Student, 
+        on_delete=models.CASCADE,
+        related_name='received_notifications'
+    )
+    sender_username = models.ForeignKey(
+        Student, 
+        on_delete=models.CASCADE,
+        related_name='sent_notifications'    
+    )
 
 class Chat(models.Model):
     id = models.AutoField(primary_key=True)
