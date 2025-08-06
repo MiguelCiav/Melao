@@ -5,6 +5,7 @@ from .forms import CustomUserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from .models import Is_friend_of, Post, Student
+from .forms import StudentSelfDescriptionForm
 
 def sign_up_view(request):
     return render(request, 'melaoapp/signUpView.html', {'form': form})
@@ -108,3 +109,15 @@ def set_theme(request):
         response.set_cookie('theme', theme, max_age=60*60*24*365)
         return response
     return redirect('/')
+
+@login_required
+def update_self_description(request):
+    student = Student.objects.get(user=request.user)
+    if request.method == "POST":
+        form = StudentSelfDescriptionForm(request.POST, instance=student)
+        if form.is_valid():
+            form.save()
+            return redirect('melaoapp:profile')
+    else:
+        form = StudentSelfDescriptionForm(instance=student)
+    return render(request, 'melaoapp/updateSelfDescription.html', {'form': form})

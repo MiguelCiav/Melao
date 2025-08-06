@@ -1,0 +1,23 @@
+{% extends 'melaoapp/base.html' %}
+{% load static %}
+
+{% block title %}Melao - Configuración{% endblock %}
+
+{% block static_css %}
+{{ block.super }}
+    <link rel="stylesheet" href="{% static 'melaoapp/css/aboutMeConfig.css' %}">
+{% endblock %}
+
+{% block static_js %}
+    <script src="{% static 'melaoapp/js/languageAndThemeConfig.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="ConfigPancnel">
+        <img src="{% static 'melaoapp/img/left_arrow.svg' %}" alt="Volver" class="BackButton" onclick="history.back()">
+        <p class="title">Cambia la información de tu perfil</p>
+        <form method="post" action="">
+            {{ form.username|add_class:"input-field"|attr:"placeholder:Habla sobre ti" }}
+        </form>
+    </div>
+{% endblock %}

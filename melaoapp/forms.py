@@ -41,3 +41,8 @@ class CustomUserCreationForm(UserCreationForm):
                 gender=self.cleaned_data.get('gender', None),
             )
         return user
+
+class StudentSelfDescriptionForm(forms.ModelForm):
+    class Meta:
+        model = Student
+        fields = ['self_description']
