@@ -218,7 +218,7 @@ body.dark-mode .title {
 body.dark-mode .chat-container {
     background-color: #383229;
 }
-body.dark-mode .message-incoming, body.dark-mode .input-container {
+body.dark-mode .message-incoming .text-received, body.dark-mode .input-container {
     background-color: #473D24;
     color: #f0f0f0;
 }
