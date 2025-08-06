@@ -67,32 +67,6 @@ body.dark-mode {
     color: #f0f0f0; 
 }
 
-body.dark-mode .NavBar {
-    background-color: #211C12;
-}
-body.dark-mode .Menu {
-    background-color: #473D24; 
-}
-
-
-body.dark-mode #LightMode {
-    background-color: #555; 
-    border-color: #777;
-    color: #bbb;
-}
-
-body.dark-mode #DarkMode {
-    background-color: #9C854A; 
-    border-color: #9C854A;
-    color: white;
-}
-
-
-body.dark-mode h2 {
+body.dark-mode .title {
     color: #f0f0f0;
-}
-
-body.dark-mode #Language select {
-    color: #f0f0f0;
-    background-color: #211C12;
 }

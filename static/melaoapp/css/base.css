@@ -130,3 +130,7 @@ body.dark-mode .nav-list a{
 body.dark-mode .desktop-navbar {
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
+body.dark-mode .search-tab, body.dark-mode .search-tab input {
+    background-color: #473D24;
+    color: #f0f0f0;
+}
