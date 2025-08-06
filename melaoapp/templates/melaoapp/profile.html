@@ -41,7 +41,6 @@
         ];
 
         function renderProfileImage(image){
-            document.getElementById("ProfileName").innerText = "Ethan Hunt";
             document.getElementById("ProfileImage").setAttribute("src", image);
         }
 
@@ -120,7 +119,7 @@
 {% block content %}
     <div class="ProfilePannel">
         <img id="ProfileImage" alt ="Imagen de perfil">
-        <p id="ProfileName"></p>
+        <p id="ProfileName">{{ full_name }}</p>
         <div class="ProfileButtonsDiv">
             <a href="{% url 'melaoapp:modify_profile' %}">
                 <input type="button" value="Editar Perfil" class="ProfileButton" id="EditProfileButton"/>

@@ -25,6 +25,9 @@ RUN virtualenv /venv
 # Install Django
 RUN /venv/bin/pip install django
 
+# Install apps
+RUN /venv/bin/pip install django-widget-tweaks
+
 # Copy Apache configuration
 COPY djangoproject.conf /etc/apache2/sites-available/djangoproject.conf
 
