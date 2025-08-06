@@ -202,15 +202,15 @@ textarea:focus {
         overflow: hidden;
     }
 
-    .Post-button-link{
+    .Post-button-link {
         display: inline-flex;
         width: 100%;
-        height: 15%;
+        height: 15%; /* Altura original */
         margin-top: 15px;
         text-decoration: none;
     }
 
-    .Post-button{
+    .Post-button {
         cursor: pointer;
         width: 100%;
         font-weight: bold;
@@ -218,15 +218,37 @@ textarea:focus {
         border-radius: 10px;
         outline: none;
         border-style: none;
+        height: 100%; /* Ocupa toda la altura del contenedor */
     }
 
-    #post-button{
+    #post-button {
         background-color: #E4AC73;
         margin-left: 20px;
     }
 
-    #cancel-button{
+    #cancel-button {
         background-color: #F2F2F2;
+    }
+    
+    
+
+
+    /* Nuevos estilos para los botones */
+    .button-container {
+        display: flex;
+        width: 100%;
+        margin-top: 15px;
+        gap: 10px;
+    }
+
+    .cancel-link {
+        flex: 1;
+        text-decoration: none;
+    }
+
+    #post-button {
+        flex: 1;
+        margin-left: 0; /* Eliminamos el margen izquierdo anterior */
     }
 }
 
@@ -250,4 +272,21 @@ body.dark-mode .PostDiv {
 body.dark-mode #PostTextArea  {
     background-color: #473D24;
     color: #f0f0f0;
+}
+
+/* Asegura que el textarea del formulario mantenga el estilo */
+/* Asegura que el contenedor principal tenga altura definida */
+.Post-container {
+    height: 100%; /* Mantiene la altura original */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Ajuste para el área de texto */
+.Writeable-area {
+    height: 30%; /* Mantiene la altura original */
+}
+
+.File-input {
+    height: 25%; /* Mantiene la altura original */
 }

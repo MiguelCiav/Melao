@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from .models import Student
+from .models import Student, Post
 
 class CustomUserCreationForm(UserCreationForm):
     email = forms.EmailField(required=True)
@@ -41,3 +41,23 @@ class CustomUserCreationForm(UserCreationForm):
                 gender=self.cleaned_data.get('gender', None),
             )
         return user
+
+class PostForm(forms.ModelForm):
+    privacy_settings = forms.IntegerField(
+        widget=forms.HiddenInput(),
+        initial=1
+    )
+    class Meta:
+        model = Post
+        fields = ['description', 'multimedia_url', 'privacy_settings']
+        widgets = {
+            'description': forms.Textarea(attrs={
+                'placeholder': 'Escribe lo que estás pensando...',
+                'class': 'text-area-custom',
+                'rows': 4
+            }),
+            'multimedia_url': forms.FileInput(attrs={
+                'class': 'visually-hidden',
+                'accept': 'image/*,video/*'
+            }),
+        }
