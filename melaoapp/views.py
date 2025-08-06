@@ -4,7 +4,9 @@ from django.contrib.auth import authenticate, login
 from .forms import CustomUserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
-from .models import Is_friend_of, Post, Student
+from .models import Is_friend_of, Post, Student, Notification
+from django.http import JsonResponse
+from django.utils import timezone
 
 def sign_up_view(request):
     return render(request, 'melaoapp/signUpView.html', {'form': form})
@@ -49,8 +51,47 @@ def search_person_view(request):
     context = {'persons': persons}
     return render(request, 'melaoapp/searchPersonView.html', context)
 
+def add_friend_notification(request):
+    if request.method == 'POST':
+        recipient_username = request.POST.get('recipient_username')
+
+        sending_date = timezone.now()
+        
+        content = f"{request.user.username} te ha enviado una solicitud de amistad."
+        
+        notification_type = 'friend_request' 
+
+        try:
+            recipient_student = Student.objects.get(user__username=recipient_username)
+            
+            notification = Notification(
+                sending_date=sending_date,
+                content=content,
+                type=notification_type,
+                username=recipient_student)
+            
+            notification.save()
+            
+            return JsonResponse({'status': 'success', 'message': 'Solicitud de amistad enviada.'})
+        
+        except Student.DoesNotExist:
+            return JsonResponse({'status': 'error', 'message': 'El usuario destinatario no existe.'}, status=404)
+        except Exception as e:
+            return JsonResponse({'status': 'error', 'message': str(e)}, status=500)
+
 def view_notifications(request):
-    return render(request, 'melaoapp/viewNotifications.html')
+    try:
+        current_student = request.user.student
+    except Student.DoesNotExist:
+        return render(request, 'error.html', {'message': 'No se encontró el perfil de estudiante.'})
+    
+    notifications = Notification.objects.select_related('sender_username').filter(receiver_username=current_student).order_by('-sending_date')
+
+    context = {
+        'notifications': notifications
+    }
+
+    return render(request, 'melaoapp/viewNotifications.html', context)
 
 def home(request):
     try:
