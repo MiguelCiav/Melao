@@ -3,6 +3,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate, login
 from .forms import CustomUserCreationForm
 from django.contrib.auth.decorators import login_required
+from .models import Is_friend_of, Post, Student
 
 def sign_up_view(request):
     return render(request, 'melaoapp/signUpView.html', {'form': form})
@@ -29,13 +30,27 @@ def profile(request):
     return render(request, 'melaoapp/profile.html', context)
 
 def search_person_view(request):
-    return render(request, 'melaoapp/searchPersonView.html')
+    persons = Student.objects.select_related('user').all()
+    context = {'persons': persons}
+    return render(request, 'melaoapp/searchPersonView.html', context)
 
 def view_notifications(request):
     return render(request, 'melaoapp/viewNotifications.html')
 
 def home(request):
-    return render(request, 'melaoapp/home.html')
+    current_user = request.user.username
+
+    friends_of_user = Is_friend_of.objects.filter(username_1=current_user).values_list('username_2', flat=True)
+
+    posts = Post.objects.filter(
+        username__in=friends_of_user
+    ).select_related(
+        'student'
+    ).order_by(
+        '-post_date'
+    )[:100]
+
+    return render(request, 'melaoapp/home.html', {'posts': posts})
 
 def chat_view(request):
     return render(request, 'melaoapp/chatView.html')

@@ -40,7 +40,7 @@
             }
         ];
 
-        function renderPeople(people) {
+        /*function renderPeople(people) {
             people.forEach(element => {
                 const person = document.createElement("div");
                 person.setAttribute("class", "person");
@@ -80,6 +80,26 @@
 
         document.addEventListener("DOMContentLoaded", function() {
             renderPeople(dataDummy);
+        });*/
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.querySelector('.search-tab input');
+            const persons = document.querySelectorAll('.person');
+
+            searchInput.addEventListener('input', function(event) {
+                const searchTerm = event.target.value.toLowerCase();
+
+                persons.forEach(person => {
+                    const personNameElement = person.querySelector('.person_name');
+                    const personName = personNameElement.textContent.toLowerCase();
+
+                    if (personName.startsWith(searchTerm)) {
+                        person.style.display = 'flex';
+                    } else {
+                        person.style.display = 'none';
+                    }
+                });
+            });
         });
     </script>
 {% endblock %}
@@ -97,5 +117,13 @@
     </div>
     
     <div class="search-panel">
+        {% for person in persons %}
+        <div class="person">
+            <img src="{{ person.profile_picture_url }}" width="70" height="70" alt="X">
+            <p class="person_name">{{ person.user.first_name }} {{ person.user.last_name }}</p>
+            <img src="/static/melaoapp/img/AddFriend.png" width="30" height="30" alt="AddFriend" class="Icon">
+            <img src="/static/melaoapp/img/Chat.png" width="30" height="30" alt="Chat" class="Icon">
+        </div>
+        {% endfor %}
     </div>
 {% endblock %}
