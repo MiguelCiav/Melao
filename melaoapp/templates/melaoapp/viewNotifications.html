@@ -74,5 +74,13 @@
 
 {% block content %}
     <div class="NotificationsPannel">
+        {% for notification in notifications %}
+        <div class="person">
+            <img src="{{ notification.sender_username.profile_picture_url }}" width="70" height="70" alt="X">
+            <p class="person-name">{{ notification.user.first_name }} {{ notification.user.last_name }}</p>
+            <p class="Description">{{notification.content}}</p>
+            <img src="/static/melaoapp/img/AddFriendBGLess.png" width="30" height="30" alt="X" class="NotificationIcon">
+        </div>
+        {% endfor %}
     </div>
 {% endblock %}

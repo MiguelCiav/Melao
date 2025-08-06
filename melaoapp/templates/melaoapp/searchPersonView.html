@@ -24,6 +24,44 @@
                 });
             });
         });
+
+        document.addEventListener('DOMContentLoaded', function() {
+        const addButton = document.getElementById('Add-Friend-Button');
+
+        if (addButton) {
+            addButton.addEventListener('click', function() {
+                const recipientUsername = addButton.dataset.recipientUsername;
+                const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+                const data = {
+                    receiver_username: recipientUsername,
+                    sender_username: '{{ request.user.username }}'
+                };
+
+                fetch('/addFriend/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': csrfToken
+                    },
+                    body: JSON.stringify(data)
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Error en la red o en el servidor');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Respuesta del servidor:', data);
+                    alert('¡Solicitud enviada con éxito!');
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Hubo un error al enviar la solicitud.');
+                });
+            });
+        }
+    });
     </script>
 {% endblock %}
 
@@ -44,7 +82,7 @@
         <div class="person">
             <img src="{{ person.profile_picture_url }}" width="70" height="70" alt="X">
             <p class="person_name">{{ person.user.first_name }} {{ person.user.last_name }}</p>
-            <img src="/static/melaoapp/img/AddFriend.png" width="30" height="30" alt="AddFriend" class="Icon">
+            <img src="/static/melaoapp/img/AddFriend.png" width="30" height="30" alt="AddFriend" class="Icon Add-Friend-Button">
             <img src="/static/melaoapp/img/Chat.png" width="30" height="30" alt="Chat" class="Icon">
         </div>
         {% endfor %}

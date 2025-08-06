@@ -4,8 +4,10 @@ from django.contrib.auth import authenticate, login
 from .forms import CustomUserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
-from .models import Is_friend_of, Post, Student
+from .models import Is_friend_of, Post, Student, Notification
 from .forms import StudentSelfDescriptionForm
+from django.http import JsonResponse
+from django.utils import timezone
 
 def sign_up_view(request):
     return render(request, 'melaoapp/signUpView.html', {'form': form})
@@ -51,22 +53,72 @@ def search_person_view(request):
     context = {'persons': persons}
     return render(request, 'melaoapp/searchPersonView.html', context)
 
+def add_friend_notification(request):
+    if request.method == 'POST':
+        recipient_username = request.POST.get('recipient_username')
+
+        sending_date = timezone.now()
+        
+        content = f"{request.user.username} te ha enviado una solicitud de amistad."
+        
+        notification_type = 'friend_request' 
+
+        try:
+            recipient_student = Student.objects.get(user__username=recipient_username)
+            
+            notification = Notification(
+                sending_date=sending_date,
+                content=content,
+                type=notification_type,
+                username=recipient_student)
+            
+            notification.save()
+            
+            return JsonResponse({'status': 'success', 'message': 'Solicitud de amistad enviada.'})
+        
+        except Student.DoesNotExist:
+            return JsonResponse({'status': 'error', 'message': 'El usuario destinatario no existe.'}, status=404)
+        except Exception as e:
+            return JsonResponse({'status': 'error', 'message': str(e)}, status=500)
+
 def view_notifications(request):
-    return render(request, 'melaoapp/viewNotifications.html')
+    try:
+        current_student = request.user.student
+    except Student.DoesNotExist:
+        return render(request, 'error.html', {'message': 'No se encontró el perfil de estudiante.'})
+    
+    notifications = Notification.objects.select_related('sender_username').filter(receiver_username=current_student).order_by('-sending_date')
+
+    context = {
+        'notifications': notifications
+    }
+
+    return render(request, 'melaoapp/viewNotifications.html', context)
 
 def home(request):
-    current_user = request.user.username
+    try:
+        current_student = Student.objects.get(user=request.user)
+    except Student.DoesNotExist:
+        return render(request, 'melaoapp/home.html', {'posts': []})
 
-    friends_of_user = Is_friend_of.objects.filter(username_1=current_user).values_list('username_2', flat=True)
+    friendships = Is_friend_of.objects.filter(
+        Q(username_1=current_student) | Q(username_2=current_student)
+    )
+
+    friend_ids = []
+    for friendship in friendships:
+        if friendship.username_1 == current_student:
+            friend_ids.append(friendship.username_2.id)
+        else:
+            friend_ids.append(friendship.username_1.id)
 
     posts = Post.objects.filter(
-        username__in=friends_of_user
+        username_id__in=friend_ids
     ).select_related(
-        'student'
+        'username__user'
     ).order_by(
         '-post_date'
     )[:100]
-
     return render(request, 'melaoapp/home.html', {'posts': posts})
 
 def chat_view(request):
