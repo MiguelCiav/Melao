@@ -124,3 +124,9 @@ body.dark-mode, body.dark-mode .mobile-navbar, body.dark-mode .desktop-navbar {
     background-color: #211C12; 
     color: #f0f0f0; 
 }
+body.dark-mode .nav-list a{
+    color: #f0f0f0;
+}
+body.dark-mode .desktop-navbar {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
