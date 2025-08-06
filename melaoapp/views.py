@@ -42,7 +42,8 @@ def new_post_view(request):
 @login_required(login_url='melaoapp:welcome')
 def profile(request):
     full_name = request.user.get_full_name()
-    context = {"full_name": full_name}
+    self_description = request.user.student.self_description
+    context = {"full_name": full_name, "self_description": self_description}
     return render(request, 'melaoapp/profile.html', context)
 
 def search_person_view(request):
@@ -111,7 +112,7 @@ def set_theme(request):
     return redirect('/')
 
 @login_required
-def update_self_description(request):
+def about_me_config_view(request):
     student = Student.objects.get(user=request.user)
     if request.method == "POST":
         form = StudentSelfDescriptionForm(request.POST, instance=student)
@@ -120,4 +121,4 @@ def update_self_description(request):
             return redirect('melaoapp:profile')
     else:
         form = StudentSelfDescriptionForm(instance=student)
-    return render(request, 'melaoapp/updateSelfDescription.html', {'form': form})
+    return render(request, 'melaoapp/aboutMeConfigView.html', {'form': form})

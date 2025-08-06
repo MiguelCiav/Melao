@@ -20,10 +20,14 @@
 
     <div class="option-container">
         <div class="text-container">
-            <p class="title">Información Personal</p>
-            <p class="subtitle">Actualizar biografía</p>
+            <a class="black-link" href="{% url 'melaoapp:about_me_config_view' %}">
+                <p class="title">Información Personal</p>
+                <p class="subtitle">Actualizar biografía</p>
+            </a>
         </div>
-        <img src="{% static 'melaoapp/img/right_arrow.svg' %}" alt="">
+        <a href="{% url 'melaoapp:about_me_config_view' %}">
+            <img src="{% static 'melaoapp/img/right_arrow.svg' %}" alt="">
+        </a>
     </div>
 
     <div class="option-container">
