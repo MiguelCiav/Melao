@@ -53,18 +53,29 @@ def view_notifications(request):
     return render(request, 'melaoapp/viewNotifications.html')
 
 def home(request):
-    current_user = request.user.username
+    try:
+        current_student = Student.objects.get(user=request.user)
+    except Student.DoesNotExist:
+        return render(request, 'melaoapp/home.html', {'posts': []})
 
-    friends_of_user = Is_friend_of.objects.filter(username_1=current_user).values_list('username_2', flat=True)
+    friendships = Is_friend_of.objects.filter(
+        Q(username_1=current_student) | Q(username_2=current_student)
+    )
+
+    friend_ids = []
+    for friendship in friendships:
+        if friendship.username_1 == current_student:
+            friend_ids.append(friendship.username_2.id)
+        else:
+            friend_ids.append(friendship.username_1.id)
 
     posts = Post.objects.filter(
-        username__in=friends_of_user
+        username_id__in=friend_ids
     ).select_related(
-        'student'
+        'username__user'
     ).order_by(
         '-post_date'
     )[:100]
-
     return render(request, 'melaoapp/home.html', {'posts': posts})
 
 def chat_view(request):
