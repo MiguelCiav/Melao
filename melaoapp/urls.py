@@ -11,6 +11,10 @@ urlpatterns = [
     path('chat/', views.chat_view, name='chat_view'),
     path('friends/', views.friends_list, name='friends_list'),
     path('config/language-theme/', views.language_and_theme_config_view, name='language_and_theme_config_view'),
+    path('config/about-me/', views.about_me_config_view, name='about_me_config_view'),
+    path('config/password-change', views.CustomPasswordChangeView.as_view(), name='password_change'),
+    path('config/notifications', views.notifications_config_view, name='notifications_config'),
+    path('config/privacy', views.privacy_config_view, name='privacy_config'),
     path('profile/edit/', views.modify_profile, name='modify_profile'),
     path('new-post/', views.new_post_view, name='new_post_view'),
     path('post/', views.post_view, name='post_view'),
@@ -21,26 +25,10 @@ urlpatterns = [
     path('', views.welcome, name='welcome'),
     path('welcome/', views.welcome, name='welcome-root'),
     path('set-theme/', views.set_theme, name='set_theme'),
-
-    path('reset_password/',
-        auth_views.PasswordResetView.as_view(
-            template_name="melaoapp/password_reset.html",
-            # url para el email, por defecto es password_reset_confirm
-            email_template_name='melaoapp/password_reset_email.html', 
-            success_url='/reset_password_sent/' 
-            ),
-        name="reset_password"),
-
-    path('reset_password_sent/',
-        auth_views.PasswordResetDoneView.as_view(template_name="melaoapp/password_reset_sent.html"),
-        name="password_reset_done"),
-    path('reset/<uidb64>/<token>/',
-        auth_views.PasswordResetConfirmView.as_view(
-            template_name="melaoapp/password_reset_confirm.html",
-            success_url='/reset_password_complete/'
-            ),
-        name="password_reset_confirm"),
-    path('reset_password_complete/',
-         auth_views.PasswordResetCompleteView.as_view(template_name="melaoapp/password_reset_complete.html"),
-         name="password_reset_complete"),
+    path('search/send-notification/', views.send_notification, name='send-notification'),
+    path('notifications/accept-friend-request/', views.accept_friend_request, name='accept-friend-request'),
+    path('reset_password/',auth_views.PasswordResetView.as_view(template_name="melaoapp/password_reset.html", email_template_name='melaoapp/password_reset_email.html', success_url='/reset_password_sent/' ), name="reset_password"),
+    path('reset_password_sent/', auth_views.PasswordResetDoneView.as_view(template_name="melaoapp/password_reset_sent.html"), name="password_reset_done"),
+    path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name="melaoapp/password_reset_confirm.html", success_url='/reset_password_complete/'), name="password_reset_confirm"),
+    path('reset_password_complete/', auth_views.PasswordResetCompleteView.as_view(template_name="melaoapp/password_reset_complete.html"), name="password_reset_complete"),
 ]

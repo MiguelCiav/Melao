@@ -45,7 +45,6 @@ textarea{
     grid-row: 1;
     grid-column: 2/3;
     border-style: none;
-    background-color: #F5F0E5;
     outline: none;
     font-size: 1rem;
     width: 100%;
@@ -54,20 +53,16 @@ textarea{
     padding-left: 12px;
     field-sizing: content;
     resize: none;
+    background-color: #F5F0E5;
 }
 
 textarea:focus {
     border-style: none;
 }
 
-#ImageIcon{
-    grid-column: 2;
-    margin-left: calc(100% - 108px);
-}
-
-#VideoIcon{
-    grid-column: 2;
-    margin-left: auto;
+#ImageIcon, 
+#VideoIcon {
+    margin-left: 0 !important; /* Resetear margen anterior */
 }
 
 #X-Icon{
@@ -76,7 +71,43 @@ textarea:focus {
     cursor: pointer;
     margin-left: 50%;
 }
+.desktop-content{
+        background-color: #FCFAF7;
+    }
+    
+    .Post-container{
+        background-color: white;
+    }
 
+    .Writeable-area{
+        background-color: #F5F0E5;
+    }
+
+    .File-input{
+        background-color: #F5F0E5;
+        border: 2px dashed #ccc; 
+    }
+
+    .File-input img{
+        color: #888;
+    }
+
+    .File-input p{
+        color: #666;
+    }
+
+    .File-input:hover {
+        background-color: #f1f1f1;
+        border-color: #999;
+    }
+
+    #post-button{
+        background-color: #E4AC73;
+    }
+
+    #cancel-button{
+        background-color: #F2F2F2;
+    }
 @media (min-width: 601px) {
     body {
         background-color: #FCFAF7;
@@ -106,7 +137,6 @@ textarea:focus {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        background-color: #FCFAF7;
     }
     
     .Post-container{
@@ -116,7 +146,6 @@ textarea:focus {
         display: inline-flex;
         flex-direction: column;
         justify-items: center;
-        background-color: white;
         border-radius: 10px;
     }
 
@@ -135,7 +164,6 @@ textarea:focus {
         display: grid;
         grid-template-columns: 20% 80%;
         border-radius: 15px;
-        background-color: #F5F0E5;
     }
 
     .Writeable-area img{
@@ -161,13 +189,11 @@ textarea:focus {
         height: 25%;
         border-radius: 15px;
         margin-top: 15px;
-        background-color: #F5F0E5;
         outline: none;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        border: 2px dashed #ccc; 
         cursor: pointer;
     }
 
@@ -175,18 +201,11 @@ textarea:focus {
         margin-top: 10px;
         width: 40px;
         height: 40px;
-        color: #888;
     }
 
     .File-input p{
-        color: #666;
         font-size: 16px;
         margin: 0;
-    }
-
-    .File-input:hover {
-        background-color: #f1f1f1;
-        border-color: #999;
     }
 
     .visually-hidden {
@@ -202,15 +221,15 @@ textarea:focus {
         overflow: hidden;
     }
 
-    .Post-button-link{
+    .Post-button-link {
         display: inline-flex;
         width: 100%;
-        height: 15%;
+        height: 15%; /* Altura original */
         margin-top: 15px;
         text-decoration: none;
     }
 
-    .Post-button{
+    .Post-button {
         cursor: pointer;
         width: 100%;
         font-weight: bold;
@@ -218,36 +237,164 @@ textarea:focus {
         border-radius: 10px;
         outline: none;
         border-style: none;
+        height: 100%; /* Ocupa toda la altura del contenedor */
     }
 
-    #post-button{
+    #post-button {
         background-color: #E4AC73;
         margin-left: 20px;
     }
 
-    #cancel-button{
+    #cancel-button {
         background-color: #F2F2F2;
     }
+    
+    
+
+
+    /* Nuevos estilos para los botones */
+    .button-container {
+        display: flex;
+        width: 100%;
+        margin-top: 15px;
+        gap: 10px;
+    }
+
+    .cancel-link {
+        flex: 1;
+        text-decoration: none;
+    }
+
+    #post-button {
+        flex: 1;
+        margin-left: 0; /* Eliminamos el margen izquierdo anterior */
+    }
+}
+/* Asegura que el textarea del formulario mantenga el estilo */
+/* Asegura que el contenedor principal tenga altura definida */
+.Post-container {
+    height: 100%; /* Mantiene la altura original */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Ajuste para el área de texto */
+.Writeable-area {
+    height: 30%; /* Mantiene la altura original */
+}
+
+.File-input {
+    height: 25%; /* Mantiene la altura original */
+}
+
+.mobile-icons-container {
+    grid-row: 2;
+    grid-column: 2;
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    width: 100%;
+    align-items: center;
+}
+
+.mobile-post-button {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+}
+
+/* Asegurar que el icono dentro del botón tenga el tamaño correcto */
+.mobile-post-button .PostIcon {
+    width: 75%;
+    height: 75%;
+    object-fit: contain;
+}
+.PostDiv textarea {
+    grid-row: 1;
+    grid-column: 2/3;
+    /* Ajusta el padding para que el texto no se superponga con el ícono */
+    padding-right: 12px;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
 }
 
 body.dark-mode {
     background-color: #211C12; 
     color: #f0f0f0; 
 }
-body.dark-mode .NavBar {
-    background-color: #211C12; 
-}
-body.dark-mode .Menu {
-    background-color: #473D24;
-}
 
-body.dark-mode h2 {
-    color: #f0f0f0;
-}
 body.dark-mode .PostDiv {
     background-color: #473D24;
 }
+body.dark-mode .PostDiv textarea {
+    background-color: #473D24;
+}
 body.dark-mode #PostTextArea  {
+    background-color: #473D24;
+    color: #f0f0f0;
+}
+body.dark-mode .Post-container  {
+    background-color: #473D24;
+    color: #f0f0f0;
+    border-radius: 0px;
+}
+
+body.dark-mode .Post-Pannel{
+    background-color: #211C12; 
+}
+body.dark-mode .Post-container{
+    background-color: #241F15; 
+    border-color: #473D24 ;
+    border-radius: 0ch;
+    border-style: solid;
+    border-width: 0.5px;
+    color: #f0f0f0; 
+}
+
+body.dark-mode .Writeable-area, body.dark-mode .File-input, body.dark-mode .PostDiv{
+    background-color: #473D24;
+    color: #f0f0f0;
+}
+
+body.dark-mode #text-area-desktop,  body.dark-mode #text-area-mobile{
+  background-color: #473D24;
+  color: #f0f0f0;
+}
+
+body.dark-mode #cancel-button  {
+    background-color: #473D24;
+    color: #f0f0f0;
+}
+
+body.dark-mode #EditProfileButton {
+    background-color: #473D24;
+    color: #f0f0f0;
+}
+body.dark-mode p {
+    color: #f0f0f0;
+}
+body.dark-mode .PostDescription{
+    color:#B4A681;
+}
+body.dark-mode .Writeable-area textarea {
     background-color: #473D24;
     color: #f0f0f0;
 }

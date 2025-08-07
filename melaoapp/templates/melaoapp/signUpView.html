@@ -1,6 +1,7 @@
 {% extends 'melaoapp/base.html' %}
 {% load static %}
 {% load widget_tweaks %}
+{% load i18n %}
 
 {% block title %}Crear una cuenta{% endblock %}
 
@@ -43,14 +44,16 @@
         {{ form.password1|add_class:"input-field"|attr:"placeholder:Contraseña" }}
         {{ form.password2|add_class:"input-field"|attr:"placeholder:Confirmar contraseña" }}
 
-        <button type="submit" class="button">Registrarse</button>
-        <button type="button" onclick="window.location.href='{% url 'melaoapp:welcome' %}'" class="button sign-up">Volver</button>
+        <button type="submit" class="button">{% trans "Register" %}</button>
+        <button type="button" onclick="window.location.href='{% url 'melaoapp:welcome' %}'" class="button sign-up">{% trans "Go back" %}</button>
     </form>
 </div>
 {% endblock %}
 
 {% block custom_footer %}
 <footer>
-    <p>Al registrarte, aceptas nuestras Condiciones, Política de Privacidad y Uso de Cookies.</p>
+    <p>
+        {% trans "When clicking in register, you accept our conditions, privacy policy and use of cookies" %}
+    </p>
 </footer>
 {% endblock %}
