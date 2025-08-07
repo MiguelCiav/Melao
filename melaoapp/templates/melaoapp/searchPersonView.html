@@ -82,8 +82,8 @@
         <div class="person">
             <img src="{{ person.profile_picture_url }}" width="70" height="70" alt="X">
             <p class="person_name">{{ person.user.first_name }} {{ person.user.last_name }}</p>
-            <img src="/static/melaoapp/img/AddFriend.png" width="30" height="30" alt="AddFriend" class="Icon Add-Friend-Button">
-            <img src="/static/melaoapp/img/Chat.png" width="30" height="30" alt="Chat" class="Icon">
+            <img src="{% if request.COOKIES.theme == 'dark' %}{% static '/melaoapp/img/dark/AddFriendDark.png'%}{% else %}{% static '/melaoapp/img/AddFriend.png'%}{% endif %}" width="30" height="30" alt="AddFriend" class="Icon Add-Friend-Button">
+            <img src="{% if request.COOKIES.theme == 'dark' %}{% static '/melaoapp/img/dark/ChatDark.png'%}{% else %}{% static '/melaoapp/img/Chat.png'%}{% endif %}" width="30" height="30" alt="Chat" class="Icon">
         </div>
         {% endfor %}
     </div>

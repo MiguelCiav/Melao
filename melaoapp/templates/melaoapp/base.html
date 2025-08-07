@@ -21,6 +21,9 @@
             <img src="{% if request.COOKIES.theme == 'dark' %}{% static 'melaoapp/img/dark/BackArrowDark.png'%}{% else %}{% static 'melaoapp/img/left_arrow.svg' %}{% endif %}" width="24" height="24" alt="X">
         </a>
         <p>Melao</p>
+        <a href="{% url 'melaoapp:search_person_view' %}">
+            <img src="{% if request.COOKIES.theme == 'dark' %}{% static 'melaoapp/img/dark/searchDark.svg'%}{% else %}{% static 'melaoapp/img/search.svg' %}{% endif %}" width="24" height="24" alt="X">
+        </a>
     </header>
     <div class="desktop-navbar">
         <ul class="nav-list">

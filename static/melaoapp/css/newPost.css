@@ -270,29 +270,6 @@ textarea:focus {
         margin-left: 0; /* Eliminamos el margen izquierdo anterior */
     }
 }
-
-body.dark-mode {
-    background-color: #211C12; 
-    color: #f0f0f0; 
-}
-body.dark-mode .NavBar {
-    background-color: #211C12; 
-}
-body.dark-mode .Menu {
-    background-color: #473D24;
-}
-
-body.dark-mode h2 {
-    color: #f0f0f0;
-}
-body.dark-mode .PostDiv {
-    background-color: #473D24;
-}
-body.dark-mode #PostTextArea  {
-    background-color: #473D24;
-    color: #f0f0f0;
-}
-
 /* Asegura que el textarea del formulario mantenga el estilo */
 /* Asegura que el contenedor principal tenga altura definida */
 .Post-container {
@@ -357,4 +334,67 @@ body.dark-mode #PostTextArea  {
     clip-path: inset(100%);
     clip: rect(0 0 0 0);
     overflow: hidden;
+}
+
+body.dark-mode {
+    background-color: #211C12; 
+    color: #f0f0f0; 
+}
+
+body.dark-mode .PostDiv {
+    background-color: #473D24;
+}
+body.dark-mode .PostDiv textarea {
+    background-color: #473D24;
+}
+body.dark-mode #PostTextArea  {
+    background-color: #473D24;
+    color: #f0f0f0;
+}
+body.dark-mode .Post-container  {
+    background-color: #473D24;
+    color: #f0f0f0;
+    border-radius: 0px;
+}
+
+body.dark-mode .Post-Pannel{
+    background-color: #211C12; 
+}
+body.dark-mode .Post-container{
+    background-color: #241F15; 
+    border-color: #473D24 ;
+    border-radius: 0ch;
+    border-style: solid;
+    border-width: 0.5px;
+    color: #f0f0f0; 
+}
+
+body.dark-mode .Writeable-area, body.dark-mode .File-input, body.dark-mode .PostDiv{
+    background-color: #473D24;
+    color: #f0f0f0;
+}
+
+body.dark-mode #text-area-desktop,  body.dark-mode #text-area-mobile{
+  background-color: #473D24;
+  color: #f0f0f0;
+}
+
+body.dark-mode #cancel-button  {
+    background-color: #473D24;
+    color: #f0f0f0;
+}
+
+body.dark-mode #EditProfileButton {
+    background-color: #473D24;
+    color: #f0f0f0;
+}
+body.dark-mode p {
+    color: #f0f0f0;
+}
+body.dark-mode .PostDescription{
+    color:#B4A681;
+}
+body.dark-mode .Writeable-area textarea {
+    background-color: #473D24;
+    color: #f0f0f0;
 }
