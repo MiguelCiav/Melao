@@ -282,4 +282,4 @@ def new_post_view(request):
 
 def logout_view(request):
     logout(request)
-    return redirect('melaoapp:welcome.html')
+    return redirect('melaoapp:welcome')
