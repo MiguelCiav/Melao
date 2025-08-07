@@ -269,5 +269,27 @@
 
 {% block content %}
     <div class="Home-pannel mobile-content"></div>
-    <div class="Home-pannel desktop-content"></div>
+    <div class="Home-pannel desktop-content">
+        {% for post in posts %}
+        <div class="Post-pannel">
+            <div class="User-post-pannel">
+                <img src="{{ post.student.profile_picture_url }}" class="profile-image">
+                <div class="Person-name-div">
+                    <p class="Person-name">{{ post.student.full_name }}</p>
+                    <p class="Post-date">{{ post.post_date }}</p>
+                </div>
+                <p class="Post-description">{{ post.description }}</p>
+                <img src="{{ post.multimedia_url }}" class="Post-image" width="100" height="100">
+                <div class="Post-likes">
+                    <img src="/static/melaoapp/img/Like.png" class="Post-icon" alt="Like">
+                    <p class="Post-likes-text">12</p>
+                </div>
+                <div class="Post-comments">
+                    <img src="/static/melaoapp/img/Comment.png" class="Post-icon" alt="Comments">
+                    <p class="Post-comments-text">5</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
 {% endblock %}

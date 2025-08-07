@@ -14,8 +14,8 @@ class Student(models.Model):
 class Post(models.Model):
     id = models.AutoField(primary_key=True)
     username = models.ForeignKey(Student, on_delete=models.CASCADE)
-    description = models.TextField()
-    multimedia_url = models.URLField(max_length=500, blank=True, null=True)
+    description = models.TextField(blank=True)
+    multimedia_url =  models.FileField(upload_to='posts/', blank=True, null=True)
     privacy_settings = models.IntegerField()
     post_date = models.DateField(blank=True, null = True)
 
@@ -36,7 +36,16 @@ class Notification(models.Model):
     sending_date = models.DateTimeField(auto_now_add=True)
     content = models.TextField()
     type = models.CharField(max_length=50)
-    username = models.ForeignKey(Student, on_delete=models.CASCADE)
+    receiver_username = models.ForeignKey(
+        Student, 
+        on_delete=models.CASCADE,
+        related_name='received_notifications'
+    )
+    sender_username = models.ForeignKey(
+        Student, 
+        on_delete=models.CASCADE,
+        related_name='sent_notifications'    
+    )
 
 class Chat(models.Model):
     id = models.AutoField(primary_key=True)
