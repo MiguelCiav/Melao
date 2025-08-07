@@ -67,6 +67,35 @@ main {
     }
 }
 
+
+.input-field, #id_old_password, #id_new_password1, #id_new_password2 {
+    margin-top: 12px;
+    border-style: none;
+    border-radius: 12px;
+    padding: 16px;
+    background-color: #F2F0E8;
+    font-size: 1rem;
+}
+
+.button {
+    justify-self: center;
+    background-color: #E4AC73;
+    color: black;
+    font-weight: bold;
+    font-size: 1rem;
+    border-radius: 12px;
+    border-style: none;
+    margin-top: 12px;
+    padding: 12px;
+    cursor: pointer;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 480px;
+}
+
 body.dark-mode {
     background-color: #211C12; 
     color: #f0f0f0; 
