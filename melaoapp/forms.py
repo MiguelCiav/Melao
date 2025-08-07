@@ -42,6 +42,26 @@ class CustomUserCreationForm(UserCreationForm):
             )
         return user
 
+class StudentSelfDescriptionForm(forms.ModelForm):
+    class Meta:
+        model = Student
+        fields = ['self_description']
+
+class PrivacySettingsForm(forms.ModelForm):
+    class Meta:
+        model = Student
+        fields = ['private_profile']
+        
+class NotificationsSettingsForm(forms.ModelForm):
+    class Meta:
+        model = Student
+        fields = ['email_notifications']
+
+class ProfilePictureForm(forms.ModelForm):
+    class Meta:
+        model = Student
+        fields = ['profile_picture']
+        
 class PostForm(forms.ModelForm):
     privacy_settings = forms.IntegerField(
         widget=forms.HiddenInput(),

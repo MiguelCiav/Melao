@@ -1,5 +1,6 @@
 {% extends 'melaoapp/base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block title %}Melao - Modificar Perfil{% endblock %}
 
@@ -8,9 +9,7 @@
     <link rel="stylesheet" href="{% static 'melaoapp/css/newPost.css' %}">
 {% endblock %}
 
-
 {% block content %}
-    <!-- Versión móvil -->
     <div class="Post-pannel mobile-content">
         <form method="post" enctype="multipart/form-data" class="PostDiv">
             {% csrf_token %}
@@ -31,8 +30,6 @@
         </form>
     </div>
 
-
-    <!-- Versión escritorio -->
     <div class="Post-pannel desktop-content">
         <form method="post" enctype="multipart/form-data" class="Post-container">
             {% csrf_token %}
@@ -51,9 +48,9 @@
 
             <label for="id_multimedia_url_desktop" class="File-input">
                 <img src="{% static 'melaoapp/img/uploadFile.png' %}" class="gallery-icon">
-                <p>Subir Videos o Imágenes</p>
+                <p>{% trans "Upload videos or images" %}</p>
             </label>
-
+            
             <input type="file" name="multimedia_url" id="id_multimedia_url_desktop" class="visually-hidden" accept="image/*,video/*">
 
             {{ form.privacy_settings }}

@@ -1,5 +1,6 @@
 {% extends 'melaoapp/base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block title %}Melao - Amigos{% endblock %}
 
@@ -35,7 +36,7 @@
 {% block content %}
     <div class="search-tab">
         <img src="{% static 'melaoapp/img/Lupa.png' %}">
-        <input type="text" placeholder="Buscar...">
+        <input type="text" placeholder="{% trans "Search" %}">
     </div>
     
     <div class="FriendsPannel">

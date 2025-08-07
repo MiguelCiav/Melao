@@ -241,9 +241,6 @@ body.dark-mode {
 body.dark-mode .NavBar {
     background-color: #211C12; /* Navbar oscuro */
 }
-body.dark-mode .Menu {
-    background-color: #473D24; /* Navbar oscuro */
-}
 /* Agrega reglas similares para otros elementos como h2, p, etc. */
 body.dark-mode h2 {
     color: #f0f0f0;

@@ -209,24 +209,16 @@ body.dark-mode {
     background-color: #211C12; 
     color: #f0f0f0;
 }
-body.dark-mode .NavBar {
-    background-color: #211C12; 
+body.dark-mode .desktop-content {
+    background-color: #211C12;
 }
-body.dark-mode .Menu {
+body.dark-mode .title {
+    color:#f0f0f0;
+}
+body.dark-mode .chat-container {
+    background-color: #383229;
+}
+body.dark-mode .message-incoming .text-received, body.dark-mode .input-container {
     background-color: #473D24;
-}
-
-body.dark-mode h2 {
-    color: #f0f0f0;
-}
-
-body.dark-mode .text-received {
-    background-color: #473D24;
-}
-
-body.dark-mode .input-container {
-    background-color: #473D24;
-}
-body.dark-mode .input-container input{
     color: #f0f0f0;
 }
