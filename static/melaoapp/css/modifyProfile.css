@@ -29,11 +29,27 @@
 
 #profile-image {
     margin-right: 16px;
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
 }
 
 .black-link {
     text-decoration: none;
     color: black;
+}
+
+.button, #file-upload-button {
+    justify-self: center;
+    background-color: #E4AC73;
+    color: black;
+    font-weight: bold;
+    font-size: 1rem;
+    border-radius: 12px;
+    border-style: none;
+    margin-top: 12px;
+    padding: 12px;
+    cursor: pointer;
 }
 
 @media (min-width: 601px) {

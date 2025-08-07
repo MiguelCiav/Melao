@@ -10,6 +10,7 @@ main {
 #ProfileImage{
     width: 90px;
     height: 90px;
+    border-radius: 50%;
 }
 
 #ProfileName{
@@ -26,6 +27,7 @@ main {
     color: black;
     text-align: left;
     max-width: 800px;
+    margin-bottom: 24px;
 }
 
 .about-me{

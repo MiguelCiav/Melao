@@ -50,6 +50,7 @@ main {
 .person img {
     margin-right: 24px;
     cursor: pointer;
+    border-radius: 50%;
 }
 
 .person p{
