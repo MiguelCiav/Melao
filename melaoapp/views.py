@@ -1,12 +1,13 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate, login
-from .forms import CustomUserCreationForm
+from .forms import CustomUserCreationForm, PostForm
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from .models import Is_friend_of, Post, Student, Notification
 from django.http import JsonResponse
 from django.utils import timezone
+from datetime import date
 
 def sign_up_view(request):
     return render(request, 'melaoapp/signUpView.html', {'form': form})
@@ -160,3 +161,26 @@ def set_theme(request):
         response.set_cookie('theme', theme, max_age=60*60*24*365)
         return response
     return redirect('/')
+
+def new_post_view(request):
+    if request.method == 'POST':
+        # Crear una copia mutable de request.POST
+        post_data = request.POST.copy()
+        
+        # Establecer un valor predeterminado para privacy_settings si no se proporciona
+        if 'privacy_settings' not in post_data or not post_data['privacy_settings']:
+            post_data['privacy_settings'] = '1'  # Valor predeterminado (público)
+        
+        form = PostForm(post_data, request.FILES)
+        
+        if form.is_valid():
+            new_post = form.save(commit=False)
+            new_post.username = request.user.student
+            new_post.post_date = date.today()
+            new_post.save()
+            return redirect('melaoapp:home')
+    else:
+        # Crear formulario con valor predeterminado para escritorio
+        form = PostForm(initial={'privacy_settings': 1})
+    
+    return render(request, 'melaoapp/newPostView.html', {'form': form})
