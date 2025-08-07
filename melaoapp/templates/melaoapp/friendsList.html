@@ -40,11 +40,11 @@
     </div>
     
     <div class="FriendsPannel">
-        {% for person in persons %}
+        {% for friend in friends %}
         <div class="person">
-            <img src="{{ person.profile_picture_url }}" width="70" height="70" alt="X">
-            <p class="person_name">{{ person.user.first_name }} {{ person.user.last_name }}</p>
-            <img src="/static/melaoapp/img/X-Search-Icon-Filled.png" width="30" height="30" alt="X" class="DeleteFriendIcon">
+            <img src="{{ friend.profile_picture_url }}" width="70" height="70" alt="Foto de perfil">
+            <p class="person_name">{{ friend.user.first_name }} {{ friend.user.last_name }}</p>
+            <img src="{% static 'melaoapp/img/X-Search-Icon-Filled.png' %}" width="30" height="30" alt="X" class="DeleteFriendIcon">
         </div>
         {% endfor %}
     </div>
