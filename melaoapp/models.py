@@ -36,16 +36,15 @@ class Is_friend_of(models.Model):
 class Notification(models.Model):
     id = models.AutoField(primary_key=True)
     sending_date = models.DateTimeField(auto_now_add=True)
-    content = models.TextField()
-    type = models.CharField(max_length=50)
+    type = models.IntegerField()
     receiver_username = models.ForeignKey(
-        Student, 
+        Student,
         on_delete=models.CASCADE,
         related_name='received_notifications',
         null=True
     )
     sender_username = models.ForeignKey(
-        Student, 
+        Student,
         on_delete=models.CASCADE,
         related_name='sent_notifications',
         null=True
