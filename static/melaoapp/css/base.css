@@ -109,6 +109,11 @@ footer img{
     margin-right: 8px;
 }
 
+.right-nav-item .pfp {
+    width: 40px;
+    height: 40px;
+}
+
 @media (min-width: 601px) {
     .mobile-navbar {
         display: none;

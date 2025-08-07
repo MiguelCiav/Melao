@@ -1,13 +1,23 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate, login
+<<<<<<< HEAD
+from .forms import CustomUserCreationForm, PrivacySettingsForm, NotificationsSettingsForm, StudentSelfDescriptionForm, ProfilePictureForm
+=======
 from .forms import CustomUserCreationForm, PostForm
+>>>>>>> a5f0b6f0cc9a6253b3e79cedaaefabf46ea72e8c
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from .models import Is_friend_of, Post, Student, Notification
+from .forms import StudentSelfDescriptionForm
 from django.http import JsonResponse
 from django.utils import timezone
+<<<<<<< HEAD
+from django.contrib.auth.views import PasswordChangeView
+from django.urls import reverse_lazy
+=======
 from datetime import date
+>>>>>>> a5f0b6f0cc9a6253b3e79cedaaefabf46ea72e8c
 
 def sign_up_view(request):
     return render(request, 'melaoapp/signUpView.html', {'form': form})
@@ -36,7 +46,15 @@ def language_and_theme_config_view(request):
     return render(request, 'melaoapp/languageAndThemeConfigView.html')
 
 def modify_profile(request):
-    return render(request, 'melaoapp/modifyProfile.html')
+    student = Student.objects.get(user=request.user)
+    if request.method == "POST":
+        form = ProfilePictureForm(request.POST, instance=student)
+        if form.is_valid():
+            form.save()
+            return redirect('melaoapp:modify_profile')
+    else:
+        form = ProfilePictureForm(instance=student)
+    return render(request, 'melaoapp/modifyProfile.html', {'form': form})
 
 def new_post_view(request):
     return render(request, 'melaoapp/newPostView.html')
@@ -44,7 +62,8 @@ def new_post_view(request):
 @login_required(login_url='melaoapp:welcome')
 def profile(request):
     full_name = request.user.get_full_name()
-    context = {"full_name": full_name}
+    self_description = request.user.student.self_description
+    context = {"full_name": full_name, "self_description": self_description}
     return render(request, 'melaoapp/profile.html', context)
 
 def search_person_view(request):
@@ -162,6 +181,67 @@ def set_theme(request):
         return response
     return redirect('/')
 
+@login_required
+def about_me_config_view(request):
+    student = Student.objects.get(user=request.user)
+    if request.method == "POST":
+        form = StudentSelfDescriptionForm(request.POST, instance=student)
+        if form.is_valid():
+            form.save()
+            return redirect('melaoapp:profile')
+    else:
+        form = StudentSelfDescriptionForm(instance=student)
+    return render(request, 'melaoapp/aboutMeConfigView.html', {'form': form})
+
+def privacy_config_view(request):
+    student = Student.objects.get(user=request.user)
+    if request.method == "POST":
+        form = StudentSelfDescriptionForm(request.POST, instance=student)
+        if form.is_valid():
+            form.save()
+            return redirect('melaoapp:profile')
+    else:
+        form = StudentSelfDescriptionForm(instance=student)
+    return render(request, 'melaoapp/aboutMeConfigView.html', {'form': form})
+
+def notifications_config_view(request):
+    student = Student.objects.get(user=request.user)
+    if request.method == "POST":
+        form = StudentSelfDescriptionForm(request.POST, instance=student)
+        if form.is_valid():
+            form.save()
+            return redirect('melaoapp:profile')
+    else:
+        form = StudentSelfDescriptionForm(instance=student)
+    return render(request, 'melaoapp/aboutMeConfigView.html', {'form': form})
+
+class CustomPasswordChangeView(PasswordChangeView):
+    template_name = 'melaoapp/passwordChangeView.html'
+    success_url = reverse_lazy('melaoapp:modify_profile')
+
+@login_required
+def privacy_config_view(request):
+    student = Student.objects.get(user=request.user)
+    if request.method == "POST":
+        form = PrivacySettingsForm(request.POST, instance=student)
+        if form.is_valid():
+            form.save()
+            return redirect('melaoapp:privacy_config')
+    else:
+        form = PrivacySettingsForm(instance=student)
+    return render(request, 'melaoapp/privacyConfigView.html', {'form': form})
+
+@login_required
+def notifications_config_view(request):
+    student = Student.objects.get(user=request.user)
+    if request.method == "POST":
+        form = NotificationsSettingsForm(request.POST, instance=student)
+        if form.is_valid():
+            form.save()
+            return redirect('melaoapp:notifications_config')
+    else:
+        form = NotificationsSettingsForm(instance=student)
+    return render(request, 'melaoapp/notificationsConfigView.html', {'form': form})
 def new_post_view(request):
     if request.method == 'POST':
         # Crear una copia mutable de request.POST
