@@ -9,9 +9,7 @@
     <link rel="stylesheet" href="{% static 'melaoapp/css/newPost.css' %}">
 {% endblock %}
 
-
 {% block content %}
-    <!-- Versión móvil -->
     <div class="Post-pannel mobile-content">
         <form method="post" enctype="multipart/form-data" class="PostDiv">
             {% csrf_token %}
@@ -32,13 +30,7 @@
         </form>
     </div>
 
-
-    <!-- Versión escritorio -->
     <div class="Post-pannel desktop-content">
-<<<<<<< HEAD
-        <div class="Post-container">
-            <h1>{% trans "Make a post" %}</h1>
-=======
         <form method="post" enctype="multipart/form-data" class="Post-container">
             {% csrf_token %}
             <h1>Hacer publicación</h1>
@@ -49,23 +41,16 @@
                 </div>
             {% endif %}
             
->>>>>>> a5f0b6f0cc9a6253b3e79cedaaefabf46ea72e8c
             <div class="Writeable-area">
                 <img src="{% static 'melaoapp/img/EthanHuntProfile.png' %}" class="profile-image">
                 {{ form.description }}
             </div>
-<<<<<<< HEAD
-            <label for="file-input" class="File-input">
-            <img src="{% static 'melaoapp/img/uploadFile.png' %}" class="gallery-icon">
-            <p>{% trans "Upload videos or images" %}</p>
-=======
 
             <label for="id_multimedia_url_desktop" class="File-input">
                 <img src="{% static 'melaoapp/img/uploadFile.png' %}" class="gallery-icon">
-                <p>Subir Videos o Imágenes</p>
->>>>>>> a5f0b6f0cc9a6253b3e79cedaaefabf46ea72e8c
+                <p>{% trans "Upload videos or images" %}</p>
             </label>
-
+            
             <input type="file" name="multimedia_url" id="id_multimedia_url_desktop" class="visually-hidden" accept="image/*,video/*">
 
             {{ form.privacy_settings }}

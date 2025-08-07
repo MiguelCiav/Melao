@@ -1,30 +1,25 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate, login
-<<<<<<< HEAD
-from .forms import CustomUserCreationForm, PrivacySettingsForm, NotificationsSettingsForm, StudentSelfDescriptionForm, ProfilePictureForm
-=======
-from .forms import CustomUserCreationForm, PostForm
->>>>>>> a5f0b6f0cc9a6253b3e79cedaaefabf46ea72e8c
+from .forms import CustomUserCreationForm, PostForm, PrivacySettingsForm, NotificationsSettingsForm, StudentSelfDescriptionForm, ProfilePictureForm
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from .models import Is_friend_of, Post, Student, Notification
 from .forms import StudentSelfDescriptionForm
 from django.http import JsonResponse
 from django.utils import timezone
-<<<<<<< HEAD
 from django.contrib.auth.views import PasswordChangeView
 from django.urls import reverse_lazy
-=======
 from datetime import date
->>>>>>> a5f0b6f0cc9a6253b3e79cedaaefabf46ea72e8c
 
 def sign_up_view(request):
     return render(request, 'melaoapp/signUpView.html', {'form': form})
 
+@login_required(login_url='melaoapp:welcome')
 def chat_list_view(request):
     return render(request, 'melaoapp/chatListView.html')
 
+@login_required(login_url='melaoapp:welcome')
 def friends_list(request):
     current_student = Student.objects.get(user=request.user)
 
@@ -42,9 +37,11 @@ def friends_list(request):
     context = {'friends': friends_list}
     return render(request, 'melaoapp/friendsList.html', context)
 
+@login_required(login_url='melaoapp:welcome')
 def language_and_theme_config_view(request):
     return render(request, 'melaoapp/languageAndThemeConfigView.html')
 
+@login_required(login_url='melaoapp:welcome')
 def modify_profile(request):
     student = Student.objects.get(user=request.user)
     if request.method == "POST":
@@ -56,6 +53,7 @@ def modify_profile(request):
         form = ProfilePictureForm(instance=student)
     return render(request, 'melaoapp/modifyProfile.html', {'form': form})
 
+@login_required(login_url='melaoapp:welcome')
 def new_post_view(request):
     return render(request, 'melaoapp/newPostView.html')
 
@@ -66,11 +64,13 @@ def profile(request):
     context = {"full_name": full_name, "self_description": self_description}
     return render(request, 'melaoapp/profile.html', context)
 
+@login_required(login_url='melaoapp:welcome')
 def search_person_view(request):
     persons = Student.objects.select_related('user').all()
     context = {'persons': persons}
     return render(request, 'melaoapp/searchPersonView.html', context)
 
+@login_required(login_url='melaoapp:welcome')
 def add_friend_notification(request):
     if request.method == 'POST':
         recipient_username = request.POST.get('recipient_username')
@@ -99,6 +99,7 @@ def add_friend_notification(request):
         except Exception as e:
             return JsonResponse({'status': 'error', 'message': str(e)}, status=500)
 
+@login_required(login_url='melaoapp:welcome')
 def view_notifications(request):
     try:
         current_student = request.user.student
@@ -113,6 +114,7 @@ def view_notifications(request):
 
     return render(request, 'melaoapp/viewNotifications.html', context)
 
+@login_required(login_url='melaoapp:welcome')
 def home(request):
     try:
         current_student = Student.objects.get(user=request.user)
@@ -139,12 +141,15 @@ def home(request):
     )[:100]
     return render(request, 'melaoapp/home.html', {'posts': posts})
 
+@login_required(login_url='melaoapp:welcome')
 def chat_view(request):
     return render(request, 'melaoapp/chatView.html')
 
+@login_required(login_url='melaoapp:welcome')
 def language_and_theme_config_view(request):
     return render(request, 'melaoapp/languageAndThemeConfigView.html')
 
+@login_required(login_url='melaoapp:welcome')
 def post_view(request):
     return render(request, 'melaoapp/postView.html')
 
@@ -193,6 +198,7 @@ def about_me_config_view(request):
         form = StudentSelfDescriptionForm(instance=student)
     return render(request, 'melaoapp/aboutMeConfigView.html', {'form': form})
 
+@login_required(login_url='melaoapp:welcome')
 def privacy_config_view(request):
     student = Student.objects.get(user=request.user)
     if request.method == "POST":
@@ -204,6 +210,7 @@ def privacy_config_view(request):
         form = StudentSelfDescriptionForm(instance=student)
     return render(request, 'melaoapp/aboutMeConfigView.html', {'form': form})
 
+@login_required(login_url='melaoapp:welcome')
 def notifications_config_view(request):
     student = Student.objects.get(user=request.user)
     if request.method == "POST":
@@ -242,6 +249,8 @@ def notifications_config_view(request):
     else:
         form = NotificationsSettingsForm(instance=student)
     return render(request, 'melaoapp/notificationsConfigView.html', {'form': form})
+
+@login_required(login_url='melaoapp:welcome')
 def new_post_view(request):
     if request.method == 'POST':
         # Crear una copia mutable de request.POST
