@@ -84,4 +84,12 @@
         </div>
         <img src="{% if request.COOKIES.theme == 'dark' %}{% static 'melaoapp/img/dark/right_arrowDark.svg' %}{% else %}{% if request.COOKIES.theme == 'dark' %}{% static 'melaoapp/img/dark/right_arrowDark.svg' %}{% else %}{% static 'melaoapp/img/right_arrow.svg' %}{% endif %}{% endif %}" alt="">
     </div>
+
+    <div class="option-container">
+        <div class="text-container">
+            <a class="black-link" href="{% url 'profile/edit/logout' %}" onclick="logout()">
+                <p class="title">{% trans "Logout" %}</p>
+            </a>
+        </div>
+    </div>
 {% endblock %}

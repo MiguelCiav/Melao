@@ -12,6 +12,7 @@ import json
 from django.contrib.auth.views import PasswordChangeView
 from django.urls import reverse_lazy
 from datetime import date
+from django.contrib.auth import logout
 
 
 @login_required(login_url='melaoapp:welcome')
@@ -278,3 +279,7 @@ def new_post_view(request):
         form = PostForm(initial={'privacy_settings': 1})
     
     return render(request, 'melaoapp/newPostView.html', {'form': form})
+
+def logout_view(request):
+    logout(request)
+    return redirect('melaoapp:welcome.html')

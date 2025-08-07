@@ -27,4 +27,5 @@ urlpatterns = [
     path('set-theme/', views.set_theme, name='set_theme'),
     path('search/send-notification/', views.send_notification, name='send-notification'),
     path('notifications/accept-friend-request/', views.accept_friend_request, name='accept-friend-request'),
+    path('profile/edit/logout/', views.logout_view, name='logout')
 ]
