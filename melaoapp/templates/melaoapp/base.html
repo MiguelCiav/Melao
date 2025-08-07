@@ -1,4 +1,6 @@
 {% load static %}
+{% load i18n %}
+{% load melaoapp_tags %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,6 +17,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
 </head>
 <body {% if request.COOKIES.theme == 'dark' %}class="dark-mode"{% endif %}>
+    {% get_student as student %}
     {% block custom_header %}
     <header class="mobile-navbar">
         <a href="{% url 'melaoapp:home' %}">
@@ -33,20 +36,24 @@
                     <p class="logo-text">Melao</p>
                 </a>
             </li>
-            <li><a href="{% url 'melaoapp:new_post_view' %}">Publicar</a></li>
-            <li><a href="{% url 'melaoapp:chat_list_view' %}">Chat</a></li>
-            <li><a href="{% url 'melaoapp:friends_list' %}">Amigos</a></li>
-            <li><a href="{% url 'melaoapp:search_person_view' %}">Buscar  personas</a></li>
+            <li><a href="{% url 'melaoapp:new_post_view' %}">{% trans "Post" %}</a></li>
+            <li><a href="{% url 'melaoapp:chat_list_view' %}">{% trans "Chat" %}</a></li>
+            <li><a href="{% url 'melaoapp:friends_list' %}">{% trans "Friends" %}</a></li>
+            <li><a href="{% url 'melaoapp:search_person_view' %}">{% trans "Search People" %}</a></li>
         </ul>
         <ul class="nav-list">
             <li class="right-nav-item">
                 <a href="{% url 'melaoapp:view_notifications' %}">
-                    <img src="{% static 'melaoapp/img/bell.svg' %}" alt="Notificaciones">
+                    <img src="{% static 'melaoapp/img/bell.svg' %}" alt="{% trans "Notifications" %}">
                 </a>
             </li>
             <li class="right-nav-item">
                 <a href="{% url 'melaoapp:profile' %}">
-                    <img src="{% static 'melaoapp/img/pfp_example.png' %}" alt="Perfil">
+                    {% if student and student.profile_picture %}
+                        <img class="pfp" src="{{ student.profile_picture.url }}" alt="Profile Picture">
+                    {% else %}
+                        <img class="pfp" src="{% static 'melaoapp/img/EthanHuntProfile.png' %}" alt="Default Profile Picture">
+                    {% endif %}
                 </a>
             </li>
         </ul>

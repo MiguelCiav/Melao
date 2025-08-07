@@ -1,0 +1,98 @@
+main {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+}
+
+.ConfigPannel{
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+}
+
+.title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+#Language{
+    display: inline;
+}
+
+#Language select{
+    border-style: none;
+    outline: none;
+    color:#9C854A;
+    background: transparent;
+    font-size: 1rem;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+#Theme{
+    display: flex;
+    flex-direction: row;
+}
+
+.ThemeButton{
+    padding: 12px 16px;
+    border-radius: 12px;
+    margin-right: 12px;
+    font-size: 1rem;
+    background: transparent;
+    border: 1px solid #E8E3CF;
+    cursor: pointer;
+}
+
+#LightMode{
+    background-color: white;
+    border: 1px solid #9C854A;
+    color: #9C854A;
+}
+
+.BackButton {
+    cursor: pointer;
+    margin-bottom: 16px;
+}
+
+@media (min-width: 601px) {
+    body {
+        background-color: #FCFAF7;
+    }
+}
+
+body.dark-mode {
+    background-color: #211C12; 
+    color: #f0f0f0; 
+}
+
+body.dark-mode .NavBar {
+    background-color: #211C12;
+}
+body.dark-mode .Menu {
+    background-color: #473D24; 
+}
+
+
+body.dark-mode #LightMode {
+    background-color: #555; 
+    border-color: #777;
+    color: #bbb;
+}
+
+body.dark-mode #DarkMode {
+    background-color: #9C854A; 
+    border-color: #9C854A;
+    color: white;
+}
+
+
+body.dark-mode h2 {
+    color: #f0f0f0;
+}
+
+body.dark-mode #Language select {
+    color: #f0f0f0;
+    background-color: #211C12;
+}

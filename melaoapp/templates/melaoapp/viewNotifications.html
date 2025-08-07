@@ -1,70 +1,16 @@
 {% extends 'melaoapp/base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block title %}Notificaciones{% endblock %}
 <p class="title">Notificaciones</p>
 {% block static_js %}
     <script>
-        let dataDummy = [
-            {
-                name: "Ethan Hunt",
-                image: "{% static 'melaoapp/img/EthanHuntProfile.png' %}",
-                description: "Envió petición de amistad",
-                notificationIcon: "{% static '/melaoapp/img/AddFriendBGLess.png' %}"
-            },
-            {
-                name: "Ethan Hunt",
-                image: "{% static 'melaoapp/img/EthanHuntProfile.png' %}",
-                description: "Envió petición de chat",
-                notificationIcon: "{% static '/melaoapp/img/chatRequest.png' %}"
-            },
-            {
-                name: "Ethan Hunt",
-                image: "{% static 'melaoapp/img/EthanHuntProfile.png' %}",
-                description: "Comentó tu publicación",
-                notificationIcon: "{% static '/melaoapp/img/Comment.png' %}"
-            }
-        ];
-
-        function renderPeople(people) {
-            people.forEach(element => {
-                const person = document.createElement("div");
-                person.setAttribute("class", "person");
-
-                const personImg = document.createElement("img");
-                personImg.setAttribute("src", element.image);
-                personImg.setAttribute("width", "70");
-                personImg.setAttribute("height", "70");
-                personImg.setAttribute("alt", "X");
-
-                const person_name = document.createElement("p");
-                person_name.setAttribute("class", "person-name");
-                person_name.innerText = element.name;
-
-                const description = document.createElement("p");
-                description.setAttribute("class", "Description");
-                description.innerText = element.description;
-
-                const notificationIcon = document.createElement("img");
-                notificationIcon.setAttribute("src", element.notificationIcon);
-                notificationIcon.setAttribute("width", "30");
-                notificationIcon.setAttribute("height", "30");
-                notificationIcon.setAttribute("alt", "X");
-                notificationIcon.setAttribute("class", "NotificationIcon");
-
-                person.appendChild(personImg);
-                person.appendChild(person_name);
-                person.appendChild(description);
-                person.appendChild(notificationIcon);
-
-                document.getElementsByClassName("NotificationsPannel")[0].appendChild(person);
-            });
-        }
-
-        document.addEventListener("DOMContentLoaded", function() {
-            renderPeople(dataDummy);
-        });
+        const ADD_FRIEND_URL = "{% url 'melaoapp:accept-friend-request' %}";
+        const SENDER_USERNAME = "{{ request.user.username }}";
+        const CSRF_TOKEN = "{{ csrf_token }}";
     </script>
+    <script src="{% static 'melaoapp/js/viewNotifications.js' %}"></script>
 {% endblock %}
 
 {% block static_css %}
@@ -76,10 +22,21 @@
     <div class="NotificationsPannel">
         {% for notification in notifications %}
         <div class="person">
-            <img src="{{ notification.sender_username.profile_picture_url }}" width="70" height="70" alt="X">
-            <p class="person-name">{{ notification.user.first_name }} {{ notification.user.last_name }}</p>
-            <p class="Description">{{notification.content}}</p>
-            <img src="/static/melaoapp/img/AddFriendBGLess.png" width="30" height="30" alt="X" class="NotificationIcon">
+            {% if  notification.sender_username.profile_picture %}
+                <img src="{{ notification.sender_username.profile_picture.url }}" width="70" height="70" alt="X">
+            {% else %}
+                <img src="{% static "melaoapp/img/EthanHuntProfile.png" %}%}" width="70" height="70" alt="X">
+            {% endif %}
+            
+            <p class="person-name">{{ notification.sender_username.user.first_name }} {{ notification.sender_username.user.last_name }}</p>
+            
+            {% if notification.type == 1 %}
+                <p class="Description">Te ha enviado una solicitud de amistad</p>
+                <img src="/static/melaoapp/img/AddFriendBGLess.png" width="30" height="30" alt="X" class="NotificationIcon" onclick="acceptFriendRequest('{{ notification.sender_username.user.username }}')">
+            {% elif notification.type == 2 %}
+                <p class="Description">Te ha enviado una solicitud de chat</p>
+                <img src="/static/melaoapp/img/chatRequest.png" width="30" height="30" alt="X" class="NotificationIcon">
+            {% endif %}
         </div>
         {% endfor %}
     </div>

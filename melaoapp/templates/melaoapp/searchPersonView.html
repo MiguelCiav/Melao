@@ -1,68 +1,16 @@
 {% extends 'melaoapp/base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block title %}Melao - Buscar{% endblock %}
 
 {% block static_js %}
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const searchInput = document.querySelector('.search-tab input');
-            const persons = document.querySelectorAll('.person');
-
-            searchInput.addEventListener('input', function(event) {
-                const searchTerm = event.target.value.toLowerCase();
-
-                persons.forEach(person => {
-                    const personNameElement = person.querySelector('.person_name');
-                    const personName = personNameElement.textContent.toLowerCase();
-
-                    if (personName.startsWith(searchTerm)) {
-                        person.style.display = 'flex';
-                    } else {
-                        person.style.display = 'none';
-                    }
-                });
-            });
-        });
-
-        document.addEventListener('DOMContentLoaded', function() {
-        const addButton = document.getElementById('Add-Friend-Button');
-
-        if (addButton) {
-            addButton.addEventListener('click', function() {
-                const recipientUsername = addButton.dataset.recipientUsername;
-                const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
-                const data = {
-                    receiver_username: recipientUsername,
-                    sender_username: '{{ request.user.username }}'
-                };
-
-                fetch('/addFriend/', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-CSRFToken': csrfToken
-                    },
-                    body: JSON.stringify(data)
-                })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Error en la red o en el servidor');
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    console.log('Respuesta del servidor:', data);
-                    alert('¡Solicitud enviada con éxito!');
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    alert('Hubo un error al enviar la solicitud.');
-                });
-            });
-        }
-    });
+        const ADD_FRIEND_URL = "{% url 'melaoapp:send-notification' %}";
+        const SENDER_USERNAME = "{{ request.user.username }}";
+        const CSRF_TOKEN = "{{ csrf_token }}";
     </script>
+    <script src="{% static 'melaoapp/js/searchPerson.js' %}"></script>
 {% endblock %}
 
 {% block static_css %}
@@ -72,17 +20,24 @@
 
 {% block content %}
     <div class="search-tab">
-        <img src="{% static 'melaoapp/img/Lupa.png' %}" alt="Icono de lupa">
-        <input type="text" placeholder="Buscar...">
-        <img src="{% static 'melaoapp/img/X-Search-Icon.png' %}" alt="Icono de borrar búsqueda">
+        <img src="{% static 'melaoapp/img/Lupa.png' %}" alt="{% trans "Search icon" %}">
+        <input type="text" placeholder="{% trans "Search" %}">
+        <img src="{% static 'melaoapp/img/X-Search-Icon.png' %}" alt="{% trans "Delete search icon" %}">
     </div>
     
     <div class="search-panel">
+        <form method="post" id="csrf-form">{% csrf_token %}</form>
         {% for person in persons %}
-        <div class="person">
-            <img src="{{ person.profile_picture_url }}" width="70" height="70" alt="X">
+        <div class="person" data-username="{{ person.user.username }}">
+
+            {% if person.profile_picture %}
+                <img src="{{ person.profile_picture.url }}" width="70" height="70" alt="X">
+            {% else %}
+                <img src="{% static "melaoapp/img/EthanHuntProfile.png" %}" width="70" height="70" alt="X">
+            {% endif %}
+
             <p class="person_name">{{ person.user.first_name }} {{ person.user.last_name }}</p>
-            <img src="{% if request.COOKIES.theme == 'dark' %}{% static '/melaoapp/img/dark/AddFriendDark.png'%}{% else %}{% static '/melaoapp/img/AddFriend.png'%}{% endif %}" width="30" height="30" alt="AddFriend" class="Icon Add-Friend-Button">
+            <img src="{% if request.COOKIES.theme == 'dark' %}{% static '/melaoapp/img/dark/AddFriendDark.png'%}{% else %}{% static '/melaoapp/img/AddFriend.png'%}{% endif %}" width="30" height="30" alt="AddFriend" class="Icon Add-Friend-Button" onclick="sendFriendRequest('{{ person.user.username }}', 1)">
             <img src="{% if request.COOKIES.theme == 'dark' %}{% static '/melaoapp/img/dark/ChatDark.png'%}{% else %}{% static '/melaoapp/img/Chat.png'%}{% endif %}" width="30" height="30" alt="Chat" class="Icon">
         </div>
         {% endfor %}
