@@ -21,4 +21,6 @@ urlpatterns = [
     path('', views.welcome, name='welcome'),
     path('welcome/', views.welcome, name='welcome-root'),
     path('set-theme/', views.set_theme, name='set_theme'),
+    path('search/send-notification/', views.send_notification, name='send-notification'),
+    path('notifications/accept-friend-request/', views.accept_friend_request, name='accept-friend-request'),
 ]
