@@ -56,14 +56,14 @@
                 person_name.innerText = element.name;
 
                 const addFriends = document.createElement("img");
-                addFriends.setAttribute("src", "{% static '/melaoapp/img/AddFriend.png' %}");
+                addFriends.setAttribute("src", "{% if request.COOKIES.theme == 'dark' %}{% static '/melaoapp/img/dark/AddFriendDark.png' %}{% else %}{% static '/melaoapp/img/AddFriend.png' %}{% endif %}");
                 addFriends.setAttribute("width", "30");
                 addFriends.setAttribute("height", "30");
                 addFriends.setAttribute("alt", "AddFriend");
                 addFriends.setAttribute("class", "Icon");
 
                 const chat = document.createElement("img");
-                chat.setAttribute("src", "{% static '/melaoapp/img/Chat.png' %}");
+                chat.setAttribute("src", "{% if request.COOKIES.theme == 'dark' %}{% static '/melaoapp/img/dark/ChatDark.png' %}{% else %}{% static '/melaoapp/img/Chat.png' %}{% endif %}");
                 chat.setAttribute("width", "30");
                 chat.setAttribute("height", "30");
                 chat.setAttribute("alt", "Chat");

@@ -46,9 +46,9 @@ main {
 }
 
 #LightMode{
-    background-color: white;
+    background-color: #9C854A;
     border: 1px solid #9C854A;
-    color: #9C854A;
+    color: black;
 }
 
 .BackButton {
@@ -61,6 +61,11 @@ main {
         background-color: #FCFAF7;
     }
 }
+@media (max-width:600px){
+    .BackButton {
+        display: none;
+    }
+}
 
 body.dark-mode {
     background-color: #211C12; 
@@ -69,4 +74,14 @@ body.dark-mode {
 
 body.dark-mode .title {
     color: #f0f0f0;
+}
+body.dark-mode #LightMode{
+    background-color: #211C12;
+    border: 1px solid #FCFAF7;
+    color: #FCFAF7;
+}
+body.dark-mode #DarkMode{
+    background-color: #9C854A;
+    border: 1px solid #9C854A;
+    color: #FCFAF7;
 }
