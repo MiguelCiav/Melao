@@ -269,7 +269,30 @@
 {% endblock %}
 
 {% block content %}
-    <div class="Home-pannel mobile-content"></div>
+    <div class="Home-pannel mobile-content">
+        {% for post in posts %}
+        <div class="Home-post">
+            <img src="{{ post.username.profile_picture_url }}" width="70" height="70" alt="X">
+            <p class="person-name">{{ post.username.full_name }}</p>
+            <p class="Post-description">{{ post.description }}</p>
+            
+            <!-- Nueva imagen de publicación aquí -->
+            {% if post.multimedia_url %}
+            <img src="{{ post.multimedia_url.url }}" class="post-image-mobile">
+            {% endif %}
+            
+            <p class="last_connection">{{ post.post_date }}</p>
+            <div class="Post-likes">
+                <img src="{% static 'melaoapp/img/Like.png' %}" width="20" height="20">
+                <p class="Likes-count">12</p>
+            </div>
+            <div class="Post-comments">
+                <img src="{% static 'melaoapp/img/Comment.png' %}" width="20" height="20">
+                <p class="Comments-count">5</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
     <div class="Home-pannel desktop-content">
         {% for post in posts %}
         <div class="Post-pannel">
@@ -280,7 +303,14 @@
                     <p class="Post-date">{{ post.post_date }}</p>
                 </div>
                 <p class="Post-description">{{ post.description }}</p>
-                <img src="{{ post.multimedia_url }}" class="Post-image" width="100" height="100">
+                
+                <!-- NUEVO: Contenedor para imágenes -->
+                <div class="Post-image-container">
+                    {% if post.multimedia_url %}
+                        <img src="{{ post.multimedia_url.url }}" class="Post-image">
+                    {% endif %}
+                </div>
+                
                 <div class="Post-likes">
                     <img src="/static/melaoapp/img/Like.png" class="Post-icon" alt="Like">
                     <p class="Post-likes-text">12</p>
