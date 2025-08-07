@@ -37,7 +37,7 @@
         <form method="post" enctype="multipart/form-data" class="Post-container">
             {% csrf_token %}
             <h1>Hacer publicación</h1>
-
+            
             {% if form.errors %}
                 <div class="error-messages">
                     {{ form.errors }}
@@ -49,11 +49,13 @@
                 {{ form.description }}
             </div>
 
-            <label for="id_multimedia_url" class="File-input">
+            <label for="id_multimedia_url_desktop" class="File-input">
                 <img src="{% static 'melaoapp/img/uploadFile.png' %}" class="gallery-icon">
                 <p>Subir Videos o Imágenes</p>
             </label>
-            {{ form.multimedia_url }}
+
+            <input type="file" name="multimedia_url" id="id_multimedia_url_desktop" class="visually-hidden" accept="image/*,video/*">
+
             {{ form.privacy_settings }}
 
             <div class="button-container" style="display: flex; width: 100%; margin-top: 15px; height: 15%;">
