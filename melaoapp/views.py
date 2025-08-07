@@ -14,9 +14,6 @@ from django.urls import reverse_lazy
 from datetime import date
 
 
-def sign_up_view(request):
-    return render(request, 'melaoapp/signUpView.html', {'form': form})
-
 @login_required(login_url='melaoapp:welcome')
 def chat_list_view(request):
     return render(request, 'melaoapp/chatListView.html')
@@ -52,10 +49,6 @@ def modify_profile(request):
     return render(request, 'melaoapp/modifyProfile.html', {'form': form})
 
 @login_required(login_url='melaoapp:welcome')
-def new_post_view(request):
-    return render(request, 'melaoapp/newPostView.html')
-
-@login_required(login_url='melaoapp:welcome')
 def profile(request):
     full_name = request.user.get_full_name()
     self_description = request.user.student.self_description
@@ -68,7 +61,6 @@ def search_person_view(request):
     persons = Student.objects.select_related('user').exclude(user=request.user)
     context = {'persons': persons}
     return render(request, 'melaoapp/searchPersonView.html', context)
-
   
 @login_required(login_url='melaoapp:welcome')
 def send_notification(request):
@@ -190,10 +182,6 @@ def chat_view(request):
     return render(request, 'melaoapp/chatView.html')
 
 @login_required(login_url='melaoapp:welcome')
-def language_and_theme_config_view(request):
-    return render(request, 'melaoapp/languageAndThemeConfigView.html')
-
-@login_required(login_url='melaoapp:welcome')
 def post_view(request):
     return render(request, 'melaoapp/postView.html')
 
@@ -242,30 +230,6 @@ def about_me_config_view(request):
         form = StudentSelfDescriptionForm(instance=student)
     return render(request, 'melaoapp/aboutMeConfigView.html', {'form': form})
 
-@login_required(login_url='melaoapp:welcome')
-def privacy_config_view(request):
-    student = Student.objects.get(user=request.user)
-    if request.method == "POST":
-        form = StudentSelfDescriptionForm(request.POST, instance=student)
-        if form.is_valid():
-            form.save()
-            return redirect('melaoapp:profile')
-    else:
-        form = StudentSelfDescriptionForm(instance=student)
-    return render(request, 'melaoapp/aboutMeConfigView.html', {'form': form})
-
-@login_required(login_url='melaoapp:welcome')
-def notifications_config_view(request):
-    student = Student.objects.get(user=request.user)
-    if request.method == "POST":
-        form = StudentSelfDescriptionForm(request.POST, instance=student)
-        if form.is_valid():
-            form.save()
-            return redirect('melaoapp:profile')
-    else:
-        form = StudentSelfDescriptionForm(instance=student)
-    return render(request, 'melaoapp/aboutMeConfigView.html', {'form': form})
-
 class CustomPasswordChangeView(PasswordChangeView):
     template_name = 'melaoapp/passwordChangeView.html'
     success_url = reverse_lazy('melaoapp:modify_profile')
@@ -297,12 +261,10 @@ def notifications_config_view(request):
 @login_required(login_url='melaoapp:welcome')
 def new_post_view(request):
     if request.method == 'POST':
-        # Crear una copia mutable de request.POST
         post_data = request.POST.copy()
         
-        # Establecer un valor predeterminado para privacy_settings si no se proporciona
         if 'privacy_settings' not in post_data or not post_data['privacy_settings']:
-            post_data['privacy_settings'] = '1'  # Valor predeterminado (público)
+            post_data['privacy_settings'] = '1' 
         
         form = PostForm(post_data, request.FILES)
         
@@ -313,7 +275,6 @@ def new_post_view(request):
             new_post.save()
             return redirect('melaoapp:home')
     else:
-        # Crear formulario con valor predeterminado para escritorio
         form = PostForm(initial={'privacy_settings': 1})
     
     return render(request, 'melaoapp/newPostView.html', {'form': form})
