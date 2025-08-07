@@ -1,27 +1,28 @@
 {% extends 'melaoapp/base.html' %}
 {% load static %}
-{% load widget_tweaks %}
 {% load i18n %}
+{% load widget_tweaks %}
 
-{% block title %}{% trans "Configuration" %}{% endblock %}
+{% block title %}{% trans "Notifications Configuration" %}{% endblock %}
 
 {% block static_css %}
-{{ block.super }}
-    <link rel="stylesheet" href="{% static 'melaoapp/css/aboutMeConfig.css' %}">
-{% endblock %}
-
-{% block static_js %}
-    <script src="{% static 'melaoapp/js/languageAndThemeConfig.js' %}"></script>
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'melaoapp/css/languageAndThemeConfig.css' %}">
 {% endblock %}
 
 {% block content %}
     <div class="ConfigPancnel">
-        <img src="{% static 'melaoapp/img/left_arrow.svg' %}" alt="Volver" class="BackButton" onclick="history.back()">
-        <p class="title">{% trans "Change your profile information" %}</p>
-        <form method="post" action="">
-            {% csrf_token %}
-            {{ form.self_description|add_class:"input-field"|attr:"placeholder:Talk about you" }}
-            <button type="submit" class="button">{% trans "Update" %}</button>
-        </form>
+        <img src="{% static 'melaoapp/img/left_arrow.svg' %}" alt="{% trans 'Go back' %}" class="BackButton" onclick="history.back()">
+        <p class="title">{% trans "Notification Settings" %}</p>
+        <div id="Notifications">
+            <form method="post" action="">
+                {% csrf_token %}
+                <label for="{{ form.email_notifications.id_for_label }}">
+                    <p>{% trans "Email Notifications" %}</p>
+                    {% render_field form.email_notifications %}
+                </label>
+                <button type="submit" class="button">{% trans "Update" %}</button>
+            </form>
+        </div>
     </div>
 {% endblock %}

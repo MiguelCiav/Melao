@@ -47,12 +47,17 @@ class StudentSelfDescriptionForm(forms.ModelForm):
         model = Student
         fields = ['self_description']
 
-class StudentPrivacyForm(forms.ModelForm):
+class PrivacySettingsForm(forms.ModelForm):
     class Meta:
         model = Student
         fields = ['private_profile']
-
-class StudentNotificationsForm(forms.ModelForm):
+        
+class NotificationsSettingsForm(forms.ModelForm):
     class Meta:
         model = Student
         fields = ['email_notifications']
+
+class ProfilePictureForm(forms.ModelForm):
+    class Meta:
+        model = Student
+        fields = ['profile_picture']

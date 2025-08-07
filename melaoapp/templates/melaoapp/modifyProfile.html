@@ -1,6 +1,7 @@
 {% extends 'melaoapp/base.html' %}
 {% load static %}
 {% load i18n %}
+{% load widget_tweaks %}
 
 {% block title %}Melao - Modificar Perfil{% endblock %}
 
@@ -16,7 +17,11 @@
 {% block content %}
     <div class="pfp-button">
         <img id="profile-image" alt="Foto de Perfil" src="{% static 'melaoapp/img/pfp_example.png' %}">
-        <a class="black-link" href="">{% trans "Edit profile photo" %}</a> {# Mantengo vacío si aún no hay URL #}
+        <form method="post" action="">
+            {% csrf_token %}
+            {% render_field form.profile_picture %}
+            <button type="submit" class="button">{% trans "Update" %}</button>
+        </form>
     </div>
 
     <div class="option-container">
@@ -45,28 +50,32 @@
 
     <div class="option-container">
         <div class="text-container">
-            <a class="black-link" href="{% url 'melaoapp:language_and_theme_config_view' %}"> {# Corregido a {% url %} #}
+            <a class="black-link" href="{% url 'melaoapp:language_and_theme_config_view' %}">
                 <p class="title">{% trans "Appearance" %}</p>
                 <p class="subtitle">{% trans "Personalize language and theme" %}</p>
             </a>
         </div>
-        <a href="{% url 'melaoapp:language_and_theme_config_view' %}"> {# Corregido a {% url %} #}
+        <a href="{% url 'melaoapp:language_and_theme_config_view' %}">
             <img src="{% static 'melaoapp/img/right_arrow.svg' %}" alt="">
         </a>
     </div>
 
     <div class="option-container">
         <div class="text-container">
-            <p class="title">{% trans "Privacity and configuration" %}</p>
-            <p class="subtitle">{% trans "Change who can see my posts" %}</p>
+            <a class="black-link" href="{% url 'melaoapp:privacy_config' %}">
+                <p class="title">{% trans "Privacity and configuration" %}</p>
+                <p class="subtitle">{% trans "Change who can see my posts" %}</p>
+            </a>
         </div>
         <img src="{% static 'melaoapp/img/right_arrow.svg' %}" alt="">
     </div>
 
     <div class="option-container">
         <div class="text-container">
-            <p class="title">{% trans "Configurate notifications" %}</p>
-            <p class="subtitle">{% trans "Change notifications preferences" %}</p>
+            <a class="black-link" href="{% url 'melaoapp:notifications_config' %}">
+                <p class="title">{% trans "Configurate notifications" %}</p>
+                <p class="subtitle">{% trans "Change notifications preferences" %}</p>
+            </a>
         </div>
         <img src="{% static 'melaoapp/img/right_arrow.svg' %}" alt="">
     </div>
