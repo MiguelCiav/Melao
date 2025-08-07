@@ -14,7 +14,7 @@
 
 {% block content %}
     <div class="ConfigPancnel">
-        <img src="{% static 'melaoapp/img/left_arrow.svg' %}" alt="Volver" class="BackButton" onclick="history.back()">
+        <img src="{% if request.COOKIES.theme == 'dark' %}{% static 'melaoapp/img/dark/BackArrowDark.png'%}{% else %}{% static 'melaoapp/img/left_arrow.svg' %}{% endif %}" width="24" height="24" alt="Volver" class="BackButton" onclick="history.back()">
         <p class="title">Idioma</p>
         <div id="Language">
             <select name="Languages" class="Languages">

@@ -24,7 +24,7 @@ main {
     grid-row: 1;
     display: grid;
     background-color: white;
-    grid-template-columns: 20% 70% 10%;
+    grid-template-columns: 15% 75% 10%;
     align-items: center;
     font-weight: bold;
     font-size: 1.3rem;
@@ -46,6 +46,10 @@ footer {
     justify-self: flex-end;
     width: 100%;
     padding: 12px;
+}
+footer img{
+    min-height: 20px;
+    max-width: 25px;
 }
 
 .footer-list {
@@ -129,4 +133,14 @@ body.dark-mode .nav-list a{
 }
 body.dark-mode .desktop-navbar {
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+body.dark-mode .search-tab, body.dark-mode .search-tab input {
+    background-color: #473D24;
+    color: #f0f0f0;
+}
+body.dark-mode footer {
+    background-color: #473D24; /* Navbar oscuro */
+}
+body.dark-mode .Home-post .person-name{
+    color: #f0f0f0;
 }
