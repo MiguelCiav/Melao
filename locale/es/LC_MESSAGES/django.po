@@ -1,0 +1,235 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-07 00:54+0000\n"
+"PO-Revision-Date: 2025-08-06 23:41+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Spanish <es@li.org>\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? "
+"1 : 2;\n"
+
+#: Melao/settings.py:79
+#: melaoapp/templates/melaoapp/languageAndThemeConfigView.html:29
+msgid "English"
+msgstr "Inglés"
+
+#: Melao/settings.py:80
+#: melaoapp/templates/melaoapp/languageAndThemeConfigView.html:26
+msgid "Spanish"
+msgstr "Español"
+
+#: melaoapp/templates/melaoapp/aboutMeConfigView.html:6
+#: melaoapp/templates/melaoapp/languageAndThemeConfigView.html:5
+msgid "Configuration"
+msgstr "Configuración"
+
+#: melaoapp/templates/melaoapp/aboutMeConfigView.html:20
+msgid "Change your profile information"
+msgstr "Cambia la información de tu perfil"
+
+#: melaoapp/templates/melaoapp/aboutMeConfigView.html:24
+msgid "Update"
+msgstr "Actualizar"
+
+#: melaoapp/templates/melaoapp/base.html:34
+msgid "Post"
+msgstr "Publicación"
+
+#: melaoapp/templates/melaoapp/base.html:35
+msgid "Chat"
+msgstr "Chat"
+
+#: melaoapp/templates/melaoapp/base.html:36
+msgid "Friends"
+msgstr "Amigos"
+
+#: melaoapp/templates/melaoapp/base.html:37
+msgid "Search People"
+msgstr "Buscar Personas"
+
+#: melaoapp/templates/melaoapp/base.html:42
+msgid "Notifications"
+msgstr "Notificaciones"
+
+#: melaoapp/templates/melaoapp/base.html:47
+msgid "Profile"
+msgstr "Perfil"
+
+#: melaoapp/templates/melaoapp/chatView.html:77
+msgid "Chat_list"
+msgstr "Lista de chat"
+
+#: melaoapp/templates/melaoapp/friendsList.html:39
+#: melaoapp/templates/melaoapp/searchPersonView.html:77
+msgid "Search"
+msgstr "Buscar"
+
+#: melaoapp/templates/melaoapp/languageAndThemeConfigView.html:18
+#: melaoapp/templates/melaoapp/signUpView.html:48
+msgid "Go back"
+msgstr "Volver"
+
+#: melaoapp/templates/melaoapp/languageAndThemeConfigView.html:19
+msgid "Language"
+msgstr "Idioma"
+
+#: melaoapp/templates/melaoapp/languageAndThemeConfigView.html:34
+msgid "Theme"
+msgstr "Tema"
+
+#: melaoapp/templates/melaoapp/languageAndThemeConfigView.html:36
+msgid "Light"
+msgstr "Claro"
+
+#: melaoapp/templates/melaoapp/languageAndThemeConfigView.html:37
+msgid "Dark"
+msgstr "Oscuro"
+
+#: melaoapp/templates/melaoapp/modifyProfile.html:19
+msgid "Edit profile photo"
+msgstr "Editar foto de perfil"
+
+#: melaoapp/templates/melaoapp/modifyProfile.html:25
+msgid "Personal info"
+msgstr "Información Personal"
+
+#: melaoapp/templates/melaoapp/modifyProfile.html:26
+msgid "Update biography"
+msgstr "Actualizar biografía"
+
+#: melaoapp/templates/melaoapp/modifyProfile.html:37
+msgid "Security and Acces"
+msgstr "Seguridad y Acceso"
+
+#: melaoapp/templates/melaoapp/modifyProfile.html:38
+#: melaoapp/templates/melaoapp/passwordChangeView.html:44
+msgid "Change password"
+msgstr "Cambiar contraseña"
+
+#: melaoapp/templates/melaoapp/modifyProfile.html:49
+msgid "Appearance"
+msgstr "Apariencia"
+
+#: melaoapp/templates/melaoapp/modifyProfile.html:50
+msgid "Personalize language and theme"
+msgstr "Personalizar idioma y tema"
+
+#: melaoapp/templates/melaoapp/modifyProfile.html:60
+msgid "Privacity and configuration"
+msgstr "Privacidad y configuración"
+
+#: melaoapp/templates/melaoapp/modifyProfile.html:61
+msgid "Change who can see my posts"
+msgstr "Gestionar quien puede ver mis publicaciones"
+
+#: melaoapp/templates/melaoapp/modifyProfile.html:68
+msgid "Configurate notifications"
+msgstr "Configurar notificaciones"
+
+#: melaoapp/templates/melaoapp/modifyProfile.html:69
+msgid "Change notifications preferences"
+msgstr "Gestionar las preferencias de notificaciones"
+
+#: melaoapp/templates/melaoapp/newPostView.html:24
+msgid "Make a post"
+msgstr "Crear una publicación"
+
+#: melaoapp/templates/melaoapp/newPostView.html:31
+msgid "Upload videos or images"
+msgstr "Subir videos o imágenes"
+
+#: melaoapp/templates/melaoapp/passwordChangeView.html:20
+msgid "Change your password"
+msgstr "Cambia tu contraseña"
+
+#: melaoapp/templates/melaoapp/profile.html:122
+msgid "Profile image"
+msgstr "Imagen de perfil"
+
+#: melaoapp/templates/melaoapp/profile.html:126
+msgid "Edit profile"
+msgstr "Editar perfil"
+
+#: melaoapp/templates/melaoapp/profile.html:128
+msgid "Share profile"
+msgstr "Compartir perfil"
+
+#: melaoapp/templates/melaoapp/profile.html:130
+msgid "About me"
+msgstr "Acerca de mí"
+
+#: melaoapp/templates/melaoapp/profile.html:132
+msgid "Posts"
+msgstr "Publicaciones"
+
+#: melaoapp/templates/melaoapp/searchPersonView.html:76
+msgid "Search icon"
+msgstr "Ícono de búsqueda"
+
+#: melaoapp/templates/melaoapp/searchPersonView.html:78
+msgid "Delete search icon"
+msgstr "Ícono de eliminar búsqueda"
+
+#: melaoapp/templates/melaoapp/signUpView.html:47
+#: melaoapp/templates/melaoapp/welcome.html:64
+msgid "Register"
+msgstr "Registrarse"
+
+#: melaoapp/templates/melaoapp/signUpView.html:56
+msgid ""
+"When clicking in register, you accept our conditions, privacy policy and use "
+"of cookies"
+msgstr ""
+"Al hacer clic en registrarte, aceptas nuestras condiciones, política de "
+"privacidad y uso de cookies"
+
+#: melaoapp/templates/melaoapp/welcome.html:6
+msgid "Welcome"
+msgstr "Bienvenido"
+
+#: melaoapp/templates/melaoapp/welcome.html:35
+msgid "Welcome to Melao"
+msgstr "Bienvenido a Melao"
+
+#: melaoapp/templates/melaoapp/welcome.html:39
+msgid ""
+"Conéctate con tus compañeros, comparte experiencias y mantente al día con lo "
+"que sucede en la comunidad ATI."
+msgstr ""
+"Conéctate con tus compañeros, comparte experiencias y mantente al día con lo "
+"que sucede en la comunidad ATI."
+
+#: melaoapp/templates/melaoapp/welcome.html:53
+#, fuzzy
+#| msgid "Remember me"
+msgid "Remembre me"
+msgstr "Recuérdame"
+
+#: melaoapp/templates/melaoapp/welcome.html:57
+msgid "Have you forgot your password?"
+msgstr "¿Olvidaste tu contraseña?"
+
+#: melaoapp/templates/melaoapp/welcome.html:60
+msgid "Login"
+msgstr "Iniciar sesión"
+
+#: melaoapp/templates/melaoapp/welcome.html:71
+msgid "Melao Project - 2025"
+msgstr "Proyecto Melao - 2025"
+
+#~ msgid "Sign Up"
+#~ msgstr "Registrarse"
+
+#~ msgid "Create an account"
+#~ msgstr "Crear una cuenta"

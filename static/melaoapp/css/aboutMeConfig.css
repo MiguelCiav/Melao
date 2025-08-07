@@ -46,9 +46,9 @@ main {
 }
 
 #LightMode{
-    background-color: #9C854A;
+    background-color: white;
     border: 1px solid #9C854A;
-    color: black;
+    color: #9C854A;
 }
 
 .BackButton {
@@ -61,27 +61,38 @@ main {
         background-color: #FCFAF7;
     }
 }
-@media (max-width:600px){
-    .BackButton {
-        display: none;
-    }
-}
 
 body.dark-mode {
     background-color: #211C12; 
     color: #f0f0f0; 
 }
 
-body.dark-mode .title {
+body.dark-mode .NavBar {
+    background-color: #211C12;
+}
+body.dark-mode .Menu {
+    background-color: #473D24; 
+}
+
+
+body.dark-mode #LightMode {
+    background-color: #555; 
+    border-color: #777;
+    color: #bbb;
+}
+
+body.dark-mode #DarkMode {
+    background-color: #9C854A; 
+    border-color: #9C854A;
+    color: white;
+}
+
+
+body.dark-mode h2 {
     color: #f0f0f0;
 }
-body.dark-mode #LightMode{
+
+body.dark-mode #Language select {
+    color: #f0f0f0;
     background-color: #211C12;
-    border: 1px solid #FCFAF7;
-    color: #FCFAF7;
-}
-body.dark-mode #DarkMode{
-    background-color: #9C854A;
-    border: 1px solid #9C854A;
-    color: #FCFAF7;
 }

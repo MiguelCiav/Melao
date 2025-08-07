@@ -1,5 +1,6 @@
 {% extends 'melaoapp/base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block title %}Melao - Modificar Perfil{% endblock %}
 
@@ -8,33 +9,58 @@
     <link rel="stylesheet" href="{% static 'melaoapp/css/newPost.css' %}">
 {% endblock %}
 
-
 {% block content %}
     <div class="Post-pannel mobile-content">
-        <div class="PostDiv">
+        <form method="post" enctype="multipart/form-data" class="PostDiv">
+            {% csrf_token %}
             <img src="{% static 'melaoapp/img/EthanHuntProfile.png' %}" class="profile-image">
-            <textarea></textarea>
-            <img src="{% static 'melaoapp/img/IMG-Icon.png' %}" id="ImageIcon" class="PostIcon">
-            <img src="{% static 'melaoapp/img/Video-Icon.png' %}" id="VideoIcon" class="PostIcon">
-        </div>
+            <textarea name="description" placeholder="Escribe lo que estás pensando..." rows="4"></textarea>
+            
+            <div class="mobile-icons-container">
+                <label for="id_multimedia_url">
+                    <img src="{% static 'melaoapp/img/IMG-Icon.png' %}" id="ImageIcon" class="PostIcon">
+                </label>
+                <input type="file" name="multimedia_url" id="id_multimedia_url" class="visually-hidden" accept="image/*,video/*">
+
+                <button type="submit" id="mobile-post-button" class="mobile-post-button">
+                    <img src="{% static 'melaoapp/img/right_arrow_button.svg' %}" class="PostIcon">
+                </button>
+            </div>
+            <input type="hidden" name="privacy_settings" value="1">
+        </form>
     </div>
+
     <div class="Post-pannel desktop-content">
-        <div class="Post-container">
+        <form method="post" enctype="multipart/form-data" class="Post-container">
+            {% csrf_token %}
             <h1>Hacer publicación</h1>
+            
+            {% if form.errors %}
+                <div class="error-messages">
+                    {{ form.errors }}
+                </div>
+            {% endif %}
+            
             <div class="Writeable-area">
                 <img src="{% static 'melaoapp/img/EthanHuntProfile.png' %}" class="profile-image">
-                <textarea placeholder="Escribe lo que estás pensando..."></textarea>
+                {{ form.description }}
             </div>
-            <label for="file-input" class="File-input">
-            <img src="{% static 'melaoapp/img/uploadFile.png' %}" class="gallery-icon">
-            <p>Subir Videos o Imágenes</p>
-            </label>
 
-            <input type="file" id="file-input" class="visually-hidden" accept="image/*,video/*">
-            <a href="{% url 'melaoapp:home' %}" class="Post-button-link">
-                <input type="button" id="cancel-button" value="Cancelar" class="Post-button">
-                <input type="button" id="post-button" value="Publicar en perfil" class="Post-button">
-            </a>    
-        </div>
+            <label for="id_multimedia_url_desktop" class="File-input">
+                <img src="{% static 'melaoapp/img/uploadFile.png' %}" class="gallery-icon">
+                <p>{% trans "Upload videos or images" %}</p>
+            </label>
+            
+            <input type="file" name="multimedia_url" id="id_multimedia_url_desktop" class="visually-hidden" accept="image/*,video/*">
+
+            {{ form.privacy_settings }}
+
+            <div class="button-container" style="display: flex; width: 100%; margin-top: 15px; height: 15%;">
+                <a href="{% url 'melaoapp:home' %}" style="flex: 1; margin-right: 10px;">
+                    <input type="button" id="cancel-button" value="Cancelar" class="Post-button" style="height: 100%;">
+                </a>
+                <input type="submit" id="post-button" value="Publicar en perfil" class="Post-button" style="background-color: #E4AC73; height: 100%;">
+            </div>
+        </form>
     </div>
 {% endblock %}

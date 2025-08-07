@@ -3,10 +3,12 @@ from django.contrib.auth.models import User
 
 class Student(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    profile_picture_url = models.URLField(max_length=500, blank=True, null=True)
+    profile_picture = models.FileField(null=True)
     date_of_birth = models.DateField(blank=True, null=True)
     gender = models.CharField(max_length=1, blank=True, null=True)
     self_description = models.TextField(blank=True, null=True)
+    private_profile = models.BooleanField(default=False)
+    email_notifications = models.BooleanField(default=True)
 
     def __str__(self):
         return self.user.username
@@ -14,8 +16,8 @@ class Student(models.Model):
 class Post(models.Model):
     id = models.AutoField(primary_key=True)
     username = models.ForeignKey(Student, on_delete=models.CASCADE)
-    description = models.TextField()
-    multimedia_url = models.URLField(max_length=500, blank=True, null=True)
+    description = models.TextField(blank=True)
+    multimedia_url =  models.FileField(upload_to='posts/', blank=True, null=True)
     privacy_settings = models.IntegerField()
     post_date = models.DateField(blank=True, null = True)
 

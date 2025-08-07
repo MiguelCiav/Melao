@@ -1,8 +1,9 @@
 {% extends 'melaoapp/base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block title %}Notificaciones{% endblock %}
-
+<p class="title">Notificaciones</p>
 {% block static_js %}
     <script>
         const ADD_FRIEND_URL = "{% url 'melaoapp:accept-friend-request' %}";
