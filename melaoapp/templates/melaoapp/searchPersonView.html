@@ -29,7 +29,13 @@
         <form method="post" id="csrf-form">{% csrf_token %}</form>
         {% for person in persons %}
         <div class="person" data-username="{{ person.user.username }}">
-            <img src="{{ person.profile_picture_url }}" width="70" height="70" alt="X">
+
+            {% if person.profile_picture %}
+                <img src="{{ person.profile_picture.url }}" width="70" height="70" alt="X">
+            {% else %}
+                <img src="{% static "melaoapp/img/EthanHuntProfile.png" %}" width="70" height="70" alt="X">
+            {% endif %}
+
             <p class="person_name">{{ person.user.first_name }} {{ person.user.last_name }}</p>
             <img src="{% if request.COOKIES.theme == 'dark' %}{% static '/melaoapp/img/dark/AddFriendDark.png'%}{% else %}{% static '/melaoapp/img/AddFriend.png'%}{% endif %}" width="30" height="30" alt="AddFriend" class="Icon Add-Friend-Button" onclick="sendFriendRequest('{{ person.user.username }}', 1)">
             <img src="{% if request.COOKIES.theme == 'dark' %}{% static '/melaoapp/img/dark/ChatDark.png'%}{% else %}{% static '/melaoapp/img/Chat.png'%}{% endif %}" width="30" height="30" alt="Chat" class="Icon">

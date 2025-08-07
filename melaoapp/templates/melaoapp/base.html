@@ -1,5 +1,6 @@
 {% load static %}
 {% load i18n %}
+{% load melaoapp_tags %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,6 +17,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
 </head>
 <body {% if request.COOKIES.theme == 'dark' %}class="dark-mode"{% endif %}>
+    {% get_student as student %}
     {% block custom_header %}
     <header class="mobile-navbar">
         <a href="{% url 'melaoapp:home' %}">
@@ -47,13 +49,13 @@
             </li>
             <li class="right-nav-item">
                 <a href="{% url 'melaoapp:profile' %}">
-                    {% if user.profile_picture == None %}
-                        <img src="{% static 'melaoapp/img/EthanHuntProfile.png' %}" alt="User" class="pfp">
+                    {% if student and student.profile_picture %}
+                        <img class="pfp" src="{{ student.profile_picture.url }}" alt="Profile Picture">
                     {% else %}
-                        <img src="{% static 'melaoapp/img/UserIcon.png' %}" alt="User" class"pfp">
+                        <img class="pfp" src="{% static 'melaoapp/img/EthanHuntProfile.png' %}" alt="Default Profile Picture">
                     {% endif %}
                 </a>
-             </li>
+            </li>
         </ul>
     </div>
     {% endblock %}

@@ -22,7 +22,11 @@
     <div class="NotificationsPannel">
         {% for notification in notifications %}
         <div class="person">
-            <img src="{{ notification.sender_username.profile_picture_url }}" width="70" height="70" alt="X">
+            {% if  notification.sender_username.profile_picture %}
+                <img src="{{ notification.sender_username.profile_picture.url }}" width="70" height="70" alt="X">
+            {% else %}
+                <img src="{% static "melaoapp/img/EthanHuntProfile.png" %}%}" width="70" height="70" alt="X">
+            {% endif %}
             
             <p class="person-name">{{ notification.sender_username.user.first_name }} {{ notification.sender_username.user.last_name }}</p>
             

@@ -16,8 +16,13 @@
 
 {% block content %}
     <div class="pfp-button">
-        <img id="profile-image" alt="Foto de Perfil" src="{% static 'melaoapp/img/pfp_example.png' %}">
-        <form method="post" action="">
+        {% if request.user.student.profile_picture %}
+            <img id="profile-image" alt="Foto de Perfil" src="{{ request.user.student.profile_picture.url }}">
+        {% else %}
+            <img id="profile-image" alt="Foto de Perfil" src="{% static 'melaoapp/img/EthanHuntProfile.png' %}">
+        {% endif %}
+
+        <form method="post" action="{% url 'melaoapp:modify_profile' %}" enctype="multipart/form-data">
             {% csrf_token %}
             {% render_field form.profile_picture %}
             <button type="submit" class="button">{% trans "Update" %}</button>

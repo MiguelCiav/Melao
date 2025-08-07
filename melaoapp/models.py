@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 
 class Student(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    profile_picture = models.FileField(null=True)
+    profile_picture = models.FileField(upload_to='profile_photos/', null=True)
     date_of_birth = models.DateField(blank=True, null=True)
     gender = models.CharField(max_length=1, blank=True, null=True)
     self_description = models.TextField(blank=True, null=True)
@@ -17,7 +17,7 @@ class Post(models.Model):
     id = models.AutoField(primary_key=True)
     username = models.ForeignKey(Student, on_delete=models.CASCADE)
     description = models.TextField(blank=True)
-    multimedia_url =  models.FileField(upload_to='posts/', blank=True, null=True)
+    multimedia =  models.FileField(upload_to='posts/', blank=True, null=True)
     privacy_settings = models.IntegerField()
     post_date = models.DateField(blank=True, null = True)
 
