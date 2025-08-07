@@ -1,5 +1,6 @@
 {% extends 'melaoapp/base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block title %}Melao - Amigos{% endblock %}
 
@@ -35,15 +36,19 @@
 {% block content %}
     <div class="search-tab">
         <img src="{% static 'melaoapp/img/Lupa.png' %}">
-        <input type="text" placeholder="Buscar...">
+        <input type="text" placeholder="{% trans "Search" %}">
     </div>
     
     <div class="FriendsPannel">
-        {% for person in persons %}
+        {% for friend in friends %}
         <div class="person">
-            <img src="{{ person.profile_picture_url }}" width="70" height="70" alt="X">
-            <p class="person_name">{{ person.user.first_name }} {{ person.user.last_name }}</p>
-            <img src="/static/melaoapp/img/X-Search-Icon-Filled.png" width="30" height="30" alt="X" class="DeleteFriendIcon">
+            {% if person.profile_picture %}
+                <img src="{{ friend.profile_picture.url }}" width="70" height="70" alt="X">
+            {% else %}
+                <img src="{% static "melaoapp/img/EthanHuntProfile.png" %}%}" width="70" height="70" alt="X">
+            {% endif %}
+            <p class="person_name">{{ friend.user.first_name }} {{ friend.user.last_name }}</p>
+            <img src="{% static 'melaoapp/img/X-Search-Icon-Filled.png' %}" width="30" height="30" alt="X" class="DeleteFriendIcon">
         </div>
         {% endfor %}
     </div>

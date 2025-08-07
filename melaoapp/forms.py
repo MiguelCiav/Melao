@@ -46,6 +46,25 @@ class CustomUserCreationForm(UserCreationForm):
             )
         return user
 
+class StudentSelfDescriptionForm(forms.ModelForm):
+    class Meta:
+        model = Student
+        fields = ['self_description']
+
+class PrivacySettingsForm(forms.ModelForm):
+    class Meta:
+        model = Student
+        fields = ['private_profile']
+        
+class NotificationsSettingsForm(forms.ModelForm):
+    class Meta:
+        model = Student
+        fields = ['email_notifications']
+
+class ProfilePictureForm(forms.ModelForm):
+    class Meta:
+        model = Student
+        fields = ['profile_picture']
 
 class PostForm(forms.ModelForm):
     privacy_settings = forms.IntegerField(
@@ -54,14 +73,14 @@ class PostForm(forms.ModelForm):
     )
     class Meta:
         model = Post
-        fields = ['description', 'multimedia_url', 'privacy_settings']
+        fields = ['description', 'multimedia', 'privacy_settings']
         widgets = {
             'description': forms.Textarea(attrs={
                 'placeholder': 'Escribe lo que estás pensando...',
                 'class': 'text-area-custom',
                 'rows': 4
             }),
-            'multimedia_url': forms.FileInput(attrs={
+            'multimedia': forms.FileInput(attrs={
                 'class': 'visually-hidden',
                 'accept': 'image/*,video/*'
             }),

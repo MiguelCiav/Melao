@@ -1,7 +1,8 @@
 {% extends 'melaoapp/base.html' %}
 {% load static %}
+{% load i18n %}
 
-{% block title %}Melao - Configuración{% endblock %}
+{% block title %}{% trans "Configuration" %}{% endblock %}
 
 {% block static_css %}
 {{ block.super }}
@@ -14,18 +15,26 @@
 
 {% block content %}
     <div class="ConfigPancnel">
-        <img src="{% static 'melaoapp/img/left_arrow.svg' %}" alt="Volver" class="BackButton" onclick="history.back()">
-        <p class="title">Idioma</p>
+        <img src="{% if request.COOKIES.theme == 'dark' %}{% static 'melaoapp/img/dark/BackArrowDark.png'%}{% else %}{% static 'melaoapp/img/left_arrow.svg' %}{% endif %}" width="24" height="24" alt="Volver" class="BackButton" onclick="history.back()">
+        <p class="title">{% trans "Language" %}</p>
         <div id="Language">
-            <select name="Languages" class="Languages">
-                <option value="Español">Español</option>
-                <option value="Ingles">Inglés</option>
-            </select>
+            <form action="{% url 'set_language' %}" method="post">
+                {% csrf_token %}
+                <input name="next" type="hidden" value="{{ request.get_full_path }}">
+                <select name="language" class="Languages" onchange="this.form.submit()">
+                    <option value="es" {% if request.LANGUAGE_CODE == 'es' %}selected{% endif %}>
+                        {% trans "Spanish" %}
+                    </option>
+                    <option value="en" {% if request.LANGUAGE_CODE == 'en' %}selected{% endif %}>
+                        {% trans "English" %}
+                    </option>
+                </select>
+            </form>
         </div>
-        <p class="title">Tema</p>
+        <p class="title">{% trans "Theme" %}</p>
         <div id="Theme">
-            <button class="ThemeButton" id="LightMode"><p>Claro</p></button>
-            <button class="ThemeButton" id="DarkMode"><p>Oscuro</p></button>
+            <button class="ThemeButton" id="LightMode"><p>{% trans "Light" %}</p></button>
+            <button class="ThemeButton" id="DarkMode"><p>{% trans "Dark" %}</p></button>
         </div>
     </div>
 {% endblock %}
