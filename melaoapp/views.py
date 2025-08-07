@@ -1,15 +1,23 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate, login
+<<<<<<< HEAD
 from .forms import CustomUserCreationForm, PrivacySettingsForm, NotificationsSettingsForm, StudentSelfDescriptionForm, ProfilePictureForm
+=======
+from .forms import CustomUserCreationForm, PostForm
+>>>>>>> a5f0b6f0cc9a6253b3e79cedaaefabf46ea72e8c
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from .models import Is_friend_of, Post, Student, Notification
 from .forms import StudentSelfDescriptionForm
 from django.http import JsonResponse
 from django.utils import timezone
+<<<<<<< HEAD
 from django.contrib.auth.views import PasswordChangeView
 from django.urls import reverse_lazy
+=======
+from datetime import date
+>>>>>>> a5f0b6f0cc9a6253b3e79cedaaefabf46ea72e8c
 
 def sign_up_view(request):
     return render(request, 'melaoapp/signUpView.html', {'form': form})
@@ -234,3 +242,25 @@ def notifications_config_view(request):
     else:
         form = NotificationsSettingsForm(instance=student)
     return render(request, 'melaoapp/notificationsConfigView.html', {'form': form})
+def new_post_view(request):
+    if request.method == 'POST':
+        # Crear una copia mutable de request.POST
+        post_data = request.POST.copy()
+        
+        # Establecer un valor predeterminado para privacy_settings si no se proporciona
+        if 'privacy_settings' not in post_data or not post_data['privacy_settings']:
+            post_data['privacy_settings'] = '1'  # Valor predeterminado (público)
+        
+        form = PostForm(post_data, request.FILES)
+        
+        if form.is_valid():
+            new_post = form.save(commit=False)
+            new_post.username = request.user.student
+            new_post.post_date = date.today()
+            new_post.save()
+            return redirect('melaoapp:home')
+    else:
+        # Crear formulario con valor predeterminado para escritorio
+        form = PostForm(initial={'privacy_settings': 1})
+    
+    return render(request, 'melaoapp/newPostView.html', {'form': form})

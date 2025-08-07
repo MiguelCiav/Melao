@@ -15,8 +15,13 @@
 
 {% block content %}
     <div class="ConfigPancnel">
+<<<<<<< HEAD
         <img src="{% static 'melaoapp/img/left_arrow.svg' %}" alt="{% trans 'Go back' %}" class="BackButton" onclick="history.back()">
         <p class="title">{% trans "Language" %}</p>
+=======
+        <img src="{% if request.COOKIES.theme == 'dark' %}{% static 'melaoapp/img/dark/BackArrowDark.png'%}{% else %}{% static 'melaoapp/img/left_arrow.svg' %}{% endif %}" width="24" height="24" alt="Volver" class="BackButton" onclick="history.back()">
+        <p class="title">Idioma</p>
+>>>>>>> a5f0b6f0cc9a6253b3e79cedaaefabf46ea72e8c
         <div id="Language">
             <form action="{% url 'set_language' %}" method="post">
                 {% csrf_token %}

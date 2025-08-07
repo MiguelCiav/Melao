@@ -19,9 +19,12 @@
     {% block custom_header %}
     <header class="mobile-navbar">
         <a href="{% url 'melaoapp:home' %}">
-            <img src="{% static 'melaoapp/img/left_arrow.svg' %}" width="24" height="24" alt="X">
+            <img src="{% if request.COOKIES.theme == 'dark' %}{% static 'melaoapp/img/dark/BackArrowDark.png'%}{% else %}{% static 'melaoapp/img/left_arrow.svg' %}{% endif %}" width="24" height="24" alt="X">
         </a>
         <p>Melao</p>
+        <a href="{% url 'melaoapp:search_person_view' %}">
+            <img src="{% if request.COOKIES.theme == 'dark' %}{% static 'melaoapp/img/dark/searchDark.svg'%}{% else %}{% static 'melaoapp/img/search.svg' %}{% endif %}" width="24" height="24" alt="X">
+        </a>
     </header>
     <div class="desktop-navbar">
         <ul class="nav-list">
@@ -63,12 +66,25 @@
     <footer>
         <nav class="Menu">
             <ul class="footer-list">
-                <li><a href="{% url 'melaoapp:home' %}"><img src="{% static 'melaoapp/img/HomeIconSelected.png' %}" alt="Home"></a></li>
-                <li><a href="{% url 'melaoapp:friends_list' %}"><img src="{% static 'melaoapp/img/FriendsIcon.png' %}" alt="Friends"></a></li>
-                <li><a href="{% url 'melaoapp:chat_list_view' %}"><img src="{% static 'melaoapp/img/ChatIcon.png' %}" alt="Chat"></a></li>
-                <li><a href="{% url 'melaoapp:new_post_view' %}"><img src="{% static 'melaoapp/img/PostIcon.png' %}" alt="Post"></a></li>
-                <li><a href="{% url 'melaoapp:view_notifications' %}"><img src="{% static 'melaoapp/img/NotificationsIcon.png' %}" alt="Bell"></a></li>
-                <li><a href="{% url 'melaoapp:profile' %}"><img src="{% static 'melaoapp/img/UserIcon.png' %}" alt="User"></a></li>
+                <li>
+                    <a href="{% url 'melaoapp:home' %}">
+                        <img src="{% if '/home/' in request.path %}{% static 'melaoapp/img/HomeIconSelected.svg' %}
+         {% else %}{% static 'melaoapp/img/HomeIcon.svg' %}{% endif %}" alt="Home"></a></li>
+                <li>
+                    <a href="{% url 'melaoapp:friends_list' %}">
+                        <img src="{% if '/friends/' in request.path %}{% static 'melaoapp/img/FriendsIconSelected.svg' %}{% else %}{% static 'melaoapp/img/FriendsIcon.svg' %}{% endif %}" alt="Friends"></a></li>
+                <li>
+                    <a href="{% url 'melaoapp:chat_list_view' %}">
+                        <img src="{% if '/chats/' in request.path %}{% static 'melaoapp/img/ChatIconSelected.svg' %}{% else %}{% static 'melaoapp/img/ChatIcon.svg' %}{% endif %}" alt="Chat"></a></li>
+                <li>
+                    <a href="{% url 'melaoapp:new_post_view' %}">
+                        <img src="{% if '/new-post/' in request.path %}{% static 'melaoapp/img/PostIconSelected.svg' %}{% else %}{% static 'melaoapp/img/PostIcon.svg' %}{% endif %}" alt="Post"></a></li>
+                <li>
+                    <a href="{% url 'melaoapp:view_notifications' %}">
+                        <img src="{% if '/notifications/' in request.path %}{% static 'melaoapp/img/NotificationsIconSelected.svg' %}{% else %}{% static 'melaoapp/img/NotificationsIcon.svg' %}{% endif %}" alt="Bell"></a></li>
+                <li>
+                    <a href="{% url 'melaoapp:profile' %}">
+                        <img src="{% if '/profile/' in request.path %}{% static 'melaoapp/img/UserIconSelected.svg' %}{% else %}{% static 'melaoapp/img/UserIcon.svg' %}{% endif %}" alt="User"></a></li>
             </ul>
         </nav>
     </footer>
