@@ -13,14 +13,19 @@
     <div class="Post-pannel mobile-content">
         <form method="post" enctype="multipart/form-data" class="PostDiv">
             {% csrf_token %}
-            <img src="{% static 'melaoapp/img/EthanHuntProfile.png' %}" class="profile-image">
-            <textarea name="description" placeholder="Escribe lo que estás pensando..." rows="4"></textarea>
+            {% if request.user.student.profile_picture %}
+                <img id="profile-image" alt="Foto de Perfil" src="{{ request.user.student.profile_picture.url }}" class="profile-image">
+            {% else %}
+                <img id="profile-image" alt="Foto de Perfil" src="{% static 'melaoapp/img/EthanHuntProfile.png' %}" class="profile-image">
+            {% endif %}
+
+            <textarea name="description" placeholder="{% trans "Write what you're thinking about" %}" rows="4"></textarea>
             
             <div class="mobile-icons-container">
-                <label for="id_multimedia_url">
+                <label for="id_multimedia">
                     <img src="{% static 'melaoapp/img/IMG-Icon.png' %}" id="ImageIcon" class="PostIcon">
                 </label>
-                <input type="file" name="multimedia_url" id="id_multimedia_url" class="visually-hidden" accept="image/*,video/*">
+                <input type="file" name="multimedia" id="id_multimedia" class="visually-hidden" accept="image/*,video/*">
 
                 <button type="submit" id="mobile-post-button" class="mobile-post-button">
                     <img src="{% static 'melaoapp/img/right_arrow_button.svg' %}" class="PostIcon">
@@ -33,7 +38,7 @@
     <div class="Post-pannel desktop-content">
         <form method="post" enctype="multipart/form-data" class="Post-container">
             {% csrf_token %}
-            <h1>Hacer publicación</h1>
+            <h1>{% trans "Make Post" %}</h1>
             
             {% if form.errors %}
                 <div class="error-messages">
@@ -42,24 +47,28 @@
             {% endif %}
             
             <div class="Writeable-area">
-                <img src="{% static 'melaoapp/img/EthanHuntProfile.png' %}" class="profile-image">
+                {% if request.user.student.profile_picture %}
+                    <img id="profile-image" alt="Foto de Perfil" src="{{ request.user.student.profile_picture.url }}" class="profile-image">
+                {% else %}
+                    <img id="profile-image" alt="Foto de Perfil" src="{% static 'melaoapp/img/EthanHuntProfile.png' %}" class="profile-image">
+                {% endif %}
                 {{ form.description }}
             </div>
 
-            <label for="id_multimedia_url_desktop" class="File-input">
+            <label for="id_multimedia_desktop" class="File-input">
                 <img src="{% static 'melaoapp/img/uploadFile.png' %}" class="gallery-icon">
                 <p>{% trans "Upload videos or images" %}</p>
             </label>
             
-            <input type="file" name="multimedia_url" id="id_multimedia_url_desktop" class="visually-hidden" accept="image/*,video/*">
+            <input type="file" name="multimedia" id="id_multimedia_desktop" class="visually-hidden" accept="image/*,video/*">
 
             {{ form.privacy_settings }}
 
             <div class="button-container" style="display: flex; width: 100%; margin-top: 15px; height: 15%;">
                 <a href="{% url 'melaoapp:home' %}" style="flex: 1; margin-right: 10px;">
-                    <input type="button" id="cancel-button" value="Cancelar" class="Post-button" style="height: 100%;">
+                    <input type="button" id="cancel-button" value="{% trans "Cancel" %}" class="Post-button" style="height: 100%;">
                 </a>
-                <input type="submit" id="post-button" value="Publicar en perfil" class="Post-button" style="background-color: #E4AC73; height: 100%;">
+                <input type="submit" id="post-button" value="{% trans "Post on profile" %}"class="Post-button" style="background-color: #E4AC73; height: 100%;">
             </div>
         </form>
     </div>

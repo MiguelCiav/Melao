@@ -69,14 +69,14 @@ class PostForm(forms.ModelForm):
     )
     class Meta:
         model = Post
-        fields = ['description', 'multimedia_url', 'privacy_settings']
+        fields = ['description', 'multimedia', 'privacy_settings']
         widgets = {
             'description': forms.Textarea(attrs={
                 'placeholder': 'Escribe lo que estás pensando...',
                 'class': 'text-area-custom',
                 'rows': 4
             }),
-            'multimedia_url': forms.FileInput(attrs={
+            'multimedia': forms.FileInput(attrs={
                 'class': 'visually-hidden',
                 'accept': 'image/*,video/*'
             }),

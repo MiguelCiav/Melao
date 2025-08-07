@@ -45,9 +45,9 @@ def language_and_theme_config_view(request):
 
 @login_required(login_url='melaoapp:welcome')
 def modify_profile(request):
-    student = Student.objects.get(user=request.user)
+    student = request.user.student
     if request.method == "POST":
-        form = ProfilePictureForm(request.POST, instance=student)
+        form = ProfilePictureForm(request.POST, request.FILES, instance=student)
         if form.is_valid():
             form.save()
             return redirect('melaoapp:modify_profile')
@@ -63,7 +63,8 @@ def new_post_view(request):
 def profile(request):
     full_name = request.user.get_full_name()
     self_description = request.user.student.self_description
-    context = {"full_name": full_name, "self_description": self_description}
+    posts = Post.objects.filter(username=request.user.student).order_by('-post_date')
+    context = {"full_name": full_name, "self_description": self_description, "posts":posts}
     return render(request, 'melaoapp/profile.html', context)
 
 @login_required(login_url='melaoapp:welcome')
