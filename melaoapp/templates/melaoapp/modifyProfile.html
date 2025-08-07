@@ -23,7 +23,7 @@
             <p class="title">Información Personal</p>
             <p class="subtitle">Actualizar biografía</p>
         </div>
-        <img src="{% static 'melaoapp/img/right_arrow.svg' %}" alt="">
+        <img src="{% if request.COOKIES.theme == 'dark' %}{% static 'melaoapp/img/dark/right_arrowDark.svg' %}{% else %}{% static 'melaoapp/img/right_arrow.svg' %}{% endif %}" alt="">
     </div>
 
     <div class="option-container">
@@ -31,7 +31,7 @@
             <p class="title">Seguridad y Acceso</p>
             <p class="subtitle">Cambiar contraseña</p>
         </div>
-        <img src="{% static 'melaoapp/img/right_arrow.svg' %}" alt="">
+        <img src="{% if request.COOKIES.theme == 'dark' %}{% static 'melaoapp/img/dark/right_arrowDark.svg' %}{% else %}{% static 'melaoapp/img/right_arrow.svg' %}{% endif %}" alt="">
     </div>
 
     <div class="option-container">
@@ -42,7 +42,7 @@
             </a>
         </div>
         <a href="{% url 'melaoapp:language_and_theme_config_view' %}"> {# Corregido a {% url %} #}
-            <img src="{% static 'melaoapp/img/right_arrow.svg' %}" alt="">
+            <img src="{% if request.COOKIES.theme == 'dark' %}{% static 'melaoapp/img/dark/right_arrowDark.svg' %}{% else %}{% if request.COOKIES.theme == 'dark' %}{% static 'melaoapp/img/dark/right_arrowDark.svg' %}{% else %}{% static 'melaoapp/img/right_arrow.svg' %}{% endif %}{% endif %}" alt="">
         </a>
     </div>
 
@@ -51,7 +51,7 @@
             <p class="title">Configuraciones de Privacidad</p>
             <p class="subtitle">Gestionar quien puede ver mis publicaciones.</p>
         </div>
-        <img src="{% static 'melaoapp/img/right_arrow.svg' %}" alt="">
+        <img src="{% if request.COOKIES.theme == 'dark' %}{% static 'melaoapp/img/dark/right_arrowDark.svg' %}{% else %}{% static 'melaoapp/img/right_arrow.svg' %}{% endif %}" alt="">
     </div>
 
     <div class="option-container">
@@ -59,6 +59,6 @@
             <p class="title">Configurar Notificaciones</p>
             <p class="subtitle">Gestionar las preferencias de notificaciones.</p>
         </div>
-        <img src="{% static 'melaoapp/img/right_arrow.svg' %}" alt="">
+        <img src="{% if request.COOKIES.theme == 'dark' %}{% static 'melaoapp/img/dark/right_arrowDark.svg' %}{% else %}{% static 'melaoapp/img/right_arrow.svg' %}{% endif %}" alt="">
     </div>
 {% endblock %}

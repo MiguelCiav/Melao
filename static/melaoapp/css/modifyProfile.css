@@ -46,14 +46,7 @@ body.dark-mode {
     background-color: #211C12; 
     color: #f0f0f0;
 }
-body.dark-mode .NavBar {
-    background-color: #211C12;
-}
-body.dark-mode .Menu {
-    background-color: #473D24; 
-}
-
-body.dark-mode h2 {
+body.dark-mode .title {
     color: #f0f0f0;
 }
 body.dark-mode a, body.dark-mode a:visited {
