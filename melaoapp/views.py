@@ -24,19 +24,15 @@ def chat_list_view(request):
 @login_required(login_url='melaoapp:welcome')
 def friends_list(request):
     current_student = Student.objects.get(user=request.user)
-
-    friendships = Is_friend_of.objects.filter(
-        Q(username_1=current_student) | Q(username_2=current_student)
-    )
-
-    friends_list = []
+    
+    friendships = Is_friend_of.objects.filter(Q(username_1=current_student))
+    
+    friends = []
     for friendship in friendships:
         if friendship.username_1 == current_student:
-            friends_list.append(friendship.username_2)
-        else:
-            friends_list.append(friendship.username_1)
-
-    context = {'friends': friends_list}
+            friends.append(friendship.username_2)
+            
+    context = {'friends': friends}
     return render(request, 'melaoapp/friendsList.html', context)
 
 @login_required(login_url='melaoapp:welcome')

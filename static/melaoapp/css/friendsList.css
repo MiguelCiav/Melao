@@ -27,7 +27,6 @@ main {
     margin-top: 24px;
     display: flex;
     flex-direction: column;
-    overflow-y: scroll;
     max-width: 800px;
     width: 100%;
 }
