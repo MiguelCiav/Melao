@@ -26,39 +26,13 @@
 
     <div class="option-container">
         <div class="text-container">
-<<<<<<< HEAD
             <a class="black-link" href="{% url 'melaoapp:about_me_config_view' %}">
                 <p class="title">{% trans "Personal info" %}</p>
                 <p class="subtitle">{% trans "Update biography" %}</p>
             </a>
         </div>
         <a href="{% url 'melaoapp:about_me_config_view' %}">
-            <img src="{% static 'melaoapp/img/right_arrow.svg' %}" alt="">
-=======
-            <p class="title">Información Personal</p>
-            <p class="subtitle">Actualizar biografía</p>
-        </div>
-        <img src="{% if request.COOKIES.theme == 'dark' %}{% static 'melaoapp/img/dark/right_arrowDark.svg' %}{% else %}{% static 'melaoapp/img/right_arrow.svg' %}{% endif %}" alt="">
-    </div>
-
-    <div class="option-container">
-        <div class="text-container">
-            <p class="title">Seguridad y Acceso</p>
-            <p class="subtitle">Cambiar contraseña</p>
-        </div>
-        <img src="{% if request.COOKIES.theme == 'dark' %}{% static 'melaoapp/img/dark/right_arrowDark.svg' %}{% else %}{% static 'melaoapp/img/right_arrow.svg' %}{% endif %}" alt="">
-    </div>
-
-    <div class="option-container">
-        <div class="text-container">
-            <a class="black-link" href="{% url 'melaoapp:language_and_theme_config_view' %}"> {# Corregido a {% url %} #}
-                <p class="title">Apariencia</p>
-                <p class="subtitle">Personalizar idioma y tema</p>
-            </a>
-        </div>
-        <a href="{% url 'melaoapp:language_and_theme_config_view' %}"> {# Corregido a {% url %} #}
             <img src="{% if request.COOKIES.theme == 'dark' %}{% static 'melaoapp/img/dark/right_arrowDark.svg' %}{% else %}{% if request.COOKIES.theme == 'dark' %}{% static 'melaoapp/img/dark/right_arrowDark.svg' %}{% else %}{% static 'melaoapp/img/right_arrow.svg' %}{% endif %}{% endif %}" alt="">
->>>>>>> a5f0b6f0cc9a6253b3e79cedaaefabf46ea72e8c
         </a>
     </div>
 
@@ -70,7 +44,7 @@
             </a>
         </div>
         <a href="{% url 'melaoapp:password_change' %}">
-            <img src="{% static 'melaoapp/img/right_arrow.svg' %}" alt="">
+            <img src="{% if request.COOKIES.theme == 'dark' %}{% static 'melaoapp/img/dark/right_arrowDark.svg' %}{% else %}{% if request.COOKIES.theme == 'dark' %}{% static 'melaoapp/img/dark/right_arrowDark.svg' %}{% else %}{% static 'melaoapp/img/right_arrow.svg' %}{% endif %}{% endif %}" alt="">
         </a>
     </div>
 
@@ -82,7 +56,7 @@
             </a>
         </div>
         <a href="{% url 'melaoapp:language_and_theme_config_view' %}">
-            <img src="{% static 'melaoapp/img/right_arrow.svg' %}" alt="">
+            <img src="{% if request.COOKIES.theme == 'dark' %}{% static 'melaoapp/img/dark/right_arrowDark.svg' %}{% else %}{% if request.COOKIES.theme == 'dark' %}{% static 'melaoapp/img/dark/right_arrowDark.svg' %}{% else %}{% static 'melaoapp/img/right_arrow.svg' %}{% endif %}{% endif %}" alt="">
         </a>
     </div>
 
@@ -93,7 +67,7 @@
                 <p class="subtitle">{% trans "Change who can see my posts" %}</p>
             </a>
         </div>
-        <img src="{% if request.COOKIES.theme == 'dark' %}{% static 'melaoapp/img/dark/right_arrowDark.svg' %}{% else %}{% static 'melaoapp/img/right_arrow.svg' %}{% endif %}" alt="">
+        <img src="{% if request.COOKIES.theme == 'dark' %}{% static 'melaoapp/img/dark/right_arrowDark.svg' %}{% else %}{% if request.COOKIES.theme == 'dark' %}{% static 'melaoapp/img/dark/right_arrowDark.svg' %}{% else %}{% static 'melaoapp/img/right_arrow.svg' %}{% endif %}{% endif %}" alt="">
     </div>
 
     <div class="option-container">
@@ -103,6 +77,6 @@
                 <p class="subtitle">{% trans "Change notifications preferences" %}</p>
             </a>
         </div>
-        <img src="{% if request.COOKIES.theme == 'dark' %}{% static 'melaoapp/img/dark/right_arrowDark.svg' %}{% else %}{% static 'melaoapp/img/right_arrow.svg' %}{% endif %}" alt="">
+        <img src="{% if request.COOKIES.theme == 'dark' %}{% static 'melaoapp/img/dark/right_arrowDark.svg' %}{% else %}{% if request.COOKIES.theme == 'dark' %}{% static 'melaoapp/img/dark/right_arrowDark.svg' %}{% else %}{% static 'melaoapp/img/right_arrow.svg' %}{% endif %}{% endif %}" alt="">
     </div>
 {% endblock %}
