@@ -1,5 +1,6 @@
 {% extends 'melaoapp/base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block title %}Melao - Perfil{% endblock %}
 
@@ -118,17 +119,17 @@
 
 {% block content %}
     <div class="ProfilePannel">
-        <img id="ProfileImage" alt ="Imagen de perfil">
+        <img id="ProfileImage" alt ="{% trans "Profile image" %}">
         <p id="ProfileName">{{ full_name }}</p>
         <div class="ProfileButtonsDiv">
             <a href="{% url 'melaoapp:modify_profile' %}">
-                <input type="button" value="Editar Perfil" class="ProfileButton" id="EditProfileButton"/>
+                <input type="button" value="{% trans "Edit profile" %}" class="ProfileButton" id="EditProfileButton"/>
             </a>
-            <input type="button" value="Compartir Perfil" class="ProfileButton" id="ShareProfileButton"/>
+            <input type="button" value="{% trans "Share profile" %}" class="ProfileButton" id="ShareProfileButton"/>
         </div>
-        <p class="title">Sobre Mi</p>
+        <p class="title">{% trans "About me" %}</p>
         <p class="about-me">{{ self_description }}</p>
-        <p class="title">Muro</p>
+        <p class="title">{% trans "Posts" %}</p>
         <div class="Posts">
         </div> 
     </div>

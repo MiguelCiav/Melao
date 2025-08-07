@@ -1,5 +1,6 @@
 {% extends 'melaoapp/base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block title %}Melao - Chat{% endblock %}
 
@@ -73,7 +74,7 @@
 
 {% block content %}
     <div class="chats-pannel desktop-content">
-        <p class="title">Lista de Chats</p>
+        <p class="title">{% trans "Chat_list" %}</p>
         <div class="search-tab">
             <img src="{% static 'melaoapp/img/Lupa.png' %}" alt="Icono de lupa">
             <input type="text" placeholder="Buscar...">

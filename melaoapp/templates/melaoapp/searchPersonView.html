@@ -1,5 +1,6 @@
 {% extends 'melaoapp/base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block title %}Melao - Buscar{% endblock %}
 
@@ -72,9 +73,9 @@
 
 {% block content %}
     <div class="search-tab">
-        <img src="{% static 'melaoapp/img/Lupa.png' %}" alt="Icono de lupa">
-        <input type="text" placeholder="Buscar...">
-        <img src="{% static 'melaoapp/img/X-Search-Icon.png' %}" alt="Icono de borrar búsqueda">
+        <img src="{% static 'melaoapp/img/Lupa.png' %}" alt="{% trans "Search icon" %}">
+        <input type="text" placeholder="{% trans "Search" %}">
+        <img src="{% static 'melaoapp/img/X-Search-Icon.png' %}" alt="{% trans "Delete search icon" %}">
     </div>
     
     <div class="search-panel">

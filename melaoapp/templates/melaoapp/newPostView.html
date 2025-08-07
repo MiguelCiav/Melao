@@ -1,5 +1,6 @@
 {% extends 'melaoapp/base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block title %}Melao - Modificar Perfil{% endblock %}
 
@@ -20,14 +21,14 @@
     </div>
     <div class="Post-pannel desktop-content">
         <div class="Post-container">
-            <h1>Hacer publicación</h1>
+            <h1>{% trans "Make a post" %}</h1>
             <div class="Writeable-area">
                 <img src="{% static 'melaoapp/img/EthanHuntProfile.png' %}" class="profile-image">
                 <textarea placeholder="Escribe lo que estás pensando..."></textarea>
             </div>
             <label for="file-input" class="File-input">
             <img src="{% static 'melaoapp/img/uploadFile.png' %}" class="gallery-icon">
-            <p>Subir Videos o Imágenes</p>
+            <p>{% trans "Upload videos or images" %}</p>
             </label>
 
             <input type="file" id="file-input" class="visually-hidden" accept="image/*,video/*">

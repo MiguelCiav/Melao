@@ -8,6 +8,8 @@ from .models import Is_friend_of, Post, Student, Notification
 from .forms import StudentSelfDescriptionForm
 from django.http import JsonResponse
 from django.utils import timezone
+from django.contrib.auth.views import PasswordChangeView
+from django.urls import reverse_lazy
 
 def sign_up_view(request):
     return render(request, 'melaoapp/signUpView.html', {'form': form})
@@ -174,3 +176,29 @@ def about_me_config_view(request):
     else:
         form = StudentSelfDescriptionForm(instance=student)
     return render(request, 'melaoapp/aboutMeConfigView.html', {'form': form})
+
+def privacy_config_view(request):
+    student = Student.objects.get(user=request.user)
+    if request.method == "POST":
+        form = StudentSelfDescriptionForm(request.POST, instance=student)
+        if form.is_valid():
+            form.save()
+            return redirect('melaoapp:profile')
+    else:
+        form = StudentSelfDescriptionForm(instance=student)
+    return render(request, 'melaoapp/aboutMeConfigView.html', {'form': form})
+
+def notifications_config_view(request):
+    student = Student.objects.get(user=request.user)
+    if request.method == "POST":
+        form = StudentSelfDescriptionForm(request.POST, instance=student)
+        if form.is_valid():
+            form.save()
+            return redirect('melaoapp:profile')
+    else:
+        form = StudentSelfDescriptionForm(instance=student)
+    return render(request, 'melaoapp/aboutMeConfigView.html', {'form': form})
+
+class CustomPasswordChangeView(PasswordChangeView):
+    template_name = 'melaoapp/passwordChangeView.html'
+    success_url = reverse_lazy('melaoapp:modify_profile')

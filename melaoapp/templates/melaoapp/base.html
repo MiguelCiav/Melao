@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,20 +31,20 @@
                     <p class="logo-text">Melao</p>
                 </a>
             </li>
-            <li><a href="{% url 'melaoapp:new_post_view' %}">Publicar</a></li>
-            <li><a href="{% url 'melaoapp:chat_list_view' %}">Chat</a></li>
-            <li><a href="{% url 'melaoapp:friends_list' %}">Amigos</a></li>
-            <li><a href="{% url 'melaoapp:search_person_view' %}">Buscar Personas</a></li>
+            <li><a href="{% url 'melaoapp:new_post_view' %}">{% trans "Post" %}</a></li>
+            <li><a href="{% url 'melaoapp:chat_list_view' %}">{% trans "Chat" %}</a></li>
+            <li><a href="{% url 'melaoapp:friends_list' %}">{% trans "Friends" %}</a></li>
+            <li><a href="{% url 'melaoapp:search_person_view' %}">{% trans "Search People" %}</a></li>
         </ul>
         <ul class="nav-list">
             <li class="right-nav-item">
                 <a href="{% url 'melaoapp:view_notifications' %}">
-                    <img src="{% static 'melaoapp/img/bell.svg' %}" alt="Notificaciones">
+                    <img src="{% static 'melaoapp/img/bell.svg' %}" alt="{% trans "Notifications" %}">
                 </a>
             </li>
             <li class="right-nav-item">
                 <a href="{% url 'melaoapp:profile' %}">
-                    <img src="{% static 'melaoapp/img/pfp_example.png' %}" alt="Perfil">
+                    <img src="{% static 'melaoapp/img/pfp_example.png' %}" alt="{% trans "Profile" %}">
                 </a>
             </li>
         </ul>

@@ -1,5 +1,6 @@
 {% extends 'melaoapp/base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block title %}Melao - Modificar Perfil{% endblock %}
 
@@ -15,14 +16,14 @@
 {% block content %}
     <div class="pfp-button">
         <img id="profile-image" alt="Foto de Perfil" src="{% static 'melaoapp/img/pfp_example.png' %}">
-        <a class="black-link" href="">Editar foto de perfil</a> {# Mantengo vacío si aún no hay URL #}
+        <a class="black-link" href="">{% trans "Edit profile photo" %}</a> {# Mantengo vacío si aún no hay URL #}
     </div>
 
     <div class="option-container">
         <div class="text-container">
             <a class="black-link" href="{% url 'melaoapp:about_me_config_view' %}">
-                <p class="title">Información Personal</p>
-                <p class="subtitle">Actualizar biografía</p>
+                <p class="title">{% trans "Personal info" %}</p>
+                <p class="subtitle">{% trans "Update biography" %}</p>
             </a>
         </div>
         <a href="{% url 'melaoapp:about_me_config_view' %}">
@@ -32,17 +33,21 @@
 
     <div class="option-container">
         <div class="text-container">
-            <p class="title">Seguridad y Acceso</p>
-            <p class="subtitle">Cambiar contraseña</p>
+            <a class="black-link" href="{% url 'melaoapp:password_change' %}">
+                <p class="title">{% trans "Security and Acces" %}</p>
+                <p class="subtitle">{% trans "Change password" %}</p>
+            </a>
         </div>
-        <img src="{% static 'melaoapp/img/right_arrow.svg' %}" alt="">
+        <a href="{% url 'melaoapp:password_change' %}">
+            <img src="{% static 'melaoapp/img/right_arrow.svg' %}" alt="">
+        </a>
     </div>
 
     <div class="option-container">
         <div class="text-container">
             <a class="black-link" href="{% url 'melaoapp:language_and_theme_config_view' %}"> {# Corregido a {% url %} #}
-                <p class="title">Apariencia</p>
-                <p class="subtitle">Personalizar idioma y tema</p>
+                <p class="title">{% trans "Appearance" %}</p>
+                <p class="subtitle">{% trans "Personalize language and theme" %}</p>
             </a>
         </div>
         <a href="{% url 'melaoapp:language_and_theme_config_view' %}"> {# Corregido a {% url %} #}
@@ -52,16 +57,16 @@
 
     <div class="option-container">
         <div class="text-container">
-            <p class="title">Configuraciones de Privacidad</p>
-            <p class="subtitle">Gestionar quien puede ver mis publicaciones.</p>
+            <p class="title">{% trans "Privacity and configuration" %}</p>
+            <p class="subtitle">{% trans "Change who can see my posts" %}</p>
         </div>
         <img src="{% static 'melaoapp/img/right_arrow.svg' %}" alt="">
     </div>
 
     <div class="option-container">
         <div class="text-container">
-            <p class="title">Configurar Notificaciones</p>
-            <p class="subtitle">Gestionar las preferencias de notificaciones.</p>
+            <p class="title">{% trans "Configurate notifications" %}</p>
+            <p class="subtitle">{% trans "Change notifications preferences" %}</p>
         </div>
         <img src="{% static 'melaoapp/img/right_arrow.svg' %}" alt="">
     </div>

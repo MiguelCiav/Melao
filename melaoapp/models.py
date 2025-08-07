@@ -7,6 +7,8 @@ class Student(models.Model):
     date_of_birth = models.DateField(blank=True, null=True)
     gender = models.CharField(max_length=1, blank=True, null=True)
     self_description = models.TextField(blank=True, null=True)
+    private_profile = models.BooleanField(default=False)
+    email_notifications = models.BooleanField(default=True)
 
     def __str__(self):
         return self.user.username
@@ -39,12 +41,14 @@ class Notification(models.Model):
     receiver_username = models.ForeignKey(
         Student, 
         on_delete=models.CASCADE,
-        related_name='received_notifications'
+        related_name='received_notifications',
+        null=True
     )
     sender_username = models.ForeignKey(
         Student, 
         on_delete=models.CASCADE,
-        related_name='sent_notifications'    
+        related_name='sent_notifications',
+        null=True
     )
 
 class Chat(models.Model):
