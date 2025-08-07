@@ -8,6 +8,7 @@ from .models import Is_friend_of, Post, Student, Notification
 from django.http import JsonResponse
 from django.utils import timezone
 from datetime import date
+from django.contrib import messages
 
 def sign_up_view(request):
     return render(request, 'melaoapp/signUpView.html', {'form': form})
@@ -134,7 +135,11 @@ def sign_up_view(request):
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             form.save()
+            messages.success(request, '¡Registro exitoso! Ahora puedes iniciar sesión.')
             return redirect('melaoapp:welcome')
+        else:
+            messages.error(request,"Hubo un error en el formulario. Revisa los campos marcados")
+            return render(request, 'melaoapp/signUpView.html', {'form': form})
     else:
         form = CustomUserCreationForm()
     
@@ -147,6 +152,9 @@ def welcome(request):
             user = form.get_user()
             login(request, user)
             return redirect('melaoapp:home')
+        else:
+            messages.error(request,"Usuario y contraseña invalidos")
+            return render(request, 'melaoapp/welcome.html', {'form': form})
     else:
         form = AuthenticationForm()
     

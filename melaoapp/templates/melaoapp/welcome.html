@@ -38,17 +38,27 @@
         Conéctate con tus compañeros, comparte experiencias y mantente al día con lo que sucede en la comunidad ATI.
     </p>
 
+    {% if messages %}
+        <div>
+            {% for message in messages %}
+                <div class="alert-{{ message.tags }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
     <!-- Campo usuario -->
     {% if form.username.errors %}
         <div class="form-error">{{ form.username.errors }}</div>
     {% endif %}
-    {{ form.username|add_class:"input-field" }}
+    {{ form.username|add_class:"input-field"|attr:"placeholder:Usuario"}}
 
     <!-- Campo contraseña -->
     {% if form.password.errors %}
         <div class="form-error">{{ form.password.errors }}</div>
     {% endif %}
-    {{ form.password|add_class:"input-field" }}
+    {{ form.password|add_class:"input-field"|attr:"placeholder:Contraseña"}}
 
     <div class="remember-me">
         <label for="remember-me">Recuérdame</label>
