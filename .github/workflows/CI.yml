@@ -31,6 +31,7 @@ jobs:
         env:
           DJANGO_SETTINGS_MODULE: Melao.settings
         run: |
+          python manage.py makemigrations
           python manage.py migrate --no-input
 
       - name: 🔬 Run tests
