@@ -22,6 +22,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install --no-cache-dir -r requirements.txt
+          pip install django-widget-tweaks
 
       - name: ⚙️ Apply migrations
         env:
