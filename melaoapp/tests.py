@@ -3,7 +3,7 @@
 from django.test import TestCase, Client
 from django.urls import reverse
 from django.contrib.auth.models import User
-from .models import Student, Post, Is_friend_of, Notification
+from .models import Student, Post, Is_friend_of, Notification, Sends_Request
 import datetime
 
 # ==============================================================================
@@ -35,6 +35,38 @@ class ModelCreationTests(TestCase):
         )
         self.assertEqual(str(post.username), 'testuser')
         self.assertEqual(Post.objects.count(), 1)
+    
+    def test_notification_model_creation(self):
+        """Prueba que un objeto Notification se puede crear correctamente."""
+        student1 = Student.objects.create(user=self.user)
+        student2_user = User.objects.create_user(username='testuser2', password='testpassword123')
+        student2 = Student.objects.create(user=student2_user)
+        
+        notification = Notification.objects.create(
+            type=1,
+            receiver_username=student1,
+            sender_username=student2
+        )
+        self.assertEqual(notification.type, 1)
+        self.assertEqual(str(notification.receiver_username), 'testuser')
+        self.assertEqual(str(notification.sender_username), 'testuser2')
+        self.assertEqual(Notification.objects.count(), 1)
+
+    def test_sends_request_model_creation(self):
+        """Prueba que un objeto Sends_Request se puede crear correctamente."""
+        student1 = Student.objects.create(user=self.user)
+        student2_user = User.objects.create_user(username='testuser2', password='testpassword123')
+        student2 = Student.objects.create(user=student2_user)
+        
+        send_request = Sends_Request.objects.create(
+            username_1=student1,
+            username_2=student2,
+            type='Friendship'
+        )
+        self.assertEqual(send_request.type, 'Friendship')
+        self.assertEqual(str(send_request.username_1), 'testuser')
+        self.assertEqual(str(send_request.username_2), 'testuser2')
+        self.assertEqual(Sends_Request.objects.count(), 1)
 
 
 # ==============================================================================
