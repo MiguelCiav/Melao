@@ -32,9 +32,9 @@
                 {% for post in posts %}
                 <div class="Home-post">
                     {% if post.username.profile_picture %}
-                        <img alt="Foto de Perfil" src="{{ post.username.profile_picture.url }}" width="70" height="70" alt="X">
+                        <img class="profile-image" id="ProfileImage" alt="Foto de Perfil" src="{{ post.username.profile_picture.url }}" width="70" height="70" alt="X">
                     {% else %}
-                        <img alt="Foto de Perfil" src="{% static 'melaoapp/img/EthanHuntProfile.png' %}" width="70" height="70" alt="X">
+                        <img class="profile-image" id="ProfileImage" alt="Foto de Perfil" src="{% static 'melaoapp/img/EthanHuntProfile.png' %}" width="70" height="70" alt="X">
                     {% endif %}
 
                     <p class="person-name">{{ full_name }}</p>
@@ -61,9 +61,9 @@
                 <div class="Post-pannel">
                     <div class="User-post-pannel">
                         {% if post.username.profile_picture %}
-                            <img alt="Foto de Perfil" src="{{ post.username.profile_picture.url }}" width="70" height="70" alt="X">
+                            <img class="post-pfp" id="ProfileImage" alt="Foto de Perfil" src="{{ post.username.profile_picture.url }}" width="70" height="70" alt="X">
                         {% else %}
-                            <img alt="Foto de Perfil" src="{% static 'melaoapp/img/EthanHuntProfile.png' %}" width="70" height="70" alt="X">
+                            <img class="post-pfp" id="ProfileImage" alt="Foto de Perfil" src="{% static 'melaoapp/img/EthanHuntProfile.png' %}" width="70" height="70" alt="X">
                         {% endif %}
                         <div class="Person-name-div">
                             <p class="Person-name">{{ full_name }}</p>

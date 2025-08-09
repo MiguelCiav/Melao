@@ -14,12 +14,12 @@
         {% for post in posts %}
         <div class="Home-post">
             {% if post.username.profile_picture %}
-                <img alt="Foto de Perfil" src="{{ post.username.profile_picture.url }}" width="70" height="70" alt="X">
+                <img class="post-pfp" alt="Foto de Perfil" src="{{ post.username.profile_picture.url }}" width="70" height="70" alt="X">
             {% else %}
-                <img alt="Foto de Perfil" src="{% static 'melaoapp/img/EthanHuntProfile.png' %}" width="70" height="70" alt="X">
+                <img class="post-pfp" alt="Foto de Perfil" src="{% static 'melaoapp/img/EthanHuntProfile.png' %}" width="70" height="70" alt="X">
             {% endif %}
 
-            <p class="person-name">{{ post.username.full_name }}</p>
+            <p class="person-name">{{ post.username.user.first_name }} {{ post.username.user.last_name }}</p>
             <p class="Post-description">{{ post.description }}</p>
             
             {% if post.multimedia %}
@@ -43,12 +43,13 @@
         <div class="Post-pannel">
             <div class="User-post-pannel">
                 {% if post.username.profile_picture %}
-                    <img alt="Foto de Perfil" src="{{ post.username.profile_picture.url }}" width="70" height="70" alt="X">
+                    <img id="ProfileImage" class="post-pfp" alt="Foto de Perfil" src="{{ post.username.profile_picture.url }}" width="70" height="70" alt="X">
                 {% else %}
-                    <img alt="Foto de Perfil" src="{% static 'melaoapp/img/EthanHuntProfile.png' %}" width="70" height="70" alt="X">
+                    <img id="ProfileImage" class="post-pfp" alt="Foto de Perfil" src="{% static 'melaoapp/img/EthanHuntProfile.png' %}" width="70" height="70" alt="X">
                 {% endif %}
+                
                 <div class="Person-name-div">
-                    <p class="Person-name">{{full_name }}</p>
+                    <p class="Person-name">{{ post.username.user.first_name }} {{ post.username.user.last_name }}</p>
                     <p class="Post-date">{{ post.post_date }}</p>
                 </div>
                 <p class="Post-description">{{ post.description }}</p>

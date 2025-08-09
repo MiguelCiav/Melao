@@ -27,4 +27,8 @@ urlpatterns = [
     path('set-theme/', views.set_theme, name='set_theme'),
     path('search/send-notification/', views.send_notification, name='send-notification'),
     path('notifications/accept-friend-request/', views.accept_friend_request, name='accept-friend-request'),
+    path('reset_password/',auth_views.PasswordResetView.as_view(template_name="melaoapp/password_reset.html", email_template_name='melaoapp/password_reset_email.html', success_url='/reset_password_sent/' ), name="reset_password"),
+    path('reset_password_sent/', auth_views.PasswordResetDoneView.as_view(template_name="melaoapp/password_reset_sent.html"), name="password_reset_done"),
+    path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name="melaoapp/password_reset_confirm.html", success_url='/reset_password_complete/'), name="password_reset_confirm"),
+    path('reset_password_complete/', auth_views.PasswordResetCompleteView.as_view(template_name="melaoapp/password_reset_complete.html"), name="password_reset_complete"),
 ]

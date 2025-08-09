@@ -42,10 +42,10 @@
     <div class="FriendsPannel">
         {% for friend in friends %}
         <div class="person">
-            {% if person.profile_picture %}
+            {% if friend.profile_picture %}
                 <img src="{{ friend.profile_picture.url }}" width="70" height="70" alt="X">
             {% else %}
-                <img src="{% static "melaoapp/img/EthanHuntProfile.png" %}%}" width="70" height="70" alt="X">
+                <img src="{% static "melaoapp/img/EthanHuntProfile.png" %}" width="70" height="70" alt="X">
             {% endif %}
             <p class="person_name">{{ friend.user.first_name }} {{ friend.user.last_name }}</p>
             <img src="{% static 'melaoapp/img/X-Search-Icon-Filled.png' %}" width="30" height="30" alt="X" class="DeleteFriendIcon">
